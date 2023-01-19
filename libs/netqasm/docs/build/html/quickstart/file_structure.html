@@ -1,0 +1,352 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Application file structure &mdash; netqasm 0.5.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="SDK objects" href="modules.html" />
+    <link rel="prev" title="Using the SDK" href="using-sdk.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> netqasm
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../quickstart.html">Getting started</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="first-app.html">Running your first app</a></li>
+<li class="toctree-l2"><a class="reference internal" href="using-sdk.html">Using the SDK</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Application file structure</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#file-content-format">File content format</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#application-source-code">Application source code</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#application-input">Application input</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#network-configuration">Network configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#role-network-mapping">Role-network mapping</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#results-and-logs">Results and logs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#output-file-contents">Output file contents</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#application-results">Application results</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#instruction-logs">Instruction logs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#network-log">Network log</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#classical-communciation-logs">Classical communciation logs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#application-logs">Application logs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="modules.html">SDK objects</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../api/netqasm.html">netqasm package</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">netqasm</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../quickstart.html">Getting started</a> &raquo;</li>
+        
+      <li>Application file structure</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/quickstart/file_structure.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="application-file-structure">
+<span id="file-structure"></span><h1>Application file structure<a class="headerlink" href="#application-file-structure" title="Permalink to this headline">¶</a></h1>
+<p>Applications are organized into directories:
+all source code entry points and configuration files relating to an application must be in the same directory.</p>
+<p>Quantum network applications typically involve multiple parties, each on a separate node in the network.
+We refer to these parties as <cite>roles</cite>.
+For example, a teleportation application might have two roles: a <cite>sender</cite> and a <cite>receiver</cite>.</p>
+<p>An application directory consists of the following files:</p>
+<ul class="simple">
+<li><p><strong>Application source code</strong>. These are Python source code files with names starting with <code class="docutils literal notranslate"><span class="pre">app_</span></code>, e.g. <code class="docutils literal notranslate"><span class="pre">app_alice.py</span></code>.
+There should be one file for each ‘role’ involved in the networked application.</p></li>
+<li><p><strong>Application input</strong>. Each role can have a YAML file specifying the inputs to the application.
+Each role has its own local inputs.
+Names correspond the roles in the application. For example, the role ‘sender’ has an input file <code class="docutils literal notranslate"><span class="pre">sender.YAML</span></code>.</p></li>
+<li><p><strong>Network configuration</strong>. A single YAML file <code class="docutils literal notranslate"><span class="pre">network.yaml</span></code> specifying characteristics of the simulated network.
+See below for a detailed description of the expected format.</p></li>
+<li><p><strong>Role-network mapping</strong>. Roles are logical concepts related to the application, and not directly tied to a physical (simulated) node.
+In the <code class="docutils literal notranslate"><span class="pre">roles.yaml</span></code> file you can specify which role (i.e. which <code class="docutils literal notranslate"><span class="pre">app_&lt;role&gt;.py</span></code> file) runs on which network node.</p></li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">netqasm</span> <span class="pre">new</span></code> and <code class="docutils literal notranslate"><span class="pre">netqasm</span> <span class="pre">init</span></code> commands automatically create the above file types.</p>
+</div>
+<div class="section" id="file-content-format">
+<h2>File content format<a class="headerlink" href="#file-content-format" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="application-source-code">
+<h3>Application source code<a class="headerlink" href="#application-source-code" title="Permalink to this headline">¶</a></h3>
+<p>Each <code class="docutils literal notranslate"><span class="pre">app_&lt;role&gt;.py</span></code> file should have a <code class="docutils literal notranslate"><span class="pre">main</span></code> function.
+See for more details <a class="reference internal" href="using-sdk.html#using-sdk"><span class="std std-ref">Using the SDK</span></a>.</p>
+</div>
+<div class="section" id="application-input">
+<h3>Application input<a class="headerlink" href="#application-input" title="Permalink to this headline">¶</a></h3>
+<p>A <code class="docutils literal notranslate"><span class="pre">&lt;role&gt;.yaml</span></code> file should contain a simply dictionary of inputs.
+For example:</p>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">theta</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">3.1415</span>
+<span class="nt">x</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="network-configuration">
+<h3>Network configuration<a class="headerlink" href="#network-configuration" title="Permalink to this headline">¶</a></h3>
+<p>See the <a class="reference internal" href="../api/netqasm.runtime.interface.html#netqasm.runtime.interface.config.NetworkConfig" title="netqasm.runtime.interface.config.NetworkConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">NetworkConfig</span></code></a> dataclass.</p>
+</div>
+<div class="section" id="role-network-mapping">
+<h3>Role-network mapping<a class="headerlink" href="#role-network-mapping" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">roles.yaml</span></code> file should contain a simple list of key-value pairs.
+Each key should be a role name and each value a node name occurring in the network configuration.</p>
+</div>
+</div>
+<div class="section" id="results-and-logs">
+<h2>Results and logs<a class="headerlink" href="#results-and-logs" title="Permalink to this headline">¶</a></h2>
+<p>Running an application produces two kinds of output: <strong>application results</strong> and <strong>log files</strong>.</p>
+<p>If it doesn’t exist already, a <code class="docutils literal notranslate"><span class="pre">log</span></code> directory is automatically created in the application directory.
+In it, for each run of the application, a directory is created with a name indicating the time it was generated, e.g. <code class="docutils literal notranslate"><span class="pre">20201117-104744</span></code>.
+For convenience, the last directory is always copied into a directory called <code class="docutils literal notranslate"><span class="pre">LAST</span></code>, so in most cases you can just look into <code class="docutils literal notranslate"><span class="pre">log/LAST</span></code> for the relevant output.</p>
+<p>The output files are the following:</p>
+<ul class="simple">
+<li><p><strong>Application results</strong>. Application-specific results are written to <code class="docutils literal notranslate"><span class="pre">results.yaml</span></code>.</p></li>
+<li><p><strong>Instruction logs</strong>. The simulator logs which NetQASM instructions it executes on each simulated node to a YAML file.
+For each <code class="docutils literal notranslate"><span class="pre">&lt;node&gt;</span></code>, a file <code class="docutils literal notranslate"><span class="pre">&lt;node&gt;_instrs.yaml</span></code> is generated.</p></li>
+<li><p><strong>Network log</strong>. Events related to the network and that are not local to one specific node are logged to <code class="docutils literal notranslate"><span class="pre">network_log.yaml</span></code>.
+These event currently only include entanglement generation events.</p></li>
+<li><p><strong>Classical communciation logs</strong>. For each <code class="docutils literal notranslate"><span class="pre">&lt;role&gt;</span></code>, a file <code class="docutils literal notranslate"><span class="pre">&lt;role&gt;_class_comm.yaml</span></code> is generated with all messages that are sent or received to/from that role.</p></li>
+<li><p><strong>Applicaton logs</strong>. Applications can also log custom information to a file.
+An ‘application log’ from a <code class="docutils literal notranslate"><span class="pre">&lt;role&gt;</span></code> ends up in <code class="docutils literal notranslate"><span class="pre">&lt;role&gt;_app_log.yaml</span></code>.</p></li>
+</ul>
+</div>
+<div class="section" id="output-file-contents">
+<h2>Output file contents<a class="headerlink" href="#output-file-contents" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="application-results">
+<h3>Application results<a class="headerlink" href="#application-results" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">results.yaml</span></code> file contains the Python directories that are <code class="docutils literal notranslate"><span class="pre">return</span></code> ed at the end of the <code class="docutils literal notranslate"><span class="pre">main</span></code>
+function in each role’s source code.</p>
+</div>
+<div class="section" id="instruction-logs">
+<h3>Instruction logs<a class="headerlink" href="#instruction-logs" title="Permalink to this headline">¶</a></h3>
+<p>A <code class="docutils literal notranslate"><span class="pre">&lt;role&gt;_instr.yaml</span></code> contains a list of all NetQASM instructions that were executed by <code class="docutils literal notranslate"><span class="pre">&lt;role&gt;</span></code>, in chronological order.</p>
+<p>Each log statement includes the instruction type, and the time at which it was executed.
+It also includes the states of the qubits in the network (across all nodes) and which of these are entangled or not.
+Entangled qubits appear in the same <cite>qubit group</cite>.</p>
+<p>This information is about the states directly <cite>after</cite> the instruction is executed.</p>
+<p>See the <a class="reference internal" href="../api/netqasm.runtime.interface.html#netqasm.runtime.interface.logging.InstrLogEntry" title="netqasm.runtime.interface.logging.InstrLogEntry"><code class="xref py py-class docutils literal notranslate"><span class="pre">InstrLogEntry</span></code></a> dataclass for the format of each log entry.</p>
+</div>
+<div class="section" id="network-log">
+<h3>Network log<a class="headerlink" href="#network-log" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">network_log.yaml</span></code> contains a list of all entanglement events that happened in the simulated network, in chronological order.
+As in the instruction log, the qubit states and groups are given as they are immediately <cite>after</cite> the event.</p>
+<p>Two events (called <cite>stages</cite>) exist: <code class="docutils literal notranslate"><span class="pre">START</span></code> (entanglement generation has started) and <code class="docutils literal notranslate"><span class="pre">FINISH</span></code> (entanglement has successfully been generated).</p>
+<p>Furtermore, there are two <cite>types</cite> of entanglement generation:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">MD</span></code> (Measure Directly): upon successful generation, immediately measure the two (one in each node) qubits.
+So, directly after a <code class="docutils literal notranslate"><span class="pre">FINISH</span></code> event of type <code class="docutils literal notranslate"><span class="pre">MD</span></code>, the corresponding qubits do not appear in the qubit information.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CK</span></code> (Create and Keep): upon successful generation, keep the qubits alive.
+The corresponding qubits appear in the qubit group information, and are (obviously) entangled.</p></li>
+</ul>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">START</span></code> events do <cite>not</cite> give information about the <cite>type</cite>. This is only given at <code class="docutils literal notranslate"><span class="pre">FINISH</span></code> events.</p>
+<p><code class="docutils literal notranslate"><span class="pre">MD</span></code> events (at the <code class="docutils literal notranslate"><span class="pre">FINISH</span></code> stage) have additional information <code class="docutils literal notranslate"><span class="pre">BAS</span></code> and <code class="docutils literal notranslate"><span class="pre">MSR</span></code>.
+These are the bases (one for each node) used for the (immediate) mesaurement, and the mesaurement outcomes themselves.</p>
+<p>See the <a class="reference internal" href="../api/netqasm.runtime.interface.html#netqasm.runtime.interface.logging.NetworkLogEntry" title="netqasm.runtime.interface.logging.NetworkLogEntry"><code class="xref py py-class docutils literal notranslate"><span class="pre">NetworkLogEntry</span></code></a> dataclass for the format of each log entry.</p>
+</div>
+<div class="section" id="classical-communciation-logs">
+<h3>Classical communciation logs<a class="headerlink" href="#classical-communciation-logs" title="Permalink to this headline">¶</a></h3>
+<p>Each <code class="docutils literal notranslate"><span class="pre">&lt;role&gt;_class_comm.yaml</span></code> contains a list of all messages that were sent or received by <code class="docutils literal notranslate"><span class="pre">&lt;role&gt;</span></code>, in chronological order.</p>
+<p>See <a class="reference internal" href="../api/netqasm.runtime.interface.html#netqasm.runtime.interface.logging.ClassCommLogEntry" title="netqasm.runtime.interface.logging.ClassCommLogEntry"><code class="xref py py-class docutils literal notranslate"><span class="pre">ClassCommLogEntry</span></code></a> dataclass for the format of each log entry.</p>
+</div>
+<div class="section" id="application-logs">
+<h3>Application logs<a class="headerlink" href="#application-logs" title="Permalink to this headline">¶</a></h3>
+<p>Each <code class="docutils literal notranslate"><span class="pre">&lt;role&gt;_app_log.yaml</span></code> contains a list of custom log statements coming from <code class="docutils literal notranslate"><span class="pre">app_&lt;role&gt;.py</span></code>.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="modules.html" class="btn btn-neutral float-right" title="SDK objects" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="using-sdk.html" class="btn btn-neutral float-left" title="Using the SDK" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2019, Axel Dahlberg
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

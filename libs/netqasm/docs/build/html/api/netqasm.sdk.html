@@ -1,0 +1,1413 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>netqasm.sdk package &mdash; netqasm 0.5.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="netqasm.sdk.classical_communication package" href="netqasm.sdk.classical_communication.html" />
+    <link rel="prev" title="netqasm.runtime.interface package" href="netqasm.runtime.interface.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> netqasm
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html">Getting started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="netqasm.html">netqasm package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="netqasm.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="netqasm.backend.html">netqasm.backend package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="netqasm.lang.html">netqasm.lang package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="netqasm.logging.html">netqasm.logging package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="netqasm.runtime.html">netqasm.runtime package</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">netqasm.sdk package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#subpackages">Subpackages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-netqasm.sdk.compiling">netqasm.sdk.compiling module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-netqasm.sdk.config">netqasm.sdk.config module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-netqasm.sdk.connection">netqasm.sdk.connection module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-netqasm.sdk.epr_socket">netqasm.sdk.epr_socket module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-netqasm.sdk.external">netqasm.sdk.external module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-netqasm.sdk.futures">netqasm.sdk.futures module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-netqasm.sdk.network">netqasm.sdk.network module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-netqasm.sdk.progress_bar">netqasm.sdk.progress_bar module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-netqasm.sdk.qubit">netqasm.sdk.qubit module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-netqasm.sdk.shared_memory">netqasm.sdk.shared_memory module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-netqasm.sdk">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="netqasm.util.html">netqasm.util package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="netqasm.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="netqasm.html#module-netqasm.typing">netqasm.typing module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="netqasm.html#module-netqasm">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">netqasm</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="netqasm.html">netqasm package</a> &raquo;</li>
+        
+      <li>netqasm.sdk package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/netqasm.sdk.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="netqasm-sdk-package">
+<h1>netqasm.sdk package<a class="headerlink" href="#netqasm-sdk-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="netqasm.sdk.classical_communication.html">netqasm.sdk.classical_communication package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="netqasm.sdk.classical_communication.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="netqasm.sdk.classical_communication.thread_socket.html">netqasm.sdk.classical_communication.thread_socket package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="netqasm.sdk.classical_communication.thread_socket.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="netqasm.sdk.classical_communication.thread_socket.html#module-netqasm.sdk.classical_communication.thread_socket.broadcast_channel">netqasm.sdk.classical_communication.thread_socket.broadcast_channel module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="netqasm.sdk.classical_communication.thread_socket.html#module-netqasm.sdk.classical_communication.thread_socket.socket">netqasm.sdk.classical_communication.thread_socket.socket module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="netqasm.sdk.classical_communication.thread_socket.html#module-netqasm.sdk.classical_communication.thread_socket.socket_hub">netqasm.sdk.classical_communication.thread_socket.socket_hub module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="netqasm.sdk.classical_communication.thread_socket.html#module-netqasm.sdk.classical_communication.thread_socket">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="netqasm.sdk.classical_communication.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="netqasm.sdk.classical_communication.html#module-netqasm.sdk.classical_communication.broadcast_channel">netqasm.sdk.classical_communication.broadcast_channel module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="netqasm.sdk.classical_communication.html#module-netqasm.sdk.classical_communication.socket">netqasm.sdk.classical_communication.socket module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="netqasm.sdk.classical_communication.html#module-netqasm.sdk.classical_communication">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="netqasm.sdk.toolbox.html">netqasm.sdk.toolbox package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="netqasm.sdk.toolbox.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="netqasm.sdk.toolbox.html#module-netqasm.sdk.toolbox.measurements">netqasm.sdk.toolbox.measurements module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="netqasm.sdk.toolbox.html#module-netqasm.sdk.toolbox.multi_node">netqasm.sdk.toolbox.multi_node module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="netqasm.sdk.toolbox.html#module-netqasm.sdk.toolbox.state_prep">netqasm.sdk.toolbox.state_prep module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="netqasm.sdk.toolbox.html#module-netqasm.sdk.toolbox">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-netqasm.sdk.compiling">
+<span id="netqasm-sdk-compiling-module"></span><h2>netqasm.sdk.compiling module<a class="headerlink" href="#module-netqasm.sdk.compiling" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="netqasm.sdk.compiling.SubroutineCompiler">
+<em class="property">class </em><code class="sig-prename descclassname">netqasm.sdk.compiling.</code><code class="sig-name descname">SubroutineCompiler</code><a class="headerlink" href="#netqasm.sdk.compiling.SubroutineCompiler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></p>
+<dl class="method">
+<dt id="netqasm.sdk.compiling.SubroutineCompiler.compile">
+<em class="property">abstract </em><code class="sig-name descname">compile</code><span class="sig-paren">(</span><em class="sig-param">subroutine</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.sdk.compiling.SubroutineCompiler.compile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compile a subroutine (inplace) to a specific hardware</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>subroutine</strong> (<a class="reference internal" href="netqasm.lang.html#netqasm.lang.subroutine.Subroutine" title="netqasm.lang.subroutine.Subroutine"><code class="xref py py-class docutils literal notranslate"><span class="pre">netqasm.lang.subroutine.Subroutine</span></code></a>) – The subroutine to compile</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="netqasm.sdk.compiling.NVSubroutineCompiler">
+<em class="property">class </em><code class="sig-prename descclassname">netqasm.sdk.compiling.</code><code class="sig-name descname">NVSubroutineCompiler</code><span class="sig-paren">(</span><em class="sig-param">subroutine</em>, <em class="sig-param">debug=False</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.sdk.compiling.NVSubroutineCompiler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#netqasm.sdk.compiling.SubroutineCompiler" title="netqasm.sdk.compiling.SubroutineCompiler"><code class="xref py py-class docutils literal notranslate"><span class="pre">netqasm.sdk.compiling.SubroutineCompiler</span></code></a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>subroutine</strong> (<a class="reference internal" href="netqasm.lang.html#netqasm.lang.subroutine.Subroutine" title="netqasm.lang.subroutine.Subroutine"><code class="xref py py-class docutils literal notranslate"><span class="pre">Subroutine</span></code></a>) – </p>
+</dd>
+</dl>
+<dl class="method">
+<dt id="netqasm.sdk.compiling.NVSubroutineCompiler.get_reg_value">
+<code class="sig-name descname">get_reg_value</code><span class="sig-paren">(</span><em class="sig-param">reg</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.sdk.compiling.NVSubroutineCompiler.get_reg_value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of a register at this moment</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>reg</strong> (<a class="reference internal" href="netqasm.lang.instr.html#netqasm.lang.instr.operand.Register" title="netqasm.lang.instr.operand.Register"><code class="xref py py-class docutils literal notranslate"><span class="pre">Register</span></code></a>) – </p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="netqasm.lang.instr.html#netqasm.lang.instr.operand.Immediate" title="netqasm.lang.instr.operand.Immediate"><code class="xref py py-class docutils literal notranslate"><span class="pre">Immediate</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="netqasm.sdk.compiling.NVSubroutineCompiler.get_unused_register">
+<code class="sig-name descname">get_unused_register</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.sdk.compiling.NVSubroutineCompiler.get_unused_register" title="Permalink to this definition">¶</a></dt>
+<dd><p>Naive approach: try to use Q0 if possible, otherwise Q1, etc.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="netqasm.lang.instr.html#netqasm.lang.instr.operand.Register" title="netqasm.lang.instr.operand.Register"><code class="xref py py-class docutils literal notranslate"><span class="pre">Register</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="netqasm.sdk.compiling.NVSubroutineCompiler.swap">
+<code class="sig-name descname">swap</code><span class="sig-paren">(</span><em class="sig-param">lineno</em>, <em class="sig-param">electron</em>, <em class="sig-param">carbon</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.sdk.compiling.NVSubroutineCompiler.swap" title="Permalink to this definition">¶</a></dt>
+<dd><p>Swap the states of the electron and a carbon.
+See <a class="reference external" href="https://gitlab.tudelft.nl/qinc-wehner/netqasm/netqasm-docs/-/blob/master/nv-gates-docs.md">https://gitlab.tudelft.nl/qinc-wehner/netqasm/netqasm-docs/-/blob/master/nv-gates-docs.md</a>
+for the circuit.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>lineno</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<a class="reference internal" href="netqasm.util.html#netqasm.util.log.HostLine" title="netqasm.util.log.HostLine"><code class="xref py py-class docutils literal notranslate"><span class="pre">HostLine</span></code></a>]) – </p></li>
+<li><p><strong>electron</strong> (<a class="reference internal" href="netqasm.lang.instr.html#netqasm.lang.instr.operand.Register" title="netqasm.lang.instr.operand.Register"><code class="xref py py-class docutils literal notranslate"><span class="pre">Register</span></code></a>) – </p></li>
+<li><p><strong>carbon</strong> (<a class="reference internal" href="netqasm.lang.instr.html#netqasm.lang.instr.operand.Register" title="netqasm.lang.instr.operand.Register"><code class="xref py py-class docutils literal notranslate"><span class="pre">Register</span></code></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<a class="reference internal" href="netqasm.lang.instr.html#netqasm.lang.instr.base.NetQASMInstruction" title="netqasm.lang.instr.base.NetQASMInstruction"><code class="xref py py-class docutils literal notranslate"><span class="pre">NetQASMInstruction</span></code></a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="netqasm.sdk.compiling.NVSubroutineCompiler.compile">
+<code class="sig-name descname">compile</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.sdk.compiling.NVSubroutineCompiler.compile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Very simple compiling pass: iterate over all instructions once and rewrite them in-line.
+While iterating, keep track of which registers are in use and what their values are.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="netqasm.sdk.compiling.get_hardware_num_denom">
+<code class="sig-prename descclassname">netqasm.sdk.compiling.</code><code class="sig-name descname">get_hardware_num_denom</code><span class="sig-paren">(</span><em class="sig-param">instr</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.sdk.compiling.get_hardware_num_denom" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>instr</strong> (<a class="reference internal" href="netqasm.lang.instr.html#netqasm.lang.instr.core.RotationInstruction" title="netqasm.lang.instr.core.RotationInstruction"><code class="xref py py-class docutils literal notranslate"><span class="pre">RotationInstruction</span></code></a>) – </p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<a class="reference internal" href="netqasm.lang.instr.html#netqasm.lang.instr.operand.Immediate" title="netqasm.lang.instr.operand.Immediate"><code class="xref py py-class docutils literal notranslate"><span class="pre">Immediate</span></code></a>, <a class="reference internal" href="netqasm.lang.instr.html#netqasm.lang.instr.operand.Immediate" title="netqasm.lang.instr.operand.Immediate"><code class="xref py py-class docutils literal notranslate"><span class="pre">Immediate</span></code></a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-netqasm.sdk.config">
+<span id="netqasm-sdk-config-module"></span><h2>netqasm.sdk.config module<a class="headerlink" href="#module-netqasm.sdk.config" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="netqasm.sdk.config.LogConfig">
+<em class="property">class </em><code class="sig-prename descclassname">netqasm.sdk.config.</code><code class="sig-name descname">LogConfig</code><span class="sig-paren">(</span><em class="sig-param">track_lines=False</em>, <em class="sig-param">log_subroutines_dir=None</em>, <em class="sig-param">comm_log_dir=None</em>, <em class="sig-param">app_dir=None</em>, <em class="sig-param">lib_dirs=None</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.sdk.config.LogConfig" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>track_lines</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – </p></li>
+<li><p><strong>log_subroutines_dir</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) – </p></li>
+<li><p><strong>comm_log_dir</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) – </p></li>
+<li><p><strong>app_dir</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) – </p></li>
+<li><p><strong>lib_dirs</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]]) – </p></li>
+</ul>
+</dd>
+</dl>
+<dl class="attribute">
+<dt id="netqasm.sdk.config.LogConfig.track_lines">
+<code class="sig-name descname">track_lines</code><em class="property">: bool</em><em class="property"> = False</em><a class="headerlink" href="#netqasm.sdk.config.LogConfig.track_lines" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.sdk.config.LogConfig.log_subroutines_dir">
+<code class="sig-name descname">log_subroutines_dir</code><em class="property">: Optional[str]</em><em class="property"> = None</em><a class="headerlink" href="#netqasm.sdk.config.LogConfig.log_subroutines_dir" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.sdk.config.LogConfig.comm_log_dir">
+<code class="sig-name descname">comm_log_dir</code><em class="property">: Optional[str]</em><em class="property"> = None</em><a class="headerlink" href="#netqasm.sdk.config.LogConfig.comm_log_dir" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.sdk.config.LogConfig.app_dir">
+<code class="sig-name descname">app_dir</code><em class="property">: Optional[str]</em><em class="property"> = None</em><a class="headerlink" href="#netqasm.sdk.config.LogConfig.app_dir" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.sdk.config.LogConfig.lib_dirs">
+<code class="sig-name descname">lib_dirs</code><em class="property">: Optional[List[str]]</em><em class="property"> = None</em><a class="headerlink" href="#netqasm.sdk.config.LogConfig.lib_dirs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-netqasm.sdk.connection">
+<span id="netqasm-sdk-connection-module"></span><h2>netqasm.sdk.connection module<a class="headerlink" href="#module-netqasm.sdk.connection" title="Permalink to this headline">¶</a></h2>
+<p>TODO write about connections</p>
+<dl class="class">
+<dt id="netqasm.sdk.connection.BaseNetQASMConnection">
+<em class="property">class </em><code class="sig-prename descclassname">netqasm.sdk.connection.</code><code class="sig-name descname">BaseNetQASMConnection</code><span class="sig-paren">(</span><em class="sig-param">app_name</em>, <em class="sig-param">node_name=None</em>, <em class="sig-param">app_id=None</em>, <em class="sig-param">max_qubits=5</em>, <em class="sig-param">log_config=None</em>, <em class="sig-param">epr_sockets=None</em>, <em class="sig-param">compiler=None</em>, <em class="sig-param">return_arrays=True</em>, <em class="sig-param">_init_app=True</em>, <em class="sig-param">_setup_epr_sockets=True</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.sdk.connection.BaseNetQASMConnection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></p>
+<dl class="attribute">
+<dt id="netqasm.sdk.connection.BaseNetQASMConnection.ENT_INFO">
+<code class="sig-name descname">ENT_INFO</code><em class="property"> = {&lt;EPRType.K: 0&gt;: &lt;class 'qlink_interface.interface.LinkLayerOKTypeK'&gt;, &lt;EPRType.M: 1&gt;: &lt;class 'qlink_interface.interface.LinkLayerOKTypeM'&gt;, &lt;EPRType.R: 2&gt;: &lt;class 'qlink_interface.interface.LinkLayerOKTypeR'&gt;}</em><a class="headerlink" href="#netqasm.sdk.connection.BaseNetQASMConnection.ENT_INFO" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="netqasm.sdk.connection.BaseNetQASMConnection.app_name">
+<em class="property">property </em><code class="sig-name descname">app_name</code><a class="headerlink" href="#netqasm.sdk.connection.BaseNetQASMConnection.app_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the application name</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="netqasm.sdk.connection.BaseNetQASMConnection.node_name">
+<em class="property">property </em><code class="sig-name descname">node_name</code><a class="headerlink" href="#netqasm.sdk.connection.BaseNetQASMConnection.node_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the node name</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="netqasm.sdk.connection.BaseNetQASMConnection.app_id">
+<em class="property">property </em><code class="sig-name descname">app_id</code><a class="headerlink" href="#netqasm.sdk.connection.BaseNetQASMConnection.app_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the application ID</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="netqasm.sdk.connection.BaseNetQASMConnection.network_info">
+<em class="property">property </em><code class="sig-name descname">network_info</code><a class="headerlink" href="#netqasm.sdk.connection.BaseNetQASMConnection.network_info" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Type</span></code>[<a class="reference internal" href="#netqasm.sdk.network.NetworkInfo" title="netqasm.sdk.network.NetworkInfo"><code class="xref py py-class docutils literal notranslate"><span class="pre">NetworkInfo</span></code></a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="netqasm.sdk.connection.BaseNetQASMConnection.get_app_ids">
+<em class="property">classmethod </em><code class="sig-name descname">get_app_ids</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.sdk.connection.BaseNetQASMConnection.get_app_ids" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="netqasm.sdk.connection.BaseNetQASMConnection.get_app_names">
+<em class="property">classmethod </em><code class="sig-name descname">get_app_names</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.sdk.connection.BaseNetQASMConnection.get_app_names" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="netqasm.sdk.connection.BaseNetQASMConnection.clear">
+<code class="sig-name descname">clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.sdk.connection.BaseNetQASMConnection.clear" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="netqasm.sdk.connection.BaseNetQASMConnection.close">
+<code class="sig-name descname">close</code><span class="sig-paren">(</span><em class="sig-param">clear_app=True</em>, <em class="sig-param">stop_backend=True</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.sdk.connection.BaseNetQASMConnection.close" title="Permalink to this definition">¶</a></dt>
+<dd><p>Handle exiting of context.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="netqasm.sdk.connection.BaseNetQASMConnection.shared_memory">
+<em class="property">property </em><code class="sig-name descname">shared_memory</code><a class="headerlink" href="#netqasm.sdk.connection.BaseNetQASMConnection.shared_memory" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="netqasm.sdk.connection.BaseNetQASMConnection.new_qubit_id">
+<code class="sig-name descname">new_qubit_id</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.sdk.connection.BaseNetQASMConnection.new_qubit_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="netqasm.sdk.connection.BaseNetQASMConnection.new_array">
+<code class="sig-name descname">new_array</code><span class="sig-paren">(</span><em class="sig-param">length=1</em>, <em class="sig-param">init_values=None</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.sdk.connection.BaseNetQASMConnection.new_array" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="netqasm.sdk.connection.BaseNetQASMConnection.add_pending_commands">
+<code class="sig-name descname">add_pending_commands</code><span class="sig-paren">(</span><em class="sig-param">commands</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.sdk.connection.BaseNetQASMConnection.add_pending_commands" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="netqasm.sdk.connection.BaseNetQASMConnection.add_pending_command">
+<code class="sig-name descname">add_pending_command</code><span class="sig-paren">(</span><em class="sig-param">command</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.sdk.connection.BaseNetQASMConnection.add_pending_command" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="netqasm.sdk.connection.BaseNetQASMConnection.flush">
+<code class="sig-name descname">flush</code><span class="sig-paren">(</span><em class="sig-param">block=True</em>, <em class="sig-param">callback=None</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.sdk.connection.BaseNetQASMConnection.flush" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="netqasm.sdk.connection.BaseNetQASMConnection.block">
+<code class="sig-name descname">block</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.sdk.connection.BaseNetQASMConnection.block" title="Permalink to this definition">¶</a></dt>
+<dd><p>Block until flushed subroutines finish</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="netqasm.sdk.connection.BaseNetQASMConnection.add_single_qubit_rotation_commands">
+<code class="sig-name descname">add_single_qubit_rotation_commands</code><span class="sig-paren">(</span><em class="sig-param">instruction</em>, <em class="sig-param">virtual_qubit_id</em>, <em class="sig-param">n=0</em>, <em class="sig-param">d=0</em>, <em class="sig-param">angle=None</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.sdk.connection.BaseNetQASMConnection.add_single_qubit_rotation_commands" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="netqasm.sdk.connection.BaseNetQASMConnection.add_single_qubit_commands">
+<code class="sig-name descname">add_single_qubit_commands</code><span class="sig-paren">(</span><em class="sig-param">instr</em>, <em class="sig-param">qubit_id</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.sdk.connection.BaseNetQASMConnection.add_single_qubit_commands" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="netqasm.sdk.connection.BaseNetQASMConnection.add_two_qubit_commands">
+<code class="sig-name descname">add_two_qubit_commands</code><span class="sig-paren">(</span><em class="sig-param">instr</em>, <em class="sig-param">control_qubit_id</em>, <em class="sig-param">target_qubit_id</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.sdk.connection.BaseNetQASMConnection.add_two_qubit_commands" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="netqasm.sdk.connection.BaseNetQASMConnection.add_measure_commands">
+<code class="sig-name descname">add_measure_commands</code><span class="sig-paren">(</span><em class="sig-param">qubit_id</em>, <em class="sig-param">future</em>, <em class="sig-param">inplace</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.sdk.connection.BaseNetQASMConnection.add_measure_commands" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="netqasm.sdk.connection.BaseNetQASMConnection.add_new_qubit_commands">
+<code class="sig-name descname">add_new_qubit_commands</code><span class="sig-paren">(</span><em class="sig-param">qubit_id</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.sdk.connection.BaseNetQASMConnection.add_new_qubit_commands" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="netqasm.sdk.connection.BaseNetQASMConnection.add_init_qubit_commands">
+<code class="sig-name descname">add_init_qubit_commands</code><span class="sig-paren">(</span><em class="sig-param">qubit_id</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.sdk.connection.BaseNetQASMConnection.add_init_qubit_commands" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="netqasm.sdk.connection.BaseNetQASMConnection.add_qfree_commands">
+<code class="sig-name descname">add_qfree_commands</code><span class="sig-paren">(</span><em class="sig-param">qubit_id</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.sdk.connection.BaseNetQASMConnection.add_qfree_commands" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="netqasm.sdk.connection.BaseNetQASMConnection.if_eq">
+<code class="sig-name descname">if_eq</code><span class="sig-paren">(</span><em class="sig-param">a</em>, <em class="sig-param">b</em>, <em class="sig-param">body</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.sdk.connection.BaseNetQASMConnection.if_eq" title="Permalink to this definition">¶</a></dt>
+<dd><p>An effective if-statement where body is a function executing the clause for a == b</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="netqasm.sdk.connection.BaseNetQASMConnection.if_ne">
+<code class="sig-name descname">if_ne</code><span class="sig-paren">(</span><em class="sig-param">a</em>, <em class="sig-param">b</em>, <em class="sig-param">body</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.sdk.connection.BaseNetQASMConnection.if_ne" title="Permalink to this definition">¶</a></dt>
+<dd><p>An effective if-statement where body is a function executing the clause for a != b</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="netqasm.sdk.connection.BaseNetQASMConnection.if_lt">
+<code class="sig-name descname">if_lt</code><span class="sig-paren">(</span><em class="sig-param">a</em>, <em class="sig-param">b</em>, <em class="sig-param">body</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.sdk.connection.BaseNetQASMConnection.if_lt" title="Permalink to this definition">¶</a></dt>
+<dd><p>An effective if-statement where body is a function executing the clause for a &lt; b</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="netqasm.sdk.connection.BaseNetQASMConnection.if_ge">
+<code class="sig-name descname">if_ge</code><span class="sig-paren">(</span><em class="sig-param">a</em>, <em class="sig-param">b</em>, <em class="sig-param">body</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.sdk.connection.BaseNetQASMConnection.if_ge" title="Permalink to this definition">¶</a></dt>
+<dd><p>An effective if-statement where body is a function executing the clause for a &gt;= b</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="netqasm.sdk.connection.BaseNetQASMConnection.if_ez">
+<code class="sig-name descname">if_ez</code><span class="sig-paren">(</span><em class="sig-param">a</em>, <em class="sig-param">body</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.sdk.connection.BaseNetQASMConnection.if_ez" title="Permalink to this definition">¶</a></dt>
+<dd><p>An effective if-statement where body is a function executing the clause for a == 0</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="netqasm.sdk.connection.BaseNetQASMConnection.if_nz">
+<code class="sig-name descname">if_nz</code><span class="sig-paren">(</span><em class="sig-param">a</em>, <em class="sig-param">body</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.sdk.connection.BaseNetQASMConnection.if_nz" title="Permalink to this definition">¶</a></dt>
+<dd><p>An effective if-statement where body is a function executing the clause for a != 0</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="netqasm.sdk.connection.BaseNetQASMConnection.loop">
+<code class="sig-name descname">loop</code><span class="sig-paren">(</span><em class="sig-param">stop</em>, <em class="sig-param">start=0</em>, <em class="sig-param">step=1</em>, <em class="sig-param">loop_register=None</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.sdk.connection.BaseNetQASMConnection.loop" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="netqasm.sdk.connection.BaseNetQASMConnection.loop_body">
+<code class="sig-name descname">loop_body</code><span class="sig-paren">(</span><em class="sig-param">body</em>, <em class="sig-param">stop</em>, <em class="sig-param">start=0</em>, <em class="sig-param">step=1</em>, <em class="sig-param">loop_register=None</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.sdk.connection.BaseNetQASMConnection.loop_body" title="Permalink to this definition">¶</a></dt>
+<dd><p>An effective loop-statement where body is a function executed, a number of times specified
+by <cite>start</cite>, <cite>stop</cite> and <cite>step</cite>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="netqasm.sdk.connection.BaseNetQASMConnection.tomography">
+<code class="sig-name descname">tomography</code><span class="sig-paren">(</span><em class="sig-param">preparation</em>, <em class="sig-param">iterations</em>, <em class="sig-param">progress=True</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.sdk.connection.BaseNetQASMConnection.tomography" title="Permalink to this definition">¶</a></dt>
+<dd><p>Does a tomography on the output from the preparation specified.
+The frequencies from X, Y and Z measurements are returned as a tuple (f_X,f_Y,f_Z).</p>
+<ul>
+<li><p><strong>Arguments</strong></p>
+<blockquote>
+<div><dl class="field-list simple">
+<dt class="field-odd">preparation</dt>
+<dd class="field-odd"><p>A function that takes a NetQASMConnection as input and prepares a qubit and returns this</p>
+</dd>
+<dt class="field-even">iterations</dt>
+<dd class="field-even"><p>Number of measurements in each basis.</p>
+</dd>
+<dt class="field-odd">progress_bar</dt>
+<dd class="field-odd"><p>Displays a progress bar</p>
+</dd>
+</dl>
+</div></blockquote>
+</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="netqasm.sdk.connection.BaseNetQASMConnection.test_preparation">
+<code class="sig-name descname">test_preparation</code><span class="sig-paren">(</span><em class="sig-param">preparation</em>, <em class="sig-param">exp_values</em>, <em class="sig-param">conf=2</em>, <em class="sig-param">iterations=100</em>, <em class="sig-param">progress=True</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.sdk.connection.BaseNetQASMConnection.test_preparation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test the preparation of a qubit.
+Returns True if the expected values are inside the confidence interval produced from the data received from
+the tomography function</p>
+<ul>
+<li><p><strong>Arguments</strong></p>
+<blockquote>
+<div><dl class="field-list simple">
+<dt class="field-odd">preparation</dt>
+<dd class="field-odd"><p>A function that takes a NetQASMConnection as input and prepares a qubit and returns this</p>
+</dd>
+<dt class="field-even">exp_values</dt>
+<dd class="field-even"><p>The expected values for measurements in the X, Y and Z basis.</p>
+</dd>
+<dt class="field-odd">conf</dt>
+<dd class="field-odd"><p>Determines the confidence region (+/- conf/sqrt(iterations) )</p>
+</dd>
+<dt class="field-even">iterations</dt>
+<dd class="field-even"><p>Number of measurements in each basis.</p>
+</dd>
+<dt class="field-odd">progress_bar</dt>
+<dd class="field-odd"><p>Displays a progress bar</p>
+</dd>
+</dl>
+</div></blockquote>
+</li>
+</ul>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="netqasm.sdk.connection.DebugConnection">
+<em class="property">class </em><code class="sig-prename descclassname">netqasm.sdk.connection.</code><code class="sig-name descname">DebugConnection</code><span class="sig-paren">(</span><em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.sdk.connection.DebugConnection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#netqasm.sdk.connection.BaseNetQASMConnection" title="netqasm.sdk.connection.BaseNetQASMConnection"><code class="xref py py-class docutils literal notranslate"><span class="pre">netqasm.sdk.connection.BaseNetQASMConnection</span></code></a></p>
+<p>A connection that simply stores the subroutine it commits</p>
+<dl class="attribute">
+<dt id="netqasm.sdk.connection.DebugConnection.node_ids">
+<code class="sig-name descname">node_ids</code><em class="property">: Dict[str, int]</em><em class="property"> = {}</em><a class="headerlink" href="#netqasm.sdk.connection.DebugConnection.node_ids" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="netqasm.sdk.connection.DebugConnection.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.sdk.connection.DebugConnection.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>A connection that simply stores the subroutine it commits</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="netqasm.sdk.connection.DebugNetworkInfo">
+<em class="property">class </em><code class="sig-prename descclassname">netqasm.sdk.connection.</code><code class="sig-name descname">DebugNetworkInfo</code><a class="headerlink" href="#netqasm.sdk.connection.DebugNetworkInfo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#netqasm.sdk.network.NetworkInfo" title="netqasm.sdk.network.NetworkInfo"><code class="xref py py-class docutils literal notranslate"><span class="pre">netqasm.sdk.network.NetworkInfo</span></code></a></p>
+<dl class="method">
+<dt id="netqasm.sdk.connection.DebugNetworkInfo.get_node_id_for_app">
+<em class="property">classmethod </em><code class="sig-name descname">get_node_id_for_app</code><span class="sig-paren">(</span><em class="sig-param">app_name</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.sdk.connection.DebugNetworkInfo.get_node_id_for_app" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the node id for the app with the given name</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="netqasm.sdk.connection.DebugNetworkInfo.get_node_name_for_app">
+<em class="property">classmethod </em><code class="sig-name descname">get_node_name_for_app</code><span class="sig-paren">(</span><em class="sig-param">app_name</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.sdk.connection.DebugNetworkInfo.get_node_name_for_app" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the node name for the app with the given name</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-netqasm.sdk.epr_socket">
+<span id="netqasm-sdk-epr-socket-module"></span><h2>netqasm.sdk.epr_socket module<a class="headerlink" href="#module-netqasm.sdk.epr_socket" title="Permalink to this headline">¶</a></h2>
+<p>TODO write about epr sockets</p>
+<dl class="exception">
+<dt id="netqasm.sdk.epr_socket.NoCircuitError">
+<em class="property">exception </em><code class="sig-prename descclassname">netqasm.sdk.epr_socket.</code><code class="sig-name descname">NoCircuitError</code><a class="headerlink" href="#netqasm.sdk.epr_socket.NoCircuitError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">RuntimeError</span></code></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="netqasm.sdk.epr_socket.EPRSocket">
+<em class="property">class </em><code class="sig-prename descclassname">netqasm.sdk.epr_socket.</code><code class="sig-name descname">EPRSocket</code><span class="sig-paren">(</span><em class="sig-param">remote_app_name</em>, <em class="sig-param">epr_socket_id=0</em>, <em class="sig-param">remote_epr_socket_id=0</em>, <em class="sig-param">min_fidelity=100</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.sdk.epr_socket.EPRSocket" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></p>
+<p>Encapsulates the notion of an EPR socket which sets up a virtual circuit in the network
+when instantiated and can then be used for entanglement generation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>remote_node_name</strong> (<em>str</em>) – Name of the remote node to entangle with.</p></li>
+<li><p><strong>epr_socket_id</strong> (<em>int</em>) – The identifier used for this socket.</p></li>
+<li><p><strong>remote_epr_socket_id</strong> (<em>int</em>) – The identifier used by the remote node.</p></li>
+<li><p><strong>min_fidelity</strong> (<em>int</em>) – The minimum desired fidelity of EPR pairs generated using this socket.
+Values are integers in the range 0-100.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="method">
+<dt id="netqasm.sdk.epr_socket.EPRSocket.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">remote_app_name</em>, <em class="sig-param">epr_socket_id=0</em>, <em class="sig-param">remote_epr_socket_id=0</em>, <em class="sig-param">min_fidelity=100</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.sdk.epr_socket.EPRSocket.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Encapsulates the notion of an EPR socket which sets up a virtual circuit in the network
+when instantiated and can then be used for entanglement generation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>remote_node_name</strong> (<em>str</em>) – Name of the remote node to entangle with.</p></li>
+<li><p><strong>epr_socket_id</strong> (<em>int</em>) – The identifier used for this socket.</p></li>
+<li><p><strong>remote_epr_socket_id</strong> (<em>int</em>) – The identifier used by the remote node.</p></li>
+<li><p><strong>min_fidelity</strong> (<em>int</em>) – The minimum desired fidelity of EPR pairs generated using this socket.
+Values are integers in the range 0-100.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="netqasm.sdk.epr_socket.EPRSocket.conn">
+<em class="property">property </em><code class="sig-name descname">conn</code><a class="headerlink" href="#netqasm.sdk.epr_socket.EPRSocket.conn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the underlying <code class="xref py py-class docutils literal notranslate"><span class="pre">NetQASMConnection</span></code></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="netqasm.sdk.epr_socket.EPRSocket.remote_app_name">
+<em class="property">property </em><code class="sig-name descname">remote_app_name</code><a class="headerlink" href="#netqasm.sdk.epr_socket.EPRSocket.remote_app_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the remote application name</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="netqasm.sdk.epr_socket.EPRSocket.remote_node_id">
+<em class="property">property </em><code class="sig-name descname">remote_node_id</code><a class="headerlink" href="#netqasm.sdk.epr_socket.EPRSocket.remote_node_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the remote node ID</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="netqasm.sdk.epr_socket.EPRSocket.epr_socket_id">
+<em class="property">property </em><code class="sig-name descname">epr_socket_id</code><a class="headerlink" href="#netqasm.sdk.epr_socket.EPRSocket.epr_socket_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the EPR socket ID</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="netqasm.sdk.epr_socket.EPRSocket.remote_epr_socket_id">
+<em class="property">property </em><code class="sig-name descname">remote_epr_socket_id</code><a class="headerlink" href="#netqasm.sdk.epr_socket.EPRSocket.remote_epr_socket_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the remote EPR socket ID</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="netqasm.sdk.epr_socket.EPRSocket.min_fidelity">
+<em class="property">property </em><code class="sig-name descname">min_fidelity</code><a class="headerlink" href="#netqasm.sdk.epr_socket.EPRSocket.min_fidelity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the desired minimum fidelity</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="netqasm.sdk.epr_socket.EPRSocket.create">
+<code class="sig-name descname">create</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">number=1</em>, <em class="sig-param">post_routine=None</em>, <em class="sig-param">sequential=False</em>, <em class="sig-param">tp=EPRType.K</em>, <em class="sig-param">random_basis_local=None</em>, <em class="sig-param">random_basis_remote=None</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.sdk.epr_socket.EPRSocket.create" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates EPR pair with a remote node</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>number</strong> (<em>int</em>) – The number of pairs to create</p></li>
+<li><p><strong>post_routine</strong> (<em>function</em>) – <p>Can be used to specify what should happen when entanglement is generated
+for each pair.
+The function should take three arguments <cite>(conn, q, pair)</cite> where
+* <cite>conn</cite> is the connection (e.g. <cite>self</cite>)
+* <cite>q</cite> is the entangled qubit (of type <code class="xref py py-class docutils literal notranslate"><span class="pre">netqasm.qubit._FutureQubit</span></code>)
+* <cite>pair</cite> is a loop register stating which pair is handled (0, 1, …)</p>
+<p>for example to state that the qubit should be measured in the Hadamard basis
+one can provide the following function</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">post_create</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span> <span class="n">q</span><span class="p">,</span> <span class="n">pair</span><span class="p">):</span>
+    <span class="n">q</span><span class="o">.</span><span class="n">H</span><span class="p">()</span>
+    <span class="n">q</span><span class="o">.</span><span class="n">measure</span><span class="p">(</span><span class="n">future</span><span class="o">=</span><span class="n">outcomes</span><span class="o">.</span><span class="n">get_future_index</span><span class="p">(</span><span class="n">pair</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>where <cite>outcomes</cite> is an already allocated array and <cite>pair</cite> is then used to
+put the outcome at the correct index of the array.</p>
+<p>NOTE: If the a qubit is measured (not inplace) in a <cite>post_routine</cite> but is
+also used by acting on the returned objects of <cite>createEPR</cite> this cannot
+be checked in compile-time and will raise an error during the execution
+of the full subroutine in the backend.</p>
+</p></li>
+<li><p><strong>sequential</strong> (<em>bool</em><em>, </em><em>optional</em>) – <p>If this is specified to <cite>True</cite> each qubit will have the same virtual address
+and there will maximally be one pair in memory at a given time.
+If <cite>number</cite> is greater than 1 a post_routine should be specified which
+consumed each pair.</p>
+<dl class="simple">
+<dt>NOTE: If <cite>sequential</cite> is <cite>False</cite> (default), <cite>number</cite> cannot be greater than</dt><dd><p>the size of the unit module. However, if <cite>sequential</cite> is <cite>True</cite> is can.</p>
+</dd>
+</dl>
+</p></li>
+<li><p><strong>tp</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">EPRType</span></code>) – <p>What type of request, i.e. either <cite>K</cite> (create and keep),
+<cite>M</cite> (measure-directly) or <cite>R</cite> (remote state preparation).
+Depending on the type of request the method will return different things,
+for example if the request is of type <cite>K</cite> a list of qubits will be returned:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">qubits</span> <span class="o">=</span> <span class="n">epr_socket</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">number</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">tp</span><span class="o">=</span><span class="n">EPRType</span><span class="o">.</span><span class="n">K</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">q</span> <span class="ow">in</span> <span class="n">qubits</span><span class="p">:</span>
+    <span class="n">q</span><span class="o">.</span><span class="n">H</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>however for type <cite>M</cite> requests it will be a list of entanglement generations:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ent_infos</span> <span class="o">=</span> <span class="n">epr_socket</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">number</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">tp</span><span class="o">=</span><span class="n">EPRType</span><span class="o">.</span><span class="n">K</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">ent_info</span> <span class="ow">in</span> <span class="n">ent_infos</span><span class="p">:</span>
+    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">ent_info</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">)</span>
+</pre></div>
+</div>
+</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="netqasm.sdk.epr_socket.EPRSocket.create_context">
+<code class="sig-name descname">create_context</code><span class="sig-paren">(</span><em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.sdk.epr_socket.EPRSocket.create_context" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates EPR pairs with a remote node and handles each pair by
+the operations defined in a subsequent context, see example below.</p>
+<p class="rubric">Example</p>
+<p>To create two pairs and measure both of these in the Hadamard basis one can do as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">epr_socket</span><span class="o">.</span><span class="n">create_context</span><span class="p">(</span><span class="n">number</span><span class="o">=</span><span class="n">num</span><span class="p">)</span> <span class="k">as</span> <span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">pair</span><span class="p">):</span>
+    <span class="n">q</span><span class="o">.</span><span class="n">H</span><span class="p">()</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="n">q</span><span class="o">.</span><span class="n">measure</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>NOTE: The <cite>sequential</cite> flag can be used to specify if the qubits should use the same
+virtual qubit and there only exists one at a time or not.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>number</strong> (<em>int</em>) – The number of pairs to create</p></li>
+<li><p><strong>post_routine</strong> (<em>function</em>) – <p>Can be used to specify what should happen when entanglement is generated
+for each pair.
+The function should take three arguments <cite>(conn, q, pair)</cite> where
+* <cite>conn</cite> is the connection (e.g. <cite>self</cite>)
+* <cite>q</cite> is the entangled qubit (of type <code class="xref py py-class docutils literal notranslate"><span class="pre">netqasm.qubit._FutureQubit</span></code>)
+* <cite>pair</cite> is a loop register stating which pair is handled (0, 1, …)</p>
+<p>for example to state that the qubit should be measured in the Hadamard basis
+one can provide the following function</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">post_create</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span> <span class="n">q</span><span class="p">,</span> <span class="n">pair</span><span class="p">):</span>
+    <span class="n">q</span><span class="o">.</span><span class="n">H</span><span class="p">()</span>
+    <span class="n">q</span><span class="o">.</span><span class="n">measure</span><span class="p">(</span><span class="n">future</span><span class="o">=</span><span class="n">outcomes</span><span class="o">.</span><span class="n">get_future_index</span><span class="p">(</span><span class="n">pair</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>where <cite>outcomes</cite> is an already allocated array and <cite>pair</cite> is then used to
+put the outcome at the correct index of the array.</p>
+<p>NOTE: If the a qubit is measured (not inplace) in a <cite>post_routine</cite> but is
+also used by acting on the returned objects of <cite>createEPR</cite> this cannot
+be checked in compile-time and will raise an error during the execution
+of the full subroutine in the backend.</p>
+</p></li>
+<li><p><strong>sequential</strong> (<em>bool</em><em>, </em><em>optional</em>) – <p>If this is specified to <cite>True</cite> each qubit will have the same virtual address
+and there will maximally be one pair in memory at a given time.
+If <cite>number</cite> is greater than 1 a post_routine should be specified which
+consumed each pair.</p>
+<dl class="simple">
+<dt>NOTE: If <cite>sequential</cite> is <cite>False</cite> (default), <cite>number</cite> cannot be greater than</dt><dd><p>the size of the unit module. However, if <cite>sequential</cite> is <cite>True</cite> is can.</p>
+</dd>
+</dl>
+</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="netqasm.sdk.epr_socket.EPRSocket.recv">
+<code class="sig-name descname">recv</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">number=1</em>, <em class="sig-param">post_routine=None</em>, <em class="sig-param">sequential=False</em>, <em class="sig-param">tp=EPRType.K</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.sdk.epr_socket.EPRSocket.recv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Receives EPR pair with a remote node (see doc of <a class="reference internal" href="#netqasm.sdk.epr_socket.EPRSocket.create" title="netqasm.sdk.epr_socket.EPRSocket.create"><code class="xref py py-meth docutils literal notranslate"><span class="pre">create()</span></code></a>)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="netqasm.sdk.epr_socket.EPRSocket.recv_context">
+<code class="sig-name descname">recv_context</code><span class="sig-paren">(</span><em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.sdk.epr_socket.EPRSocket.recv_context" title="Permalink to this definition">¶</a></dt>
+<dd><p>Receives EPR pair with a remote node (see doc of <a class="reference internal" href="#netqasm.sdk.epr_socket.EPRSocket.create_context" title="netqasm.sdk.epr_socket.EPRSocket.create_context"><code class="xref py py-meth docutils literal notranslate"><span class="pre">create_context()</span></code></a>)</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-netqasm.sdk.external">
+<span id="netqasm-sdk-external-module"></span><h2>netqasm.sdk.external module<a class="headerlink" href="#module-netqasm.sdk.external" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-netqasm.sdk.futures">
+<span id="netqasm-sdk-futures-module"></span><h2>netqasm.sdk.futures module<a class="headerlink" href="#module-netqasm.sdk.futures" title="Permalink to this headline">¶</a></h2>
+<p>TODO write about futures</p>
+<dl class="exception">
+<dt id="netqasm.sdk.futures.NoValueError">
+<em class="property">exception </em><code class="sig-prename descclassname">netqasm.sdk.futures.</code><code class="sig-name descname">NoValueError</code><a class="headerlink" href="#netqasm.sdk.futures.NoValueError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">RuntimeError</span></code></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="netqasm.sdk.futures.NonConstantIndexError">
+<em class="property">exception </em><code class="sig-prename descclassname">netqasm.sdk.futures.</code><code class="sig-name descname">NonConstantIndexError</code><a class="headerlink" href="#netqasm.sdk.futures.NonConstantIndexError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">RuntimeError</span></code></p>
+</dd></dl>
+
+<dl class="function">
+<dt id="netqasm.sdk.futures.as_int_when_value">
+<code class="sig-prename descclassname">netqasm.sdk.futures.</code><code class="sig-name descname">as_int_when_value</code><span class="sig-paren">(</span><em class="sig-param">cls</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.sdk.futures.as_int_when_value" title="Permalink to this definition">¶</a></dt>
+<dd><p>A decorator for the class <cite>Future</cite> which makes is behave like an <cite>int</cite>
+when the property <cite>value</cite> is not <cite>None</cite>.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="netqasm.sdk.futures.BaseFuture">
+<em class="property">class </em><code class="sig-prename descclassname">netqasm.sdk.futures.</code><code class="sig-name descname">BaseFuture</code><span class="sig-paren">(</span><em class="sig-param">connection</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.sdk.futures.BaseFuture" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></p>
+<dl class="method">
+<dt id="netqasm.sdk.futures.BaseFuture.value">
+<em class="property">property </em><code class="sig-name descname">value</code><a class="headerlink" href="#netqasm.sdk.futures.BaseFuture.value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of the future.
+If it’s not set yet, <cite>None</cite> is returned.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="netqasm.sdk.futures.BaseFuture.add">
+<code class="sig-name descname">add</code><span class="sig-paren">(</span><em class="sig-param">other</em>, <em class="sig-param">mod=None</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.sdk.futures.BaseFuture.add" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds another integer to this by appending to appropriate instruction to
+the current subroutine.
+Note that <cite>self</cite> does not need to have a value yet.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>other</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <a class="reference internal" href="netqasm.lang.instr.html#netqasm.lang.instr.operand.Register" title="netqasm.lang.instr.operand.Register"><code class="xref py py-class docutils literal notranslate"><span class="pre">Register</span></code></a>, <a class="reference internal" href="#netqasm.sdk.futures.BaseFuture" title="netqasm.sdk.futures.BaseFuture"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseFuture</span></code></a>]) – </p></li>
+<li><p><strong>mod</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="netqasm.sdk.futures.BaseFuture.if_eq">
+<code class="sig-name descname">if_eq</code><span class="sig-paren">(</span><em class="sig-param">other</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.sdk.futures.BaseFuture.if_eq" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="netqasm.sdk.futures.BaseFuture.if_ne">
+<code class="sig-name descname">if_ne</code><span class="sig-paren">(</span><em class="sig-param">other</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.sdk.futures.BaseFuture.if_ne" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="netqasm.sdk.futures.BaseFuture.if_lt">
+<code class="sig-name descname">if_lt</code><span class="sig-paren">(</span><em class="sig-param">other</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.sdk.futures.BaseFuture.if_lt" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="netqasm.sdk.futures.BaseFuture.if_ge">
+<code class="sig-name descname">if_ge</code><span class="sig-paren">(</span><em class="sig-param">other</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.sdk.futures.BaseFuture.if_ge" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="netqasm.sdk.futures.BaseFuture.if_ez">
+<code class="sig-name descname">if_ez</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.sdk.futures.BaseFuture.if_ez" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="netqasm.sdk.futures.BaseFuture.if_nz">
+<code class="sig-name descname">if_nz</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.sdk.futures.BaseFuture.if_nz" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="netqasm.sdk.futures.BaseFuture.bit_length">
+<code class="sig-name descname">bit_length</code><span class="sig-paren">(</span><em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.sdk.futures.BaseFuture.bit_length" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if the value is set, other raises an error</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="netqasm.sdk.futures.BaseFuture.conjugate">
+<code class="sig-name descname">conjugate</code><span class="sig-paren">(</span><em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.sdk.futures.BaseFuture.conjugate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if the value is set, other raises an error</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="netqasm.sdk.futures.BaseFuture.denominator">
+<code class="sig-name descname">denominator</code><span class="sig-paren">(</span><em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.sdk.futures.BaseFuture.denominator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if the value is set, other raises an error</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="netqasm.sdk.futures.BaseFuture.imag">
+<code class="sig-name descname">imag</code><span class="sig-paren">(</span><em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.sdk.futures.BaseFuture.imag" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if the value is set, other raises an error</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="netqasm.sdk.futures.BaseFuture.numerator">
+<code class="sig-name descname">numerator</code><span class="sig-paren">(</span><em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.sdk.futures.BaseFuture.numerator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if the value is set, other raises an error</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="netqasm.sdk.futures.BaseFuture.real">
+<code class="sig-name descname">real</code><span class="sig-paren">(</span><em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.sdk.futures.BaseFuture.real" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if the value is set, other raises an error</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="netqasm.sdk.futures.BaseFuture.to_bytes">
+<code class="sig-name descname">to_bytes</code><span class="sig-paren">(</span><em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.sdk.futures.BaseFuture.to_bytes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if the value is set, other raises an error</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="netqasm.sdk.futures.Future">
+<em class="property">class </em><code class="sig-prename descclassname">netqasm.sdk.futures.</code><code class="sig-name descname">Future</code><span class="sig-paren">(</span><em class="sig-param">connection</em>, <em class="sig-param">address</em>, <em class="sig-param">index</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.sdk.futures.Future" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#netqasm.sdk.futures.BaseFuture" title="netqasm.sdk.futures.BaseFuture"><code class="xref py py-class docutils literal notranslate"><span class="pre">netqasm.sdk.futures.BaseFuture</span></code></a></p>
+<p>TODO write doc-string</p>
+<dl class="method">
+<dt id="netqasm.sdk.futures.Future.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">connection</em>, <em class="sig-param">address</em>, <em class="sig-param">index</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.sdk.futures.Future.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Future(connection, address, index)
+TODO write doc-string</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="netqasm.sdk.futures.Future.add">
+<code class="sig-name descname">add</code><span class="sig-paren">(</span><em class="sig-param">other</em>, <em class="sig-param">mod=None</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.sdk.futures.Future.add" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds another integer to this by appending to appropriate instruction to
+the current subroutine.
+Note that <cite>self</cite> does not need to have a value yet.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>other</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <a class="reference internal" href="netqasm.lang.instr.html#netqasm.lang.instr.operand.Register" title="netqasm.lang.instr.operand.Register"><code class="xref py py-class docutils literal notranslate"><span class="pre">Register</span></code></a>, <a class="reference internal" href="#netqasm.sdk.futures.Future" title="netqasm.sdk.futures.Future"><code class="xref py py-class docutils literal notranslate"><span class="pre">Future</span></code></a>]) – </p></li>
+<li><p><strong>mod</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="netqasm.sdk.futures.RegFuture">
+<em class="property">class </em><code class="sig-prename descclassname">netqasm.sdk.futures.</code><code class="sig-name descname">RegFuture</code><span class="sig-paren">(</span><em class="sig-param">connection</em>, <em class="sig-param">reg=None</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.sdk.futures.RegFuture" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#netqasm.sdk.futures.BaseFuture" title="netqasm.sdk.futures.BaseFuture"><code class="xref py py-class docutils literal notranslate"><span class="pre">netqasm.sdk.futures.BaseFuture</span></code></a></p>
+<p>TODO doc-string</p>
+<dl class="method">
+<dt id="netqasm.sdk.futures.RegFuture.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">connection</em>, <em class="sig-param">reg=None</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.sdk.futures.RegFuture.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>RegFuture(connection, reg=None)
+TODO doc-string</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="netqasm.sdk.futures.RegFuture.reg">
+<em class="property">property </em><code class="sig-name descname">reg</code><a class="headerlink" href="#netqasm.sdk.futures.RegFuture.reg" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="netqasm.sdk.futures.Array">
+<em class="property">class </em><code class="sig-prename descclassname">netqasm.sdk.futures.</code><code class="sig-name descname">Array</code><span class="sig-paren">(</span><em class="sig-param">connection</em>, <em class="sig-param">length</em>, <em class="sig-param">address</em>, <em class="sig-param">init_values=None</em>, <em class="sig-param">lineno=None</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.sdk.futures.Array" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>TODO write doc-string</p>
+<dl class="method">
+<dt id="netqasm.sdk.futures.Array.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">connection</em>, <em class="sig-param">length</em>, <em class="sig-param">address</em>, <em class="sig-param">init_values=None</em>, <em class="sig-param">lineno=None</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.sdk.futures.Array.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Array(connection, length, address, init_values=None, lineno=None)
+TODO write doc-string</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="netqasm.sdk.futures.Array.lineno">
+<em class="property">property </em><code class="sig-name descname">lineno</code><a class="headerlink" href="#netqasm.sdk.futures.Array.lineno" title="Permalink to this definition">¶</a></dt>
+<dd><p>What line in host application file initiated this array</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="netqasm.sdk.futures.Array.address">
+<em class="property">property </em><code class="sig-name descname">address</code><a class="headerlink" href="#netqasm.sdk.futures.Array.address" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="netqasm.sdk.futures.Array.get_future_index">
+<code class="sig-name descname">get_future_index</code><span class="sig-paren">(</span><em class="sig-param">index</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.sdk.futures.Array.get_future_index" title="Permalink to this definition">¶</a></dt>
+<dd><p>TODO doc-string</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="netqasm.sdk.futures.Array.get_future_slice">
+<code class="sig-name descname">get_future_slice</code><span class="sig-paren">(</span><em class="sig-param">s</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.sdk.futures.Array.get_future_slice" title="Permalink to this definition">¶</a></dt>
+<dd><p>TODO doc-string</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="netqasm.sdk.futures.Array.foreach">
+<code class="sig-name descname">foreach</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.sdk.futures.Array.foreach" title="Permalink to this definition">¶</a></dt>
+<dd><p>TODO doc-string</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="netqasm.sdk.futures.Array.enumerate">
+<code class="sig-name descname">enumerate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.sdk.futures.Array.enumerate" title="Permalink to this definition">¶</a></dt>
+<dd><p>TODO doc-string</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-netqasm.sdk.network">
+<span id="netqasm-sdk-network-module"></span><h2>netqasm.sdk.network module<a class="headerlink" href="#module-netqasm.sdk.network" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="netqasm.sdk.network.NetworkInfo">
+<em class="property">class </em><code class="sig-prename descclassname">netqasm.sdk.network.</code><code class="sig-name descname">NetworkInfo</code><a class="headerlink" href="#netqasm.sdk.network.NetworkInfo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="method">
+<dt id="netqasm.sdk.network.NetworkInfo.get_node_id_for_app">
+<em class="property">abstract classmethod </em><code class="sig-name descname">get_node_id_for_app</code><span class="sig-paren">(</span><em class="sig-param">app_name</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.sdk.network.NetworkInfo.get_node_id_for_app" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the node id for the app with the given name</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="netqasm.sdk.network.NetworkInfo.get_node_name_for_app">
+<em class="property">abstract classmethod </em><code class="sig-name descname">get_node_name_for_app</code><span class="sig-paren">(</span><em class="sig-param">app_name</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.sdk.network.NetworkInfo.get_node_name_for_app" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the node name for the app with the given name</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-netqasm.sdk.progress_bar">
+<span id="netqasm-sdk-progress-bar-module"></span><h2>netqasm.sdk.progress_bar module<a class="headerlink" href="#module-netqasm.sdk.progress_bar" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="netqasm.sdk.progress_bar.ProgressBar">
+<em class="property">class </em><code class="sig-prename descclassname">netqasm.sdk.progress_bar.</code><code class="sig-name descname">ProgressBar</code><span class="sig-paren">(</span><em class="sig-param">maxitr</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.sdk.progress_bar.ProgressBar" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="method">
+<dt id="netqasm.sdk.progress_bar.ProgressBar.increase">
+<code class="sig-name descname">increase</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.sdk.progress_bar.ProgressBar.increase" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="netqasm.sdk.progress_bar.ProgressBar.update">
+<code class="sig-name descname">update</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.sdk.progress_bar.ProgressBar.update" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="netqasm.sdk.progress_bar.ProgressBar.close">
+<code class="sig-name descname">close</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.sdk.progress_bar.ProgressBar.close" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-netqasm.sdk.qubit">
+<span id="netqasm-sdk-qubit-module"></span><h2>netqasm.sdk.qubit module<a class="headerlink" href="#module-netqasm.sdk.qubit" title="Permalink to this headline">¶</a></h2>
+<p>TODO write about qubits</p>
+<dl class="exception">
+<dt id="netqasm.sdk.qubit.QubitNotActiveError">
+<em class="property">exception </em><code class="sig-prename descclassname">netqasm.sdk.qubit.</code><code class="sig-name descname">QubitNotActiveError</code><a class="headerlink" href="#netqasm.sdk.qubit.QubitNotActiveError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">MemoryError</span></code></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="netqasm.sdk.qubit.Qubit">
+<em class="property">class </em><code class="sig-prename descclassname">netqasm.sdk.qubit.</code><code class="sig-name descname">Qubit</code><span class="sig-paren">(</span><em class="sig-param">conn</em>, <em class="sig-param">add_new_command=True</em>, <em class="sig-param">ent_info=None</em>, <em class="sig-param">virtual_address=None</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.sdk.qubit.Qubit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="method">
+<dt id="netqasm.sdk.qubit.Qubit.connection">
+<em class="property">property </em><code class="sig-name descname">connection</code><a class="headerlink" href="#netqasm.sdk.qubit.Qubit.connection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the NetQASM connection of this qubit</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="netqasm.sdk.qubit.Qubit.qubit_id">
+<em class="property">property </em><code class="sig-name descname">qubit_id</code><a class="headerlink" href="#netqasm.sdk.qubit.Qubit.qubit_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the qubit ID</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="netqasm.sdk.qubit.Qubit.active">
+<em class="property">property </em><code class="sig-name descname">active</code><a class="headerlink" href="#netqasm.sdk.qubit.Qubit.active" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="netqasm.sdk.qubit.Qubit.entanglement_info">
+<em class="property">property </em><code class="sig-name descname">entanglement_info</code><a class="headerlink" href="#netqasm.sdk.qubit.Qubit.entanglement_info" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the entanglement info</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="netqasm.sdk.qubit.Qubit.remote_entangled_node">
+<em class="property">property </em><code class="sig-name descname">remote_entangled_node</code><a class="headerlink" href="#netqasm.sdk.qubit.Qubit.remote_entangled_node" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the name of the remote node the qubit is entangled with.
+If not entanled, <cite>None</cite> is returned.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="netqasm.sdk.qubit.Qubit.assert_active">
+<code class="sig-name descname">assert_active</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.sdk.qubit.Qubit.assert_active" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if the qubit is active</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="netqasm.sdk.qubit.Qubit.measure">
+<code class="sig-name descname">measure</code><span class="sig-paren">(</span><em class="sig-param">future=None</em>, <em class="sig-param">inplace=False</em>, <em class="sig-param">store_array=True</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.sdk.qubit.Qubit.measure" title="Permalink to this definition">¶</a></dt>
+<dd><p>Measures the qubit in the standard basis and returns the measurement outcome.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>future</strong> (<a class="reference internal" href="#netqasm.sdk.futures.Future" title="netqasm.sdk.futures.Future"><code class="xref py py-class docutils literal notranslate"><span class="pre">Future</span></code></a>) – The future to place the outcome in</p></li>
+<li><p><strong>inplace</strong> (<em>bool</em>) – If inplace=False, the measurement is destructive and the qubit is removed from memory.
+If inplace=True, the qubit is left in the post-measurement state.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="netqasm.sdk.qubit.Qubit.X">
+<code class="sig-name descname">X</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.sdk.qubit.Qubit.X" title="Permalink to this definition">¶</a></dt>
+<dd><p>Performs a X on the qubit.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="netqasm.sdk.qubit.Qubit.Y">
+<code class="sig-name descname">Y</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.sdk.qubit.Qubit.Y" title="Permalink to this definition">¶</a></dt>
+<dd><p>Performs a Y on the qubit.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="netqasm.sdk.qubit.Qubit.Z">
+<code class="sig-name descname">Z</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.sdk.qubit.Qubit.Z" title="Permalink to this definition">¶</a></dt>
+<dd><p>Performs a Z on the qubit.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="netqasm.sdk.qubit.Qubit.T">
+<code class="sig-name descname">T</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.sdk.qubit.Qubit.T" title="Permalink to this definition">¶</a></dt>
+<dd><p>Performs a T gate on the qubit.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="netqasm.sdk.qubit.Qubit.H">
+<code class="sig-name descname">H</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.sdk.qubit.Qubit.H" title="Permalink to this definition">¶</a></dt>
+<dd><p>Performs a Hadamard on the qubit.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="netqasm.sdk.qubit.Qubit.K">
+<code class="sig-name descname">K</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.sdk.qubit.Qubit.K" title="Permalink to this definition">¶</a></dt>
+<dd><p>Performs a K gate on the qubit.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="netqasm.sdk.qubit.Qubit.S">
+<code class="sig-name descname">S</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.sdk.qubit.Qubit.S" title="Permalink to this definition">¶</a></dt>
+<dd><p>Performs a S gate on the qubit.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="netqasm.sdk.qubit.Qubit.rot_X">
+<code class="sig-name descname">rot_X</code><span class="sig-paren">(</span><em class="sig-param">n=0</em>, <em class="sig-param">d=0</em>, <em class="sig-param">angle=None</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.sdk.qubit.Qubit.rot_X" title="Permalink to this definition">¶</a></dt>
+<dd><p>Performs a rotation around the X-axis of an angle <cite>n * pi / 2 ^ d</cite>
+If <cite>angle</cite> is specified <cite>n</cite> and <cite>d</cite> are ignored and a sequence of <cite>n</cite> and <cite>d</cite> are used to approximate the angle.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="netqasm.sdk.qubit.Qubit.rot_Y">
+<code class="sig-name descname">rot_Y</code><span class="sig-paren">(</span><em class="sig-param">n=0</em>, <em class="sig-param">d=0</em>, <em class="sig-param">angle=None</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.sdk.qubit.Qubit.rot_Y" title="Permalink to this definition">¶</a></dt>
+<dd><p>Performs a rotation around the Y-axis of an angle <cite>n * pi / 2 ^ d</cite>
+If <cite>angle</cite> is specified <cite>n</cite> and <cite>d</cite> are ignored and a sequence of <cite>n</cite> and <cite>d</cite> are used to approximate the angle.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="netqasm.sdk.qubit.Qubit.rot_Z">
+<code class="sig-name descname">rot_Z</code><span class="sig-paren">(</span><em class="sig-param">n=0</em>, <em class="sig-param">d=0</em>, <em class="sig-param">angle=None</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.sdk.qubit.Qubit.rot_Z" title="Permalink to this definition">¶</a></dt>
+<dd><p>Performs a rotation around the Z-axis of an angle <cite>n * pi / 2 ^ d</cite>
+If <cite>angle</cite> is specified <cite>n</cite> and <cite>d</cite> are ignored and a sequence of <cite>n</cite> and <cite>d</cite> are used to approximate the angle.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="netqasm.sdk.qubit.Qubit.cnot">
+<code class="sig-name descname">cnot</code><span class="sig-paren">(</span><em class="sig-param">target</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.sdk.qubit.Qubit.cnot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Applies a cnot onto target.
+Target should be a qubit-object with the same connection.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>target</strong> (<a class="reference internal" href="#netqasm.sdk.qubit.Qubit" title="netqasm.sdk.qubit.Qubit"><code class="xref py py-class docutils literal notranslate"><span class="pre">Qubit</span></code></a>) – The target qubit</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="netqasm.sdk.qubit.Qubit.cphase">
+<code class="sig-name descname">cphase</code><span class="sig-paren">(</span><em class="sig-param">target</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.sdk.qubit.Qubit.cphase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Applies a cphase onto target.
+Target should be a qubit-object with the same connection.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>target</strong> (<a class="reference internal" href="#netqasm.sdk.qubit.Qubit" title="netqasm.sdk.qubit.Qubit"><code class="xref py py-class docutils literal notranslate"><span class="pre">Qubit</span></code></a>) – The target qubit</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="netqasm.sdk.qubit.Qubit.reset">
+<code class="sig-name descname">reset</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.sdk.qubit.Qubit.reset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resets the qubit to the state |0&gt;</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="netqasm.sdk.qubit.Qubit.free">
+<code class="sig-name descname">free</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.sdk.qubit.Qubit.free" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unallocates the qubit.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-netqasm.sdk.shared_memory">
+<span id="netqasm-sdk-shared-memory-module"></span><h2>netqasm.sdk.shared_memory module<a class="headerlink" href="#module-netqasm.sdk.shared_memory" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="netqasm.sdk.shared_memory.reset_memories">
+<code class="sig-prename descclassname">netqasm.sdk.shared_memory.</code><code class="sig-name descname">reset_memories</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.sdk.shared_memory.reset_memories" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="netqasm.sdk.shared_memory.get_shared_memory">
+<code class="sig-prename descclassname">netqasm.sdk.shared_memory.</code><code class="sig-name descname">get_shared_memory</code><span class="sig-paren">(</span><em class="sig-param">node_name</em>, <em class="sig-param">key=None</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.sdk.shared_memory.get_shared_memory" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="netqasm.sdk.shared_memory.Register">
+<em class="property">class </em><code class="sig-prename descclassname">netqasm.sdk.shared_memory.</code><code class="sig-name descname">Register</code><a class="headerlink" href="#netqasm.sdk.shared_memory.Register" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+</dd></dl>
+
+<dl class="function">
+<dt id="netqasm.sdk.shared_memory.setup_registers">
+<code class="sig-prename descclassname">netqasm.sdk.shared_memory.</code><code class="sig-name descname">setup_registers</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.sdk.shared_memory.setup_registers" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="netqasm.sdk.shared_memory.Arrays">
+<em class="property">class </em><code class="sig-prename descclassname">netqasm.sdk.shared_memory.</code><code class="sig-name descname">Arrays</code><a class="headerlink" href="#netqasm.sdk.shared_memory.Arrays" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="method">
+<dt id="netqasm.sdk.shared_memory.Arrays.has_array">
+<code class="sig-name descname">has_array</code><span class="sig-paren">(</span><em class="sig-param">address</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.sdk.shared_memory.Arrays.has_array" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="netqasm.sdk.shared_memory.Arrays.init_new_array">
+<code class="sig-name descname">init_new_array</code><span class="sig-paren">(</span><em class="sig-param">address</em>, <em class="sig-param">length</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.sdk.shared_memory.Arrays.init_new_array" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="netqasm.sdk.shared_memory.SharedMemory">
+<em class="property">class </em><code class="sig-prename descclassname">netqasm.sdk.shared_memory.</code><code class="sig-name descname">SharedMemory</code><a class="headerlink" href="#netqasm.sdk.shared_memory.SharedMemory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="method">
+<dt id="netqasm.sdk.shared_memory.SharedMemory.get_register">
+<code class="sig-name descname">get_register</code><span class="sig-paren">(</span><em class="sig-param">register</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.sdk.shared_memory.SharedMemory.get_register" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="netqasm.sdk.shared_memory.SharedMemory.set_register">
+<code class="sig-name descname">set_register</code><span class="sig-paren">(</span><em class="sig-param">register</em>, <em class="sig-param">value</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.sdk.shared_memory.SharedMemory.set_register" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="netqasm.sdk.shared_memory.SharedMemory.get_array_part">
+<code class="sig-name descname">get_array_part</code><span class="sig-paren">(</span><em class="sig-param">address</em>, <em class="sig-param">index</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.sdk.shared_memory.SharedMemory.get_array_part" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="netqasm.sdk.shared_memory.SharedMemory.set_array_part">
+<code class="sig-name descname">set_array_part</code><span class="sig-paren">(</span><em class="sig-param">address</em>, <em class="sig-param">index</em>, <em class="sig-param">value</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.sdk.shared_memory.SharedMemory.set_array_part" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="netqasm.sdk.shared_memory.SharedMemory.init_new_array">
+<code class="sig-name descname">init_new_array</code><span class="sig-paren">(</span><em class="sig-param">address</em>, <em class="sig-param">length=1</em>, <em class="sig-param">new_array=None</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.sdk.shared_memory.SharedMemory.init_new_array" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-netqasm.sdk">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-netqasm.sdk" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="netqasm.sdk.classical_communication.html" class="btn btn-neutral float-right" title="netqasm.sdk.classical_communication package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="netqasm.runtime.interface.html" class="btn btn-neutral float-left" title="netqasm.runtime.interface package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2019, Axel Dahlberg
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

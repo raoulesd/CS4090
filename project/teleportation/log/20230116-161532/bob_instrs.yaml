@@ -1,0 +1,99 @@
+- AID: 0
+  HFL: null
+  HLN: null
+  INS: x
+  LOG: Doing instruction x with operands ['Q0=0']
+  OPR:
+  - Q0=0
+  OUT: null
+  PRC: 18
+  QGR:
+    8737284775924:
+      is_entangled: false
+      qubit_ids:
+      - - bob
+        - 0
+      state:
+      - - !!python/complex '1.0'
+        - !!python/complex '0.0'
+      - - !!python/complex '0.0'
+        - !!python/complex '0.0'
+  QID:
+  - 0
+  SID: 0
+  SIT: 608760.0
+  VID:
+  - 0
+  WCT: '2023-01-16 16:15:32.595917'
+- AID: 0
+  HFL: null
+  HLN: null
+  INS: z
+  LOG: Doing instruction z with operands ['Q0=0']
+  OPR:
+  - Q0=0
+  OUT: null
+  PRC: 20
+  QGR:
+    8737284775924:
+      is_entangled: false
+      qubit_ids:
+      - - bob
+        - 0
+      state:
+      - - !!python/complex '1.0'
+        - !!python/complex '0.0'
+      - - !!python/complex '0.0'
+        - !!python/complex '0.0'
+  QID:
+  - 0
+  SID: 0
+  SIT: 609760.0
+  VID:
+  - 0
+  WCT: '2023-01-16 16:15:32.596295'
+- AID: 0
+  HFL: null
+  HLN: null
+  INS: h
+  LOG: Doing instruction h with operands ['Q0=0']
+  OPR:
+  - Q0=0
+  OUT: null
+  PRC: 22
+  QGR:
+    8737284775924:
+      is_entangled: false
+      qubit_ids:
+      - - bob
+        - 0
+      state:
+      - - !!python/complex '0.4999999999999999'
+        - !!python/complex '0.4999999999999999'
+      - - !!python/complex '0.4999999999999999'
+        - !!python/complex '0.4999999999999999'
+  QID:
+  - 0
+  SID: 0
+  SIT: 610760.0
+  VID:
+  - 0
+  WCT: '2023-01-16 16:15:32.596634'
+- AID: 0
+  HFL: null
+  HLN: null
+  INS: meas
+  LOG: Doing instruction meas with operands ['Q0=0', 'M0=0']
+  OPR:
+  - Q0=0
+  - M0=0
+  OUT: 0
+  PRC: 24
+  QGR: {}
+  QID:
+  - 0
+  SID: 0
+  SIT: 610760.0
+  VID:
+  - 0
+  WCT: '2023-01-16 16:15:32.596860'

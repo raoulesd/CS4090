@@ -1,0 +1,1152 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>netqasm.lang package &mdash; netqasm 0.5.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="netqasm.lang.instr package" href="netqasm.lang.instr.html" />
+    <link rel="prev" title="netqasm.backend package" href="netqasm.backend.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> netqasm
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html">Getting started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="netqasm.html">netqasm package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="netqasm.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="netqasm.backend.html">netqasm.backend package</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">netqasm.lang package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#subpackages">Subpackages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-netqasm.lang.encoding">netqasm.lang.encoding module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-netqasm.lang.subroutine">netqasm.lang.subroutine module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-netqasm.lang.symbols">netqasm.lang.symbols module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-netqasm.lang">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="netqasm.logging.html">netqasm.logging package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="netqasm.runtime.html">netqasm.runtime package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="netqasm.sdk.html">netqasm.sdk package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="netqasm.util.html">netqasm.util package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="netqasm.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="netqasm.html#module-netqasm.typing">netqasm.typing module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="netqasm.html#module-netqasm">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">netqasm</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="netqasm.html">netqasm package</a> &raquo;</li>
+        
+      <li>netqasm.lang package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/netqasm.lang.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="netqasm-lang-package">
+<h1>netqasm.lang package<a class="headerlink" href="#netqasm-lang-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="netqasm.lang.instr.html">netqasm.lang.instr package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="netqasm.lang.instr.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="netqasm.lang.instr.html#module-netqasm.lang.instr.base">netqasm.lang.instr.base module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="netqasm.lang.instr.html#module-netqasm.lang.instr.core">netqasm.lang.instr.core module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="netqasm.lang.instr.html#module-netqasm.lang.instr.flavour">netqasm.lang.instr.flavour module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="netqasm.lang.instr.html#module-netqasm.lang.instr.instr_enum">netqasm.lang.instr.instr_enum module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="netqasm.lang.instr.html#module-netqasm.lang.instr.nv">netqasm.lang.instr.nv module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="netqasm.lang.instr.html#module-netqasm.lang.instr.operand">netqasm.lang.instr.operand module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="netqasm.lang.instr.html#module-netqasm.lang.instr.vanilla">netqasm.lang.instr.vanilla module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="netqasm.lang.instr.html#module-netqasm.lang.instr">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="netqasm.lang.parsing.html">netqasm.lang.parsing package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="netqasm.lang.parsing.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="netqasm.lang.parsing.html#module-netqasm.lang.parsing.binary">netqasm.lang.parsing.binary module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="netqasm.lang.parsing.html#module-netqasm.lang.parsing.text">netqasm.lang.parsing.text module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="netqasm.lang.parsing.html#module-netqasm.lang.parsing">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-netqasm.lang.encoding">
+<span id="netqasm-lang-encoding-module"></span><h2>netqasm.lang.encoding module<a class="headerlink" href="#module-netqasm.lang.encoding" title="Permalink to this headline">¶</a></h2>
+<dl class="attribute">
+<dt id="netqasm.lang.encoding.NETQASM_VERSION">
+<code class="sig-prename descclassname">netqasm.lang.encoding.</code><code class="sig-name descname">NETQASM_VERSION</code><a class="headerlink" href="#netqasm.lang.encoding.NETQASM_VERSION" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">netqasm.lang.encoding.c_ubyte_Array_2</span></code></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="netqasm.lang.encoding.Metadata">
+<em class="property">class </em><code class="sig-prename descclassname">netqasm.lang.encoding.</code><code class="sig-name descname">Metadata</code><a class="headerlink" href="#netqasm.lang.encoding.Metadata" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">_ctypes.Structure</span></code></p>
+<dl class="attribute">
+<dt id="netqasm.lang.encoding.Metadata.app_id">
+<code class="sig-name descname">app_id</code><a class="headerlink" href="#netqasm.lang.encoding.Metadata.app_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.lang.encoding.Metadata.netqasm_version">
+<code class="sig-name descname">netqasm_version</code><a class="headerlink" href="#netqasm.lang.encoding.Metadata.netqasm_version" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="netqasm.lang.encoding.OptionalInt">
+<em class="property">class </em><code class="sig-prename descclassname">netqasm.lang.encoding.</code><code class="sig-name descname">OptionalInt</code><span class="sig-paren">(</span><em class="sig-param">value</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.lang.encoding.OptionalInt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">_ctypes.Structure</span></code></p>
+<dl class="attribute">
+<dt id="netqasm.lang.encoding.OptionalInt.type">
+<code class="sig-name descname">type</code><a class="headerlink" href="#netqasm.lang.encoding.OptionalInt.type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.lang.encoding.OptionalInt.value">
+<code class="sig-name descname">value</code><a class="headerlink" href="#netqasm.lang.encoding.OptionalInt.value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="netqasm.lang.encoding.RegisterName">
+<em class="property">class </em><code class="sig-prename descclassname">netqasm.lang.encoding.</code><code class="sig-name descname">RegisterName</code><a class="headerlink" href="#netqasm.lang.encoding.RegisterName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">enum.Enum</span></code></p>
+<p>An enumeration.</p>
+<dl class="attribute">
+<dt id="netqasm.lang.encoding.RegisterName.R">
+<code class="sig-name descname">R</code><em class="property"> = 0</em><a class="headerlink" href="#netqasm.lang.encoding.RegisterName.R" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.lang.encoding.RegisterName.C">
+<code class="sig-name descname">C</code><em class="property"> = 1</em><a class="headerlink" href="#netqasm.lang.encoding.RegisterName.C" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.lang.encoding.RegisterName.Q">
+<code class="sig-name descname">Q</code><em class="property"> = 2</em><a class="headerlink" href="#netqasm.lang.encoding.RegisterName.Q" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.lang.encoding.RegisterName.M">
+<code class="sig-name descname">M</code><em class="property"> = 3</em><a class="headerlink" href="#netqasm.lang.encoding.RegisterName.M" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="netqasm.lang.encoding.Register">
+<em class="property">class </em><code class="sig-prename descclassname">netqasm.lang.encoding.</code><code class="sig-name descname">Register</code><a class="headerlink" href="#netqasm.lang.encoding.Register" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">_ctypes.Structure</span></code></p>
+<dl class="attribute">
+<dt id="netqasm.lang.encoding.Register.padding">
+<code class="sig-name descname">padding</code><a class="headerlink" href="#netqasm.lang.encoding.Register.padding" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.lang.encoding.Register.register_index">
+<code class="sig-name descname">register_index</code><a class="headerlink" href="#netqasm.lang.encoding.Register.register_index" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.lang.encoding.Register.register_name">
+<code class="sig-name descname">register_name</code><a class="headerlink" href="#netqasm.lang.encoding.Register.register_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="netqasm.lang.encoding.Address">
+<em class="property">class </em><code class="sig-prename descclassname">netqasm.lang.encoding.</code><code class="sig-name descname">Address</code><a class="headerlink" href="#netqasm.lang.encoding.Address" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">_ctypes.Structure</span></code></p>
+<dl class="attribute">
+<dt id="netqasm.lang.encoding.Address.address">
+<code class="sig-name descname">address</code><a class="headerlink" href="#netqasm.lang.encoding.Address.address" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="netqasm.lang.encoding.ArrayEntry">
+<em class="property">class </em><code class="sig-prename descclassname">netqasm.lang.encoding.</code><code class="sig-name descname">ArrayEntry</code><a class="headerlink" href="#netqasm.lang.encoding.ArrayEntry" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">_ctypes.Structure</span></code></p>
+<dl class="attribute">
+<dt id="netqasm.lang.encoding.ArrayEntry.address">
+<code class="sig-name descname">address</code><a class="headerlink" href="#netqasm.lang.encoding.ArrayEntry.address" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.lang.encoding.ArrayEntry.index">
+<code class="sig-name descname">index</code><a class="headerlink" href="#netqasm.lang.encoding.ArrayEntry.index" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="netqasm.lang.encoding.ArraySlice">
+<em class="property">class </em><code class="sig-prename descclassname">netqasm.lang.encoding.</code><code class="sig-name descname">ArraySlice</code><a class="headerlink" href="#netqasm.lang.encoding.ArraySlice" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">_ctypes.Structure</span></code></p>
+<dl class="attribute">
+<dt id="netqasm.lang.encoding.ArraySlice.address">
+<code class="sig-name descname">address</code><a class="headerlink" href="#netqasm.lang.encoding.ArraySlice.address" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.lang.encoding.ArraySlice.start">
+<code class="sig-name descname">start</code><a class="headerlink" href="#netqasm.lang.encoding.ArraySlice.start" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.lang.encoding.ArraySlice.stop">
+<code class="sig-name descname">stop</code><a class="headerlink" href="#netqasm.lang.encoding.ArraySlice.stop" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="netqasm.lang.encoding.Command">
+<em class="property">class </em><code class="sig-prename descclassname">netqasm.lang.encoding.</code><code class="sig-name descname">Command</code><span class="sig-paren">(</span><em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.lang.encoding.Command" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">_ctypes.Structure</span></code></p>
+<dl class="attribute">
+<dt id="netqasm.lang.encoding.Command.id">
+<code class="sig-name descname">id</code><a class="headerlink" href="#netqasm.lang.encoding.Command.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="netqasm.lang.encoding.add_padding">
+<code class="sig-prename descclassname">netqasm.lang.encoding.</code><code class="sig-name descname">add_padding</code><span class="sig-paren">(</span><em class="sig-param">fields</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.lang.encoding.add_padding" title="Permalink to this definition">¶</a></dt>
+<dd><p>Used to add correct amount of padding for commands to make them fixed-length</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="netqasm.lang.encoding.RegCommand">
+<em class="property">class </em><code class="sig-prename descclassname">netqasm.lang.encoding.</code><code class="sig-name descname">RegCommand</code><span class="sig-paren">(</span><em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.lang.encoding.RegCommand" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#netqasm.lang.encoding.Command" title="netqasm.lang.encoding.Command"><code class="xref py py-class docutils literal notranslate"><span class="pre">netqasm.lang.encoding.Command</span></code></a></p>
+<dl class="attribute">
+<dt id="netqasm.lang.encoding.RegCommand.padding">
+<code class="sig-name descname">padding</code><a class="headerlink" href="#netqasm.lang.encoding.RegCommand.padding" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.lang.encoding.RegCommand.reg">
+<code class="sig-name descname">reg</code><a class="headerlink" href="#netqasm.lang.encoding.RegCommand.reg" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="netqasm.lang.encoding.RegRegCommand">
+<em class="property">class </em><code class="sig-prename descclassname">netqasm.lang.encoding.</code><code class="sig-name descname">RegRegCommand</code><span class="sig-paren">(</span><em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.lang.encoding.RegRegCommand" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#netqasm.lang.encoding.Command" title="netqasm.lang.encoding.Command"><code class="xref py py-class docutils literal notranslate"><span class="pre">netqasm.lang.encoding.Command</span></code></a></p>
+<dl class="attribute">
+<dt id="netqasm.lang.encoding.RegRegCommand.padding">
+<code class="sig-name descname">padding</code><a class="headerlink" href="#netqasm.lang.encoding.RegRegCommand.padding" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.lang.encoding.RegRegCommand.reg0">
+<code class="sig-name descname">reg0</code><a class="headerlink" href="#netqasm.lang.encoding.RegRegCommand.reg0" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.lang.encoding.RegRegCommand.reg1">
+<code class="sig-name descname">reg1</code><a class="headerlink" href="#netqasm.lang.encoding.RegRegCommand.reg1" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="netqasm.lang.encoding.MeasCommand">
+<em class="property">class </em><code class="sig-prename descclassname">netqasm.lang.encoding.</code><code class="sig-name descname">MeasCommand</code><span class="sig-paren">(</span><em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.lang.encoding.MeasCommand" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#netqasm.lang.encoding.Command" title="netqasm.lang.encoding.Command"><code class="xref py py-class docutils literal notranslate"><span class="pre">netqasm.lang.encoding.Command</span></code></a></p>
+<dl class="attribute">
+<dt id="netqasm.lang.encoding.MeasCommand.outcome">
+<code class="sig-name descname">outcome</code><a class="headerlink" href="#netqasm.lang.encoding.MeasCommand.outcome" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.lang.encoding.MeasCommand.padding">
+<code class="sig-name descname">padding</code><a class="headerlink" href="#netqasm.lang.encoding.MeasCommand.padding" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.lang.encoding.MeasCommand.qubit">
+<code class="sig-name descname">qubit</code><a class="headerlink" href="#netqasm.lang.encoding.MeasCommand.qubit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="netqasm.lang.encoding.RegImmImmCommand">
+<em class="property">class </em><code class="sig-prename descclassname">netqasm.lang.encoding.</code><code class="sig-name descname">RegImmImmCommand</code><span class="sig-paren">(</span><em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.lang.encoding.RegImmImmCommand" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#netqasm.lang.encoding.Command" title="netqasm.lang.encoding.Command"><code class="xref py py-class docutils literal notranslate"><span class="pre">netqasm.lang.encoding.Command</span></code></a></p>
+<dl class="attribute">
+<dt id="netqasm.lang.encoding.RegImmImmCommand.imm0">
+<code class="sig-name descname">imm0</code><a class="headerlink" href="#netqasm.lang.encoding.RegImmImmCommand.imm0" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.lang.encoding.RegImmImmCommand.imm1">
+<code class="sig-name descname">imm1</code><a class="headerlink" href="#netqasm.lang.encoding.RegImmImmCommand.imm1" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.lang.encoding.RegImmImmCommand.padding">
+<code class="sig-name descname">padding</code><a class="headerlink" href="#netqasm.lang.encoding.RegImmImmCommand.padding" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.lang.encoding.RegImmImmCommand.reg">
+<code class="sig-name descname">reg</code><a class="headerlink" href="#netqasm.lang.encoding.RegImmImmCommand.reg" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="netqasm.lang.encoding.RegRegImmImmCommand">
+<em class="property">class </em><code class="sig-prename descclassname">netqasm.lang.encoding.</code><code class="sig-name descname">RegRegImmImmCommand</code><span class="sig-paren">(</span><em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.lang.encoding.RegRegImmImmCommand" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#netqasm.lang.encoding.Command" title="netqasm.lang.encoding.Command"><code class="xref py py-class docutils literal notranslate"><span class="pre">netqasm.lang.encoding.Command</span></code></a></p>
+<dl class="attribute">
+<dt id="netqasm.lang.encoding.RegRegImmImmCommand.imm0">
+<code class="sig-name descname">imm0</code><a class="headerlink" href="#netqasm.lang.encoding.RegRegImmImmCommand.imm0" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.lang.encoding.RegRegImmImmCommand.imm1">
+<code class="sig-name descname">imm1</code><a class="headerlink" href="#netqasm.lang.encoding.RegRegImmImmCommand.imm1" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.lang.encoding.RegRegImmImmCommand.padding">
+<code class="sig-name descname">padding</code><a class="headerlink" href="#netqasm.lang.encoding.RegRegImmImmCommand.padding" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.lang.encoding.RegRegImmImmCommand.reg0">
+<code class="sig-name descname">reg0</code><a class="headerlink" href="#netqasm.lang.encoding.RegRegImmImmCommand.reg0" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.lang.encoding.RegRegImmImmCommand.reg1">
+<code class="sig-name descname">reg1</code><a class="headerlink" href="#netqasm.lang.encoding.RegRegImmImmCommand.reg1" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="netqasm.lang.encoding.RegRegRegCommand">
+<em class="property">class </em><code class="sig-prename descclassname">netqasm.lang.encoding.</code><code class="sig-name descname">RegRegRegCommand</code><span class="sig-paren">(</span><em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.lang.encoding.RegRegRegCommand" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#netqasm.lang.encoding.Command" title="netqasm.lang.encoding.Command"><code class="xref py py-class docutils literal notranslate"><span class="pre">netqasm.lang.encoding.Command</span></code></a></p>
+<dl class="attribute">
+<dt id="netqasm.lang.encoding.RegRegRegCommand.padding">
+<code class="sig-name descname">padding</code><a class="headerlink" href="#netqasm.lang.encoding.RegRegRegCommand.padding" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.lang.encoding.RegRegRegCommand.reg0">
+<code class="sig-name descname">reg0</code><a class="headerlink" href="#netqasm.lang.encoding.RegRegRegCommand.reg0" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.lang.encoding.RegRegRegCommand.reg1">
+<code class="sig-name descname">reg1</code><a class="headerlink" href="#netqasm.lang.encoding.RegRegRegCommand.reg1" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.lang.encoding.RegRegRegCommand.reg2">
+<code class="sig-name descname">reg2</code><a class="headerlink" href="#netqasm.lang.encoding.RegRegRegCommand.reg2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="netqasm.lang.encoding.RegRegRegRegCommand">
+<em class="property">class </em><code class="sig-prename descclassname">netqasm.lang.encoding.</code><code class="sig-name descname">RegRegRegRegCommand</code><span class="sig-paren">(</span><em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.lang.encoding.RegRegRegRegCommand" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#netqasm.lang.encoding.Command" title="netqasm.lang.encoding.Command"><code class="xref py py-class docutils literal notranslate"><span class="pre">netqasm.lang.encoding.Command</span></code></a></p>
+<dl class="attribute">
+<dt id="netqasm.lang.encoding.RegRegRegRegCommand.padding">
+<code class="sig-name descname">padding</code><a class="headerlink" href="#netqasm.lang.encoding.RegRegRegRegCommand.padding" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.lang.encoding.RegRegRegRegCommand.reg0">
+<code class="sig-name descname">reg0</code><a class="headerlink" href="#netqasm.lang.encoding.RegRegRegRegCommand.reg0" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.lang.encoding.RegRegRegRegCommand.reg1">
+<code class="sig-name descname">reg1</code><a class="headerlink" href="#netqasm.lang.encoding.RegRegRegRegCommand.reg1" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.lang.encoding.RegRegRegRegCommand.reg2">
+<code class="sig-name descname">reg2</code><a class="headerlink" href="#netqasm.lang.encoding.RegRegRegRegCommand.reg2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.lang.encoding.RegRegRegRegCommand.reg3">
+<code class="sig-name descname">reg3</code><a class="headerlink" href="#netqasm.lang.encoding.RegRegRegRegCommand.reg3" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="netqasm.lang.encoding.ImmCommand">
+<em class="property">class </em><code class="sig-prename descclassname">netqasm.lang.encoding.</code><code class="sig-name descname">ImmCommand</code><span class="sig-paren">(</span><em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.lang.encoding.ImmCommand" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#netqasm.lang.encoding.Command" title="netqasm.lang.encoding.Command"><code class="xref py py-class docutils literal notranslate"><span class="pre">netqasm.lang.encoding.Command</span></code></a></p>
+<dl class="attribute">
+<dt id="netqasm.lang.encoding.ImmCommand.imm">
+<code class="sig-name descname">imm</code><a class="headerlink" href="#netqasm.lang.encoding.ImmCommand.imm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.lang.encoding.ImmCommand.padding">
+<code class="sig-name descname">padding</code><a class="headerlink" href="#netqasm.lang.encoding.ImmCommand.padding" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="netqasm.lang.encoding.RegRegImmCommand">
+<em class="property">class </em><code class="sig-prename descclassname">netqasm.lang.encoding.</code><code class="sig-name descname">RegRegImmCommand</code><span class="sig-paren">(</span><em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.lang.encoding.RegRegImmCommand" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#netqasm.lang.encoding.Command" title="netqasm.lang.encoding.Command"><code class="xref py py-class docutils literal notranslate"><span class="pre">netqasm.lang.encoding.Command</span></code></a></p>
+<dl class="attribute">
+<dt id="netqasm.lang.encoding.RegRegImmCommand.imm">
+<code class="sig-name descname">imm</code><a class="headerlink" href="#netqasm.lang.encoding.RegRegImmCommand.imm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.lang.encoding.RegRegImmCommand.padding">
+<code class="sig-name descname">padding</code><a class="headerlink" href="#netqasm.lang.encoding.RegRegImmCommand.padding" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.lang.encoding.RegRegImmCommand.reg0">
+<code class="sig-name descname">reg0</code><a class="headerlink" href="#netqasm.lang.encoding.RegRegImmCommand.reg0" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.lang.encoding.RegRegImmCommand.reg1">
+<code class="sig-name descname">reg1</code><a class="headerlink" href="#netqasm.lang.encoding.RegRegImmCommand.reg1" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="netqasm.lang.encoding.RegImmCommand">
+<em class="property">class </em><code class="sig-prename descclassname">netqasm.lang.encoding.</code><code class="sig-name descname">RegImmCommand</code><span class="sig-paren">(</span><em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.lang.encoding.RegImmCommand" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#netqasm.lang.encoding.Command" title="netqasm.lang.encoding.Command"><code class="xref py py-class docutils literal notranslate"><span class="pre">netqasm.lang.encoding.Command</span></code></a></p>
+<dl class="attribute">
+<dt id="netqasm.lang.encoding.RegImmCommand.imm">
+<code class="sig-name descname">imm</code><a class="headerlink" href="#netqasm.lang.encoding.RegImmCommand.imm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.lang.encoding.RegImmCommand.padding">
+<code class="sig-name descname">padding</code><a class="headerlink" href="#netqasm.lang.encoding.RegImmCommand.padding" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.lang.encoding.RegImmCommand.reg">
+<code class="sig-name descname">reg</code><a class="headerlink" href="#netqasm.lang.encoding.RegImmCommand.reg" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="netqasm.lang.encoding.RegEntryCommand">
+<em class="property">class </em><code class="sig-prename descclassname">netqasm.lang.encoding.</code><code class="sig-name descname">RegEntryCommand</code><span class="sig-paren">(</span><em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.lang.encoding.RegEntryCommand" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#netqasm.lang.encoding.Command" title="netqasm.lang.encoding.Command"><code class="xref py py-class docutils literal notranslate"><span class="pre">netqasm.lang.encoding.Command</span></code></a></p>
+<dl class="attribute">
+<dt id="netqasm.lang.encoding.RegEntryCommand.entry">
+<code class="sig-name descname">entry</code><a class="headerlink" href="#netqasm.lang.encoding.RegEntryCommand.entry" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.lang.encoding.RegEntryCommand.padding">
+<code class="sig-name descname">padding</code><a class="headerlink" href="#netqasm.lang.encoding.RegEntryCommand.padding" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.lang.encoding.RegEntryCommand.reg">
+<code class="sig-name descname">reg</code><a class="headerlink" href="#netqasm.lang.encoding.RegEntryCommand.reg" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="netqasm.lang.encoding.RegAddrCommand">
+<em class="property">class </em><code class="sig-prename descclassname">netqasm.lang.encoding.</code><code class="sig-name descname">RegAddrCommand</code><span class="sig-paren">(</span><em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.lang.encoding.RegAddrCommand" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#netqasm.lang.encoding.Command" title="netqasm.lang.encoding.Command"><code class="xref py py-class docutils literal notranslate"><span class="pre">netqasm.lang.encoding.Command</span></code></a></p>
+<dl class="attribute">
+<dt id="netqasm.lang.encoding.RegAddrCommand.addr">
+<code class="sig-name descname">addr</code><a class="headerlink" href="#netqasm.lang.encoding.RegAddrCommand.addr" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.lang.encoding.RegAddrCommand.padding">
+<code class="sig-name descname">padding</code><a class="headerlink" href="#netqasm.lang.encoding.RegAddrCommand.padding" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.lang.encoding.RegAddrCommand.reg">
+<code class="sig-name descname">reg</code><a class="headerlink" href="#netqasm.lang.encoding.RegAddrCommand.reg" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="netqasm.lang.encoding.ArrayEntryCommand">
+<em class="property">class </em><code class="sig-prename descclassname">netqasm.lang.encoding.</code><code class="sig-name descname">ArrayEntryCommand</code><span class="sig-paren">(</span><em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.lang.encoding.ArrayEntryCommand" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#netqasm.lang.encoding.Command" title="netqasm.lang.encoding.Command"><code class="xref py py-class docutils literal notranslate"><span class="pre">netqasm.lang.encoding.Command</span></code></a></p>
+<dl class="attribute">
+<dt id="netqasm.lang.encoding.ArrayEntryCommand.entry">
+<code class="sig-name descname">entry</code><a class="headerlink" href="#netqasm.lang.encoding.ArrayEntryCommand.entry" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.lang.encoding.ArrayEntryCommand.padding">
+<code class="sig-name descname">padding</code><a class="headerlink" href="#netqasm.lang.encoding.ArrayEntryCommand.padding" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="netqasm.lang.encoding.ArraySliceCommand">
+<em class="property">class </em><code class="sig-prename descclassname">netqasm.lang.encoding.</code><code class="sig-name descname">ArraySliceCommand</code><span class="sig-paren">(</span><em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.lang.encoding.ArraySliceCommand" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#netqasm.lang.encoding.Command" title="netqasm.lang.encoding.Command"><code class="xref py py-class docutils literal notranslate"><span class="pre">netqasm.lang.encoding.Command</span></code></a></p>
+<dl class="attribute">
+<dt id="netqasm.lang.encoding.ArraySliceCommand.padding">
+<code class="sig-name descname">padding</code><a class="headerlink" href="#netqasm.lang.encoding.ArraySliceCommand.padding" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.lang.encoding.ArraySliceCommand.slice">
+<code class="sig-name descname">slice</code><a class="headerlink" href="#netqasm.lang.encoding.ArraySliceCommand.slice" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="netqasm.lang.encoding.SingleRegisterCommand">
+<em class="property">class </em><code class="sig-prename descclassname">netqasm.lang.encoding.</code><code class="sig-name descname">SingleRegisterCommand</code><span class="sig-paren">(</span><em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.lang.encoding.SingleRegisterCommand" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#netqasm.lang.encoding.Command" title="netqasm.lang.encoding.Command"><code class="xref py py-class docutils literal notranslate"><span class="pre">netqasm.lang.encoding.Command</span></code></a></p>
+<dl class="attribute">
+<dt id="netqasm.lang.encoding.SingleRegisterCommand.padding">
+<code class="sig-name descname">padding</code><a class="headerlink" href="#netqasm.lang.encoding.SingleRegisterCommand.padding" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.lang.encoding.SingleRegisterCommand.register">
+<code class="sig-name descname">register</code><a class="headerlink" href="#netqasm.lang.encoding.SingleRegisterCommand.register" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="netqasm.lang.encoding.ArrayCommand">
+<em class="property">class </em><code class="sig-prename descclassname">netqasm.lang.encoding.</code><code class="sig-name descname">ArrayCommand</code><span class="sig-paren">(</span><em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.lang.encoding.ArrayCommand" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#netqasm.lang.encoding.Command" title="netqasm.lang.encoding.Command"><code class="xref py py-class docutils literal notranslate"><span class="pre">netqasm.lang.encoding.Command</span></code></a></p>
+<dl class="attribute">
+<dt id="netqasm.lang.encoding.ArrayCommand.address">
+<code class="sig-name descname">address</code><a class="headerlink" href="#netqasm.lang.encoding.ArrayCommand.address" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.lang.encoding.ArrayCommand.padding">
+<code class="sig-name descname">padding</code><a class="headerlink" href="#netqasm.lang.encoding.ArrayCommand.padding" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.lang.encoding.ArrayCommand.size">
+<code class="sig-name descname">size</code><a class="headerlink" href="#netqasm.lang.encoding.ArrayCommand.size" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="netqasm.lang.encoding.AddrCommand">
+<em class="property">class </em><code class="sig-prename descclassname">netqasm.lang.encoding.</code><code class="sig-name descname">AddrCommand</code><span class="sig-paren">(</span><em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.lang.encoding.AddrCommand" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#netqasm.lang.encoding.Command" title="netqasm.lang.encoding.Command"><code class="xref py py-class docutils literal notranslate"><span class="pre">netqasm.lang.encoding.Command</span></code></a></p>
+<dl class="attribute">
+<dt id="netqasm.lang.encoding.AddrCommand.addr">
+<code class="sig-name descname">addr</code><a class="headerlink" href="#netqasm.lang.encoding.AddrCommand.addr" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.lang.encoding.AddrCommand.padding">
+<code class="sig-name descname">padding</code><a class="headerlink" href="#netqasm.lang.encoding.AddrCommand.padding" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="netqasm.lang.encoding.Reg5Command">
+<em class="property">class </em><code class="sig-prename descclassname">netqasm.lang.encoding.</code><code class="sig-name descname">Reg5Command</code><span class="sig-paren">(</span><em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.lang.encoding.Reg5Command" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#netqasm.lang.encoding.Command" title="netqasm.lang.encoding.Command"><code class="xref py py-class docutils literal notranslate"><span class="pre">netqasm.lang.encoding.Command</span></code></a></p>
+<dl class="attribute">
+<dt id="netqasm.lang.encoding.Reg5Command.padding">
+<code class="sig-name descname">padding</code><a class="headerlink" href="#netqasm.lang.encoding.Reg5Command.padding" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.lang.encoding.Reg5Command.reg0">
+<code class="sig-name descname">reg0</code><a class="headerlink" href="#netqasm.lang.encoding.Reg5Command.reg0" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.lang.encoding.Reg5Command.reg1">
+<code class="sig-name descname">reg1</code><a class="headerlink" href="#netqasm.lang.encoding.Reg5Command.reg1" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.lang.encoding.Reg5Command.reg2">
+<code class="sig-name descname">reg2</code><a class="headerlink" href="#netqasm.lang.encoding.Reg5Command.reg2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.lang.encoding.Reg5Command.reg3">
+<code class="sig-name descname">reg3</code><a class="headerlink" href="#netqasm.lang.encoding.Reg5Command.reg3" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.lang.encoding.Reg5Command.reg4">
+<code class="sig-name descname">reg4</code><a class="headerlink" href="#netqasm.lang.encoding.Reg5Command.reg4" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="netqasm.lang.encoding.RecvEPRCommand">
+<em class="property">class </em><code class="sig-prename descclassname">netqasm.lang.encoding.</code><code class="sig-name descname">RecvEPRCommand</code><span class="sig-paren">(</span><em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.lang.encoding.RecvEPRCommand" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#netqasm.lang.encoding.Command" title="netqasm.lang.encoding.Command"><code class="xref py py-class docutils literal notranslate"><span class="pre">netqasm.lang.encoding.Command</span></code></a></p>
+<dl class="attribute">
+<dt id="netqasm.lang.encoding.RecvEPRCommand.ent_info_array">
+<code class="sig-name descname">ent_info_array</code><a class="headerlink" href="#netqasm.lang.encoding.RecvEPRCommand.ent_info_array" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.lang.encoding.RecvEPRCommand.epr_socket_id">
+<code class="sig-name descname">epr_socket_id</code><a class="headerlink" href="#netqasm.lang.encoding.RecvEPRCommand.epr_socket_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.lang.encoding.RecvEPRCommand.padding">
+<code class="sig-name descname">padding</code><a class="headerlink" href="#netqasm.lang.encoding.RecvEPRCommand.padding" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.lang.encoding.RecvEPRCommand.qubit_address_array">
+<code class="sig-name descname">qubit_address_array</code><a class="headerlink" href="#netqasm.lang.encoding.RecvEPRCommand.qubit_address_array" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.lang.encoding.RecvEPRCommand.remote_node_id">
+<code class="sig-name descname">remote_node_id</code><a class="headerlink" href="#netqasm.lang.encoding.RecvEPRCommand.remote_node_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-netqasm.lang.subroutine">
+<span id="netqasm-lang-subroutine-module"></span><h2>netqasm.lang.subroutine module<a class="headerlink" href="#module-netqasm.lang.subroutine" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="netqasm.lang.subroutine.Command">
+<em class="property">class </em><code class="sig-prename descclassname">netqasm.lang.subroutine.</code><code class="sig-name descname">Command</code><span class="sig-paren">(</span><em class="sig-param">instruction</em>, <em class="sig-param">args=None</em>, <em class="sig-param">operands=None</em>, <em class="sig-param">lineno=None</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.lang.subroutine.Command" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>instruction</strong> (<a class="reference internal" href="netqasm.lang.instr.html#netqasm.lang.instr.instr_enum.Instruction" title="netqasm.lang.instr.instr_enum.Instruction"><code class="xref py py-class docutils literal notranslate"><span class="pre">Instruction</span></code></a>) – </p></li>
+<li><p><strong>args</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]]) – </p></li>
+<li><p><strong>operands</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <a class="reference internal" href="netqasm.lang.instr.html#netqasm.lang.instr.operand.Register" title="netqasm.lang.instr.operand.Register"><code class="xref py py-class docutils literal notranslate"><span class="pre">Register</span></code></a>, <a class="reference internal" href="netqasm.lang.instr.html#netqasm.lang.instr.operand.Address" title="netqasm.lang.instr.operand.Address"><code class="xref py py-class docutils literal notranslate"><span class="pre">Address</span></code></a>, <a class="reference internal" href="netqasm.lang.instr.html#netqasm.lang.instr.operand.ArrayEntry" title="netqasm.lang.instr.operand.ArrayEntry"><code class="xref py py-class docutils literal notranslate"><span class="pre">ArrayEntry</span></code></a>, <a class="reference internal" href="netqasm.lang.instr.html#netqasm.lang.instr.operand.ArraySlice" title="netqasm.lang.instr.operand.ArraySlice"><code class="xref py py-class docutils literal notranslate"><span class="pre">ArraySlice</span></code></a>, <a class="reference internal" href="netqasm.lang.instr.html#netqasm.lang.instr.operand.Label" title="netqasm.lang.instr.operand.Label"><code class="xref py py-class docutils literal notranslate"><span class="pre">Label</span></code></a>]]]) – </p></li>
+<li><p><strong>lineno</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]) – </p></li>
+</ul>
+</dd>
+</dl>
+<dl class="attribute">
+<dt id="netqasm.lang.subroutine.Command.instruction">
+<code class="sig-name descname">instruction</code><em class="property">: Instruction</em><em class="property"> = None</em><a class="headerlink" href="#netqasm.lang.subroutine.Command.instruction" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.lang.subroutine.Command.args">
+<code class="sig-name descname">args</code><em class="property">: List[int]</em><em class="property"> = None</em><a class="headerlink" href="#netqasm.lang.subroutine.Command.args" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.lang.subroutine.Command.operands">
+<code class="sig-name descname">operands</code><em class="property">: List[Union[int, netqasm.lang.instr.operand.Register, netqasm.lang.instr.operand.Address, netqasm.lang.instr.operand.ArrayEntry, netqasm.lang.instr.operand.ArraySlice, netqasm.lang.instr.operand.Label]]</em><em class="property"> = None</em><a class="headerlink" href="#netqasm.lang.subroutine.Command.operands" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.lang.subroutine.Command.lineno">
+<code class="sig-name descname">lineno</code><em class="property">: Optional[int]</em><em class="property"> = None</em><a class="headerlink" href="#netqasm.lang.subroutine.Command.lineno" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="netqasm.lang.subroutine.Command.debug_str">
+<em class="property">property </em><code class="sig-name descname">debug_str</code><a class="headerlink" href="#netqasm.lang.subroutine.Command.debug_str" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="netqasm.lang.subroutine.BranchLabel">
+<em class="property">class </em><code class="sig-prename descclassname">netqasm.lang.subroutine.</code><code class="sig-name descname">BranchLabel</code><span class="sig-paren">(</span><em class="sig-param">name</em>, <em class="sig-param">lineno=None</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.lang.subroutine.BranchLabel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – </p></li>
+<li><p><strong>lineno</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]) – </p></li>
+</ul>
+</dd>
+</dl>
+<dl class="attribute">
+<dt id="netqasm.lang.subroutine.BranchLabel.name">
+<code class="sig-name descname">name</code><em class="property">: str</em><em class="property"> = None</em><a class="headerlink" href="#netqasm.lang.subroutine.BranchLabel.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.lang.subroutine.BranchLabel.lineno">
+<code class="sig-name descname">lineno</code><em class="property">: Optional[int]</em><em class="property"> = None</em><a class="headerlink" href="#netqasm.lang.subroutine.BranchLabel.lineno" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="netqasm.lang.subroutine.BranchLabel.debug_str">
+<em class="property">property </em><code class="sig-name descname">debug_str</code><a class="headerlink" href="#netqasm.lang.subroutine.BranchLabel.debug_str" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="netqasm.lang.subroutine.PreSubroutine">
+<em class="property">class </em><code class="sig-prename descclassname">netqasm.lang.subroutine.</code><code class="sig-name descname">PreSubroutine</code><span class="sig-paren">(</span><em class="sig-param">netqasm_version</em>, <em class="sig-param">app_id</em>, <em class="sig-param">commands</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.lang.subroutine.PreSubroutine" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A <a class="reference internal" href="#netqasm.lang.subroutine.PreSubroutine" title="netqasm.lang.subroutine.PreSubroutine"><code class="xref py py-class docutils literal notranslate"><span class="pre">PreSubroutine</span></code></a> object represents a preliminary subroutine that consists of
+general ‘commands’ that might not yet be valid NetQASM instructions.
+These commands can include labels, or instructions with immediates that still need
+to be converted to registers.</p>
+<p><code class="xref py py-class docutils literal notranslate"><span class="pre">Subroutine</span></code> objects before given to other package components.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>netqasm_version</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code>) – </p></li>
+<li><p><strong>app_id</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – </p></li>
+<li><p><strong>commands</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<a class="reference internal" href="#netqasm.lang.subroutine.Command" title="netqasm.lang.subroutine.Command"><code class="xref py py-class docutils literal notranslate"><span class="pre">Command</span></code></a>, <a class="reference internal" href="#netqasm.lang.subroutine.BranchLabel" title="netqasm.lang.subroutine.BranchLabel"><code class="xref py py-class docutils literal notranslate"><span class="pre">BranchLabel</span></code></a>]]) – </p></li>
+</ul>
+</dd>
+</dl>
+<dl class="attribute">
+<dt id="netqasm.lang.subroutine.PreSubroutine.netqasm_version">
+<code class="sig-name descname">netqasm_version</code><em class="property">: tuple</em><em class="property"> = None</em><a class="headerlink" href="#netqasm.lang.subroutine.PreSubroutine.netqasm_version" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.lang.subroutine.PreSubroutine.app_id">
+<code class="sig-name descname">app_id</code><em class="property">: int</em><em class="property"> = None</em><a class="headerlink" href="#netqasm.lang.subroutine.PreSubroutine.app_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.lang.subroutine.PreSubroutine.commands">
+<code class="sig-name descname">commands</code><em class="property">: List[Union[Command, BranchLabel]]</em><em class="property"> = None</em><a class="headerlink" href="#netqasm.lang.subroutine.PreSubroutine.commands" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="netqasm.lang.subroutine.Subroutine">
+<em class="property">class </em><code class="sig-prename descclassname">netqasm.lang.subroutine.</code><code class="sig-name descname">Subroutine</code><span class="sig-paren">(</span><em class="sig-param">netqasm_version</em>, <em class="sig-param">app_id</em>, <em class="sig-param">commands</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.lang.subroutine.Subroutine" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A <a class="reference internal" href="#netqasm.lang.subroutine.Subroutine" title="netqasm.lang.subroutine.Subroutine"><code class="xref py py-class docutils literal notranslate"><span class="pre">Subroutine</span></code></a> object represents a subroutine consisting of valid
+instructions, i.e. objects deriving from <a class="reference internal" href="netqasm.lang.instr.html#netqasm.lang.instr.base.NetQASMInstruction" title="netqasm.lang.instr.base.NetQASMInstruction"><code class="xref py py-class docutils literal notranslate"><span class="pre">NetQASMInstruction</span></code></a>.</p>
+<p><a class="reference internal" href="#netqasm.lang.subroutine.Subroutine" title="netqasm.lang.subroutine.Subroutine"><code class="xref py py-class docutils literal notranslate"><span class="pre">Subroutine</span></code></a> s are executed by <a class="reference internal" href="netqasm.backend.html#netqasm.backend.executioner.Executioner" title="netqasm.backend.executioner.Executioner"><code class="xref py py-class docutils literal notranslate"><span class="pre">Executioner</span></code></a> s.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>netqasm_version</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code>) – </p></li>
+<li><p><strong>app_id</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – </p></li>
+<li><p><strong>commands</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<a class="reference internal" href="netqasm.lang.instr.html#netqasm.lang.instr.base.NetQASMInstruction" title="netqasm.lang.instr.base.NetQASMInstruction"><code class="xref py py-class docutils literal notranslate"><span class="pre">NetQASMInstruction</span></code></a>]) – </p></li>
+</ul>
+</dd>
+</dl>
+<dl class="attribute">
+<dt id="netqasm.lang.subroutine.Subroutine.netqasm_version">
+<code class="sig-name descname">netqasm_version</code><em class="property">: tuple</em><em class="property"> = None</em><a class="headerlink" href="#netqasm.lang.subroutine.Subroutine.netqasm_version" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.lang.subroutine.Subroutine.app_id">
+<code class="sig-name descname">app_id</code><em class="property">: int</em><em class="property"> = None</em><a class="headerlink" href="#netqasm.lang.subroutine.Subroutine.app_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.lang.subroutine.Subroutine.commands">
+<code class="sig-name descname">commands</code><em class="property">: List[NetQASMInstruction]</em><em class="property"> = None</em><a class="headerlink" href="#netqasm.lang.subroutine.Subroutine.commands" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="netqasm.lang.subroutine.Subroutine.cstructs">
+<em class="property">property </em><code class="sig-name descname">cstructs</code><a class="headerlink" href="#netqasm.lang.subroutine.Subroutine.cstructs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-netqasm.lang.symbols">
+<span id="netqasm-lang-symbols-module"></span><h2>netqasm.lang.symbols module<a class="headerlink" href="#module-netqasm.lang.symbols" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="netqasm.lang.symbols.Symbols">
+<em class="property">class </em><code class="sig-prename descclassname">netqasm.lang.symbols.</code><code class="sig-name descname">Symbols</code><a class="headerlink" href="#netqasm.lang.symbols.Symbols" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="netqasm.lang.symbols.Symbols.COMMENT_START">
+<code class="sig-name descname">COMMENT_START</code><em class="property"> = '//'</em><a class="headerlink" href="#netqasm.lang.symbols.Symbols.COMMENT_START" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.lang.symbols.Symbols.BRANCH_END">
+<code class="sig-name descname">BRANCH_END</code><em class="property"> = ':'</em><a class="headerlink" href="#netqasm.lang.symbols.Symbols.BRANCH_END" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.lang.symbols.Symbols.MACRO_END">
+<code class="sig-name descname">MACRO_END</code><em class="property"> = '!'</em><a class="headerlink" href="#netqasm.lang.symbols.Symbols.MACRO_END" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.lang.symbols.Symbols.ADDRESS_START">
+<code class="sig-name descname">ADDRESS_START</code><em class="property"> = '&#64;'</em><a class="headerlink" href="#netqasm.lang.symbols.Symbols.ADDRESS_START" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.lang.symbols.Symbols.ARGS_BRACKETS">
+<code class="sig-name descname">ARGS_BRACKETS</code><em class="property"> = '()'</em><a class="headerlink" href="#netqasm.lang.symbols.Symbols.ARGS_BRACKETS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.lang.symbols.Symbols.ARGS_DELIM">
+<code class="sig-name descname">ARGS_DELIM</code><em class="property"> = ','</em><a class="headerlink" href="#netqasm.lang.symbols.Symbols.ARGS_DELIM" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.lang.symbols.Symbols.INDEX_BRACKETS">
+<code class="sig-name descname">INDEX_BRACKETS</code><em class="property"> = '[]'</em><a class="headerlink" href="#netqasm.lang.symbols.Symbols.INDEX_BRACKETS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.lang.symbols.Symbols.SLICE_DELIM">
+<code class="sig-name descname">SLICE_DELIM</code><em class="property"> = ':'</em><a class="headerlink" href="#netqasm.lang.symbols.Symbols.SLICE_DELIM" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.lang.symbols.Symbols.PREAMBLE_START">
+<code class="sig-name descname">PREAMBLE_START</code><em class="property"> = '#'</em><a class="headerlink" href="#netqasm.lang.symbols.Symbols.PREAMBLE_START" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.lang.symbols.Symbols.PREAMBLE_NETQASM">
+<code class="sig-name descname">PREAMBLE_NETQASM</code><em class="property"> = 'NETQASM'</em><a class="headerlink" href="#netqasm.lang.symbols.Symbols.PREAMBLE_NETQASM" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.lang.symbols.Symbols.PREAMBLE_APPID">
+<code class="sig-name descname">PREAMBLE_APPID</code><em class="property"> = 'APPID'</em><a class="headerlink" href="#netqasm.lang.symbols.Symbols.PREAMBLE_APPID" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.lang.symbols.Symbols.PREAMBLE_DEFINE">
+<code class="sig-name descname">PREAMBLE_DEFINE</code><em class="property"> = 'DEFINE'</em><a class="headerlink" href="#netqasm.lang.symbols.Symbols.PREAMBLE_DEFINE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.lang.symbols.Symbols.PREAMBLE_DEFINE_BRACKETS">
+<code class="sig-name descname">PREAMBLE_DEFINE_BRACKETS</code><em class="property"> = '{}'</em><a class="headerlink" href="#netqasm.lang.symbols.Symbols.PREAMBLE_DEFINE_BRACKETS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-netqasm.lang">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-netqasm.lang" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="netqasm.lang.instr.html" class="btn btn-neutral float-right" title="netqasm.lang.instr package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="netqasm.backend.html" class="btn btn-neutral float-left" title="netqasm.backend package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2019, Axel Dahlberg
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,829 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>SDK objects &mdash; netqasm 0.5.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="netqasm package" href="../api/netqasm.html" />
+    <link rel="prev" title="Application file structure" href="file_structure.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> netqasm
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../quickstart.html">Getting started</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="first-app.html">Running your first app</a></li>
+<li class="toctree-l2"><a class="reference internal" href="using-sdk.html">Using the SDK</a></li>
+<li class="toctree-l2"><a class="reference internal" href="file_structure.html">Application file structure</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">SDK objects</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#netqasm-connection">NetQASM connection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#qubit">Qubit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#epr-socket">EPR socket</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#futures">Futures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#classical-communication">Classical communication</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../api/netqasm.html">netqasm package</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">netqasm</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../quickstart.html">Getting started</a> &raquo;</li>
+        
+      <li>SDK objects</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/quickstart/modules.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="sdk-objects">
+<span id="id1"></span><h1>SDK objects<a class="headerlink" href="#sdk-objects" title="Permalink to this headline">¶</a></h1>
+<p>Described below are the user-exposed components of the NetQASM SDK.</p>
+<ul>
+<li><p><a class="reference internal" href="../api/netqasm.sdk.html#netqasm.sdk.connection.BaseNetQASMConnection" title="netqasm.sdk.connection.BaseNetQASMConnection"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseNetQASMConnection</span></code></a></p></li>
+<li><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Qubit</span></code></p></li>
+<li><p><a class="reference internal" href="../api/netqasm.sdk.html#netqasm.sdk.epr_socket.EPRSocket" title="netqasm.sdk.epr_socket.EPRSocket"><code class="xref py py-class docutils literal notranslate"><span class="pre">EPRSocket</span></code></a></p></li>
+<li><p>Futures:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference internal" href="../api/netqasm.sdk.html#netqasm.sdk.futures.Future" title="netqasm.sdk.futures.Future"><code class="xref py py-class docutils literal notranslate"><span class="pre">Future</span></code></a></p></li>
+<li><p><a class="reference internal" href="../api/netqasm.sdk.html#netqasm.sdk.futures.Array" title="netqasm.sdk.futures.Array"><code class="xref py py-class docutils literal notranslate"><span class="pre">Array</span></code></a></p></li>
+<li><p><a class="reference internal" href="../api/netqasm.sdk.html#netqasm.sdk.futures.RegFuture" title="netqasm.sdk.futures.RegFuture"><code class="xref py py-class docutils literal notranslate"><span class="pre">RegFuture</span></code></a></p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><a class="reference internal" href="../api/netqasm.sdk.classical_communication.html#netqasm.sdk.classical_communication.socket.Socket" title="netqasm.sdk.classical_communication.socket.Socket"><code class="xref py py-class docutils literal notranslate"><span class="pre">Socket</span></code></a></p></li>
+</ul>
+<p>Note that <a class="reference internal" href="../api/netqasm.sdk.html#netqasm.sdk.connection.BaseNetQASMConnection" title="netqasm.sdk.connection.BaseNetQASMConnection"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseNetQASMConnection</span></code></a> and <a class="reference internal" href="../api/netqasm.sdk.classical_communication.html#netqasm.sdk.classical_communication.socket.Socket" title="netqasm.sdk.classical_communication.socket.Socket"><code class="xref py py-class docutils literal notranslate"><span class="pre">Socket</span></code></a> are abstract base-classes.
+These are implemented specifically for a runtime, e.g. a simulator or hardware runtime.
+However, when using the SDK this is handled automatically if these are imported from <a class="reference internal" href="../api/netqasm.sdk.html#module-netqasm.sdk.external" title="netqasm.sdk.external"><code class="xref py py-mod docutils literal notranslate"><span class="pre">netqasm.sdk.external</span></code></a>.
+For example one might write an application as follows</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">netqasm.sdk.external</span> <span class="kn">import</span> <span class="n">NetQASMConnection</span><span class="p">,</span> <span class="n">Socket</span>
+
+<span class="c1"># Setup a classical socket</span>
+<span class="n">bob_socket</span> <span class="o">=</span> <span class="n">Socket</span><span class="p">(</span><span class="s2">&quot;alice&quot;</span><span class="p">,</span> <span class="s2">&quot;bob&quot;</span><span class="p">)</span>
+
+<span class="k">with</span> <span class="n">NetQASMConnection</span><span class="p">(</span><span class="s1">&#39;alice&#39;</span><span class="p">):</span>
+   <span class="c1"># Main application...</span>
+</pre></div>
+</div>
+<p>The classes <code class="xref py py-class docutils literal notranslate"><span class="pre">NetQASMConnection</span></code> and <a class="reference internal" href="../api/netqasm.sdk.classical_communication.html#netqasm.sdk.classical_communication.socket.Socket" title="netqasm.sdk.classical_communication.socket.Socket"><code class="xref py py-class docutils literal notranslate"><span class="pre">Socket</span></code></a> will be different subclasses of the abstract classes, depending on which runtime is used.
+If for example the application is simulated using <a href="#id2"><span class="problematic" id="id3">`SquidASM`_</span></a> and <a class="reference external" href="https://netsquid.org/">NetSquid</a>, then the <code class="xref py py-class docutils literal notranslate"><span class="pre">NetQASMConnection</span></code> will in fact be the class <cite>squidasm.sdk.NetSquidConnection</cite>.
+These different classes expose the same set of functionalities.
+They only differ in the way they communicate with the underlying simulator.
+For more details see <a class="reference internal" href="first-app.html#first-app"><span class="std std-ref">Running your first app</span></a>.</p>
+<div class="section" id="netqasm-connection">
+<h2>NetQASM connection<a class="headerlink" href="#netqasm-connection" title="Permalink to this headline">¶</a></h2>
+<p>TODO write about connections</p>
+<dl class="class">
+<dt>
+<em class="property">class </em><code class="sig-prename descclassname">netqasm.sdk.connection.</code><code class="sig-name descname">BaseNetQASMConnection</code><span class="sig-paren">(</span><em class="sig-param">app_name</em>, <em class="sig-param">node_name=None</em>, <em class="sig-param">app_id=None</em>, <em class="sig-param">max_qubits=5</em>, <em class="sig-param">log_config=None</em>, <em class="sig-param">epr_sockets=None</em>, <em class="sig-param">compiler=None</em>, <em class="sig-param">return_arrays=True</em>, <em class="sig-param">_init_app=True</em>, <em class="sig-param">_setup_epr_sockets=True</em><span class="sig-paren">)</span></dt>
+<dd><dl class="method">
+<dt>
+<em class="property">property </em><code class="sig-name descname">app_name</code></dt>
+<dd><p>Get the application name</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<em class="property">property </em><code class="sig-name descname">node_name</code></dt>
+<dd><p>Get the node name</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<em class="property">property </em><code class="sig-name descname">app_id</code></dt>
+<dd><p>Get the application ID</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<code class="sig-name descname">__enter__</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>Used to open the connection in a context.</p>
+<p>This is the intended behaviour of the connection.
+Operations specified using the connection or a qubit created with it gets combined into a
+subroutine, until either <a class="reference internal" href="../api/netqasm.sdk.html#netqasm.sdk.connection.BaseNetQASMConnection.flush" title="netqasm.sdk.connection.BaseNetQASMConnection.flush"><code class="xref py py-meth docutils literal notranslate"><span class="pre">flush()</span></code></a> is called or the connection goes out of context
+which calls <code class="xref py py-meth docutils literal notranslate"><span class="pre">__exit__()</span></code>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Open the connection</span>
+<span class="k">with</span> <span class="n">NetQASMConnection</span><span class="p">(</span><span class="n">app_name</span><span class="o">=</span><span class="s2">&quot;alice&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">alice</span><span class="p">:</span>
+    <span class="c1"># Create a qubit</span>
+    <span class="n">q</span> <span class="o">=</span> <span class="n">Qubit</span><span class="p">(</span><span class="n">alice</span><span class="p">)</span>
+    <span class="c1"># Perform a Hadamard</span>
+    <span class="n">q</span><span class="o">.</span><span class="n">H</span><span class="p">()</span>
+    <span class="c1"># Measure the qubit</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="n">q</span><span class="o">.</span><span class="n">measure</span><span class="p">()</span>
+    <span class="c1"># Flush the subroutine to populate the variable `m` with the outcome</span>
+    <span class="c1"># Alternetively, this can be done by letting the connection</span>
+    <span class="c1"># go out of context and move the print to after.</span>
+    <span class="n">alice</span><span class="o">.</span><span class="n">flush</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<code class="sig-name descname">__exit__</code><span class="sig-paren">(</span><em class="sig-param">exc_type</em>, <em class="sig-param">exc_val</em>, <em class="sig-param">exc_tb</em><span class="sig-paren">)</span></dt>
+<dd><p>TODO describe</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<code class="sig-name descname">block</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>Block until flushed subroutines finish</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="qubit">
+<h2>Qubit<a class="headerlink" href="#qubit" title="Permalink to this headline">¶</a></h2>
+<p>TODO write about qubits</p>
+<dl class="class">
+<dt>
+<em class="property">class </em><code class="sig-prename descclassname">netqasm.sdk.qubit.</code><code class="sig-name descname">Qubit</code><span class="sig-paren">(</span><em class="sig-param">conn</em>, <em class="sig-param">add_new_command=True</em>, <em class="sig-param">ent_info=None</em>, <em class="sig-param">virtual_address=None</em><span class="sig-paren">)</span></dt>
+<dd><dl class="method">
+<dt>
+<em class="property">property </em><code class="sig-name descname">qubit_id</code></dt>
+<dd><p>Get the qubit ID</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<em class="property">property </em><code class="sig-name descname">entanglement_info</code></dt>
+<dd><p>Get the entanglement info</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<em class="property">property </em><code class="sig-name descname">remote_entangled_node</code></dt>
+<dd><p>Get the name of the remote node the qubit is entangled with.
+If not entanled, <cite>None</cite> is returned.</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<code class="sig-name descname">measure</code><span class="sig-paren">(</span><em class="sig-param">future=None</em>, <em class="sig-param">inplace=False</em>, <em class="sig-param">store_array=True</em><span class="sig-paren">)</span></dt>
+<dd><p>Measures the qubit in the standard basis and returns the measurement outcome.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>future</strong> (<a class="reference internal" href="../api/netqasm.sdk.html#netqasm.sdk.futures.Future" title="netqasm.sdk.futures.Future"><code class="xref py py-class docutils literal notranslate"><span class="pre">Future</span></code></a>) – The future to place the outcome in</p></li>
+<li><p><strong>inplace</strong> (<em>bool</em>) – If inplace=False, the measurement is destructive and the qubit is removed from memory.
+If inplace=True, the qubit is left in the post-measurement state.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<code class="sig-name descname">X</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>Performs a X on the qubit.</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<code class="sig-name descname">Y</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>Performs a Y on the qubit.</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<code class="sig-name descname">Z</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>Performs a Z on the qubit.</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<code class="sig-name descname">T</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>Performs a T gate on the qubit.</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<code class="sig-name descname">H</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>Performs a Hadamard on the qubit.</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<code class="sig-name descname">K</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>Performs a K gate on the qubit.</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<code class="sig-name descname">S</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>Performs a S gate on the qubit.</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<code class="sig-name descname">rot_X</code><span class="sig-paren">(</span><em class="sig-param">n=0</em>, <em class="sig-param">d=0</em>, <em class="sig-param">angle=None</em><span class="sig-paren">)</span></dt>
+<dd><p>Performs a rotation around the X-axis of an angle <cite>n * pi / 2 ^ d</cite>
+If <cite>angle</cite> is specified <cite>n</cite> and <cite>d</cite> are ignored and a sequence of <cite>n</cite> and <cite>d</cite> are used to approximate the angle.</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<code class="sig-name descname">rot_Y</code><span class="sig-paren">(</span><em class="sig-param">n=0</em>, <em class="sig-param">d=0</em>, <em class="sig-param">angle=None</em><span class="sig-paren">)</span></dt>
+<dd><p>Performs a rotation around the Y-axis of an angle <cite>n * pi / 2 ^ d</cite>
+If <cite>angle</cite> is specified <cite>n</cite> and <cite>d</cite> are ignored and a sequence of <cite>n</cite> and <cite>d</cite> are used to approximate the angle.</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<code class="sig-name descname">rot_Z</code><span class="sig-paren">(</span><em class="sig-param">n=0</em>, <em class="sig-param">d=0</em>, <em class="sig-param">angle=None</em><span class="sig-paren">)</span></dt>
+<dd><p>Performs a rotation around the Z-axis of an angle <cite>n * pi / 2 ^ d</cite>
+If <cite>angle</cite> is specified <cite>n</cite> and <cite>d</cite> are ignored and a sequence of <cite>n</cite> and <cite>d</cite> are used to approximate the angle.</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<code class="sig-name descname">cnot</code><span class="sig-paren">(</span><em class="sig-param">target</em><span class="sig-paren">)</span></dt>
+<dd><p>Applies a cnot onto target.
+Target should be a qubit-object with the same connection.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>target</strong> (<a class="reference internal" href="../api/netqasm.sdk.html#netqasm.sdk.qubit.Qubit" title="netqasm.sdk.qubit.Qubit"><code class="xref py py-class docutils literal notranslate"><span class="pre">Qubit</span></code></a>) – The target qubit</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<code class="sig-name descname">cphase</code><span class="sig-paren">(</span><em class="sig-param">target</em><span class="sig-paren">)</span></dt>
+<dd><p>Applies a cphase onto target.
+Target should be a qubit-object with the same connection.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>target</strong> (<a class="reference internal" href="../api/netqasm.sdk.html#netqasm.sdk.qubit.Qubit" title="netqasm.sdk.qubit.Qubit"><code class="xref py py-class docutils literal notranslate"><span class="pre">Qubit</span></code></a>) – The target qubit</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<code class="sig-name descname">reset</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>Resets the qubit to the state |0&gt;</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<code class="sig-name descname">free</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>Unallocates the qubit.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="epr-socket">
+<h2>EPR socket<a class="headerlink" href="#epr-socket" title="Permalink to this headline">¶</a></h2>
+<p>TODO write about epr sockets</p>
+<dl class="class">
+<dt>
+<em class="property">class </em><code class="sig-prename descclassname">netqasm.sdk.epr_socket.</code><code class="sig-name descname">EPRSocket</code><span class="sig-paren">(</span><em class="sig-param">remote_app_name</em>, <em class="sig-param">epr_socket_id=0</em>, <em class="sig-param">remote_epr_socket_id=0</em>, <em class="sig-param">min_fidelity=100</em><span class="sig-paren">)</span></dt>
+<dd><p>Encapsulates the notion of an EPR socket which sets up a virtual circuit in the network
+when instantiated and can then be used for entanglement generation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>remote_node_name</strong> (<em>str</em>) – Name of the remote node to entangle with.</p></li>
+<li><p><strong>epr_socket_id</strong> (<em>int</em>) – The identifier used for this socket.</p></li>
+<li><p><strong>remote_epr_socket_id</strong> (<em>int</em>) – The identifier used by the remote node.</p></li>
+<li><p><strong>min_fidelity</strong> (<em>int</em>) – The minimum desired fidelity of EPR pairs generated using this socket.
+Values are integers in the range 0-100.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="method">
+<dt>
+<code class="sig-name descname">create_context</code><span class="sig-paren">(</span><em class="sig-param">number=1</em>, <em class="sig-param">sequential=False</em><span class="sig-paren">)</span></dt>
+<dd><p>Creates EPR pairs with a remote node and handles each pair by
+the operations defined in a subsequent context, see example below.</p>
+<p class="rubric">Example</p>
+<p>To create two pairs and measure both of these in the Hadamard basis one can do as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">epr_socket</span><span class="o">.</span><span class="n">create_context</span><span class="p">(</span><span class="n">number</span><span class="o">=</span><span class="n">num</span><span class="p">)</span> <span class="k">as</span> <span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">pair</span><span class="p">):</span>
+    <span class="n">q</span><span class="o">.</span><span class="n">H</span><span class="p">()</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="n">q</span><span class="o">.</span><span class="n">measure</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>NOTE: The <cite>sequential</cite> flag can be used to specify if the qubits should use the same
+virtual qubit and there only exists one at a time or not.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>number</strong> (<em>int</em>) – The number of pairs to create</p></li>
+<li><p><strong>post_routine</strong> (<em>function</em>) – <p>Can be used to specify what should happen when entanglement is generated
+for each pair.
+The function should take three arguments <cite>(conn, q, pair)</cite> where
+* <cite>conn</cite> is the connection (e.g. <cite>self</cite>)
+* <cite>q</cite> is the entangled qubit (of type <code class="xref py py-class docutils literal notranslate"><span class="pre">netqasm.qubit._FutureQubit</span></code>)
+* <cite>pair</cite> is a loop register stating which pair is handled (0, 1, …)</p>
+<p>for example to state that the qubit should be measured in the Hadamard basis
+one can provide the following function</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">post_create</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span> <span class="n">q</span><span class="p">,</span> <span class="n">pair</span><span class="p">):</span>
+    <span class="n">q</span><span class="o">.</span><span class="n">H</span><span class="p">()</span>
+    <span class="n">q</span><span class="o">.</span><span class="n">measure</span><span class="p">(</span><span class="n">future</span><span class="o">=</span><span class="n">outcomes</span><span class="o">.</span><span class="n">get_future_index</span><span class="p">(</span><span class="n">pair</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>where <cite>outcomes</cite> is an already allocated array and <cite>pair</cite> is then used to
+put the outcome at the correct index of the array.</p>
+<p>NOTE: If the a qubit is measured (not inplace) in a <cite>post_routine</cite> but is
+also used by acting on the returned objects of <cite>createEPR</cite> this cannot
+be checked in compile-time and will raise an error during the execution
+of the full subroutine in the backend.</p>
+</p></li>
+<li><p><strong>sequential</strong> (<em>bool</em><em>, </em><em>optional</em>) – <p>If this is specified to <cite>True</cite> each qubit will have the same virtual address
+and there will maximally be one pair in memory at a given time.
+If <cite>number</cite> is greater than 1 a post_routine should be specified which
+consumed each pair.</p>
+<dl class="simple">
+<dt>NOTE: If <cite>sequential</cite> is <cite>False</cite> (default), <cite>number</cite> cannot be greater than</dt><dd><p>the size of the unit module. However, if <cite>sequential</cite> is <cite>True</cite> is can.</p>
+</dd>
+</dl>
+</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<code class="sig-name descname">recv_context</code><span class="sig-paren">(</span><em class="sig-param">number=1</em>, <em class="sig-param">sequential=False</em><span class="sig-paren">)</span></dt>
+<dd><p>Receives EPR pair with a remote node (see doc of <a class="reference internal" href="../api/netqasm.sdk.html#netqasm.sdk.epr_socket.EPRSocket.create_context" title="netqasm.sdk.epr_socket.EPRSocket.create_context"><code class="xref py py-meth docutils literal notranslate"><span class="pre">create_context()</span></code></a>)</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<em class="property">property </em><code class="sig-name descname">conn</code></dt>
+<dd><p>Get the underlying <code class="xref py py-class docutils literal notranslate"><span class="pre">NetQASMConnection</span></code></p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<em class="property">property </em><code class="sig-name descname">remote_app_name</code></dt>
+<dd><p>Get the remote application name</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<em class="property">property </em><code class="sig-name descname">remote_node_id</code></dt>
+<dd><p>Get the remote node ID</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<em class="property">property </em><code class="sig-name descname">epr_socket_id</code></dt>
+<dd><p>Get the EPR socket ID</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<em class="property">property </em><code class="sig-name descname">remote_epr_socket_id</code></dt>
+<dd><p>Get the remote EPR socket ID</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<em class="property">property </em><code class="sig-name descname">min_fidelity</code></dt>
+<dd><p>Get the desired minimum fidelity</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<code class="sig-name descname">create</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">number=1</em>, <em class="sig-param">post_routine=None</em>, <em class="sig-param">sequential=False</em>, <em class="sig-param">tp=EPRType.K</em>, <em class="sig-param">random_basis_local=None</em>, <em class="sig-param">random_basis_remote=None</em><span class="sig-paren">)</span></dt>
+<dd><p>Creates EPR pair with a remote node</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>number</strong> (<em>int</em>) – The number of pairs to create</p></li>
+<li><p><strong>post_routine</strong> (<em>function</em>) – <p>Can be used to specify what should happen when entanglement is generated
+for each pair.
+The function should take three arguments <cite>(conn, q, pair)</cite> where
+* <cite>conn</cite> is the connection (e.g. <cite>self</cite>)
+* <cite>q</cite> is the entangled qubit (of type <code class="xref py py-class docutils literal notranslate"><span class="pre">netqasm.qubit._FutureQubit</span></code>)
+* <cite>pair</cite> is a loop register stating which pair is handled (0, 1, …)</p>
+<p>for example to state that the qubit should be measured in the Hadamard basis
+one can provide the following function</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">post_create</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span> <span class="n">q</span><span class="p">,</span> <span class="n">pair</span><span class="p">):</span>
+    <span class="n">q</span><span class="o">.</span><span class="n">H</span><span class="p">()</span>
+    <span class="n">q</span><span class="o">.</span><span class="n">measure</span><span class="p">(</span><span class="n">future</span><span class="o">=</span><span class="n">outcomes</span><span class="o">.</span><span class="n">get_future_index</span><span class="p">(</span><span class="n">pair</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>where <cite>outcomes</cite> is an already allocated array and <cite>pair</cite> is then used to
+put the outcome at the correct index of the array.</p>
+<p>NOTE: If the a qubit is measured (not inplace) in a <cite>post_routine</cite> but is
+also used by acting on the returned objects of <cite>createEPR</cite> this cannot
+be checked in compile-time and will raise an error during the execution
+of the full subroutine in the backend.</p>
+</p></li>
+<li><p><strong>sequential</strong> (<em>bool</em><em>, </em><em>optional</em>) – <p>If this is specified to <cite>True</cite> each qubit will have the same virtual address
+and there will maximally be one pair in memory at a given time.
+If <cite>number</cite> is greater than 1 a post_routine should be specified which
+consumed each pair.</p>
+<dl class="simple">
+<dt>NOTE: If <cite>sequential</cite> is <cite>False</cite> (default), <cite>number</cite> cannot be greater than</dt><dd><p>the size of the unit module. However, if <cite>sequential</cite> is <cite>True</cite> is can.</p>
+</dd>
+</dl>
+</p></li>
+<li><p><strong>tp</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">EPRType</span></code>) – <p>What type of request, i.e. either <cite>K</cite> (create and keep),
+<cite>M</cite> (measure-directly) or <cite>R</cite> (remote state preparation).
+Depending on the type of request the method will return different things,
+for example if the request is of type <cite>K</cite> a list of qubits will be returned:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">qubits</span> <span class="o">=</span> <span class="n">epr_socket</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">number</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">tp</span><span class="o">=</span><span class="n">EPRType</span><span class="o">.</span><span class="n">K</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">q</span> <span class="ow">in</span> <span class="n">qubits</span><span class="p">:</span>
+    <span class="n">q</span><span class="o">.</span><span class="n">H</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>however for type <cite>M</cite> requests it will be a list of entanglement generations:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ent_infos</span> <span class="o">=</span> <span class="n">epr_socket</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">number</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">tp</span><span class="o">=</span><span class="n">EPRType</span><span class="o">.</span><span class="n">K</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">ent_info</span> <span class="ow">in</span> <span class="n">ent_infos</span><span class="p">:</span>
+    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">ent_info</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">)</span>
+</pre></div>
+</div>
+</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<code class="sig-name descname">recv</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">number=1</em>, <em class="sig-param">post_routine=None</em>, <em class="sig-param">sequential=False</em>, <em class="sig-param">tp=EPRType.K</em><span class="sig-paren">)</span></dt>
+<dd><p>Receives EPR pair with a remote node (see doc of <a class="reference internal" href="../api/netqasm.sdk.html#netqasm.sdk.epr_socket.EPRSocket.create" title="netqasm.sdk.epr_socket.EPRSocket.create"><code class="xref py py-meth docutils literal notranslate"><span class="pre">create()</span></code></a>)</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="futures">
+<h2>Futures<a class="headerlink" href="#futures" title="Permalink to this headline">¶</a></h2>
+<p>TODO write about futures</p>
+<dl class="class">
+<dt>
+<em class="property">class </em><code class="sig-prename descclassname">netqasm.sdk.futures.</code><code class="sig-name descname">Future</code><span class="sig-paren">(</span><em class="sig-param">connection</em>, <em class="sig-param">address</em>, <em class="sig-param">index</em><span class="sig-paren">)</span></dt>
+<dd><p>TODO write doc-string</p>
+<dl class="method">
+<dt>
+<code class="sig-name descname">add</code><span class="sig-paren">(</span><em class="sig-param">other</em>, <em class="sig-param">mod=None</em><span class="sig-paren">)</span></dt>
+<dd><p>Adds another integer to this by appending to appropriate instruction to
+the current subroutine.
+Note that <cite>self</cite> does not need to have a value yet.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>other</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <a class="reference internal" href="../api/netqasm.lang.instr.html#netqasm.lang.instr.operand.Register" title="netqasm.lang.instr.operand.Register"><code class="xref py py-class docutils literal notranslate"><span class="pre">Register</span></code></a>, <a class="reference internal" href="../api/netqasm.sdk.html#netqasm.sdk.futures.Future" title="netqasm.sdk.futures.Future"><code class="xref py py-class docutils literal notranslate"><span class="pre">Future</span></code></a>]) – </p></li>
+<li><p><strong>mod</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<em class="property">property </em><code class="sig-name descname">value</code></dt>
+<dd><p>Get the value of the future.
+If it’s not set yet, <cite>None</cite> is returned.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt>
+<em class="property">class </em><code class="sig-prename descclassname">netqasm.sdk.futures.</code><code class="sig-name descname">Array</code><span class="sig-paren">(</span><em class="sig-param">connection</em>, <em class="sig-param">length</em>, <em class="sig-param">address</em>, <em class="sig-param">init_values=None</em>, <em class="sig-param">lineno=None</em><span class="sig-paren">)</span></dt>
+<dd><p>TODO write doc-string</p>
+<dl class="method">
+<dt>
+<code class="sig-name descname">get_future_index</code><span class="sig-paren">(</span><em class="sig-param">index</em><span class="sig-paren">)</span></dt>
+<dd><p>TODO doc-string</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<code class="sig-name descname">get_future_slice</code><span class="sig-paren">(</span><em class="sig-param">s</em><span class="sig-paren">)</span></dt>
+<dd><p>TODO doc-string</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<code class="sig-name descname">foreach</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>TODO doc-string</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<code class="sig-name descname">enumerate</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>TODO doc-string</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt>
+<em class="property">class </em><code class="sig-prename descclassname">netqasm.sdk.futures.</code><code class="sig-name descname">RegFuture</code><span class="sig-paren">(</span><em class="sig-param">connection</em>, <em class="sig-param">reg=None</em><span class="sig-paren">)</span></dt>
+<dd><p>TODO doc-string</p>
+<dl class="method">
+<dt>
+<code class="sig-name descname">add</code><span class="sig-paren">(</span><em class="sig-param">other</em>, <em class="sig-param">mod=None</em><span class="sig-paren">)</span></dt>
+<dd><p>Adds another integer to this by appending to appropriate instruction to
+the current subroutine.
+Note that <cite>self</cite> does not need to have a value yet.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>other</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <a class="reference internal" href="../api/netqasm.lang.instr.html#netqasm.lang.instr.operand.Register" title="netqasm.lang.instr.operand.Register"><code class="xref py py-class docutils literal notranslate"><span class="pre">Register</span></code></a>, <a class="reference internal" href="../api/netqasm.sdk.html#netqasm.sdk.futures.BaseFuture" title="netqasm.sdk.futures.BaseFuture"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseFuture</span></code></a>]) – </p></li>
+<li><p><strong>mod</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<em class="property">property </em><code class="sig-name descname">value</code></dt>
+<dd><p>Get the value of the future.
+If it’s not set yet, <cite>None</cite> is returned.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="classical-communication">
+<h2>Classical communication<a class="headerlink" href="#classical-communication" title="Permalink to this headline">¶</a></h2>
+<p>TODO write about classical communication</p>
+<dl class="class">
+<dt>
+<em class="property">class </em><code class="sig-prename descclassname">netqasm.sdk.classical_communication.socket.</code><code class="sig-name descname">Socket</code><span class="sig-paren">(</span><em class="sig-param">app_name</em>, <em class="sig-param">remote_app_name</em>, <em class="sig-param">socket_id=0</em>, <em class="sig-param">timeout=None</em>, <em class="sig-param">use_callbacks=False</em>, <em class="sig-param">log_config=None</em><span class="sig-paren">)</span></dt>
+<dd><p>Socket used to communicate classical data between applications.</p>
+<dl class="method">
+<dt>
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">app_name</em>, <em class="sig-param">remote_app_name</em>, <em class="sig-param">socket_id=0</em>, <em class="sig-param">timeout=None</em>, <em class="sig-param">use_callbacks=False</em>, <em class="sig-param">log_config=None</em><span class="sig-paren">)</span></dt>
+<dd><p>Socket used to communicate classical data between applications.</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<em class="property">abstract </em><code class="sig-name descname">send</code><span class="sig-paren">(</span><em class="sig-param">msg</em><span class="sig-paren">)</span></dt>
+<dd><p>Sends a message to the remote node.</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<em class="property">abstract </em><code class="sig-name descname">recv</code><span class="sig-paren">(</span><em class="sig-param">block=True</em>, <em class="sig-param">maxsize=None</em><span class="sig-paren">)</span></dt>
+<dd><p>Receive a message from the remote node.</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<code class="sig-name descname">send_structured</code><span class="sig-paren">(</span><em class="sig-param">msg</em><span class="sig-paren">)</span></dt>
+<dd><p>Sends a structured message (with header and payload) to the remote node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>msg</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">StructuredMessage</span></code>) – </p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<code class="sig-name descname">recv_structured</code><span class="sig-paren">(</span><em class="sig-param">block=True</em>, <em class="sig-param">maxsize=None</em><span class="sig-paren">)</span></dt>
+<dd><p>Receive a message (with header and payload) from the remote node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">StructuredMessage</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<code class="sig-name descname">send_silent</code><span class="sig-paren">(</span><em class="sig-param">msg</em><span class="sig-paren">)</span></dt>
+<dd><p>Sends a message without logging</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<code class="sig-name descname">recv_silent</code><span class="sig-paren">(</span><em class="sig-param">block=True</em>, <em class="sig-param">maxsize=None</em><span class="sig-paren">)</span></dt>
+<dd><p>Receive a message without logging</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<code class="sig-name descname">recv_callback</code><span class="sig-paren">(</span><em class="sig-param">msg</em><span class="sig-paren">)</span></dt>
+<dd><p>This method gets called when a message is received.</p>
+<p>Subclass to define behaviour.</p>
+<p>NOTE: This only happens if <cite>self.use_callbacks</cite> is set to <cite>True</cite>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<code class="sig-name descname">conn_lost_callback</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>This method gets called when the connection is lost.</p>
+<p>Subclass to define behaviour.</p>
+<p>NOTE: This only happens if <cite>self.use_callbacks</cite> is set to <cite>True</cite>.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../api/netqasm.html" class="btn btn-neutral float-right" title="netqasm package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="file_structure.html" class="btn btn-neutral float-left" title="Application file structure" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2019, Axel Dahlberg
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

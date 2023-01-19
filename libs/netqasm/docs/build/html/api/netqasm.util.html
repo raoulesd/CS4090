@@ -1,0 +1,419 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>netqasm.util package &mdash; netqasm 0.5.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="netqasm.sdk.toolbox package" href="netqasm.sdk.toolbox.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> netqasm
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html">Getting started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="netqasm.html">netqasm package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="netqasm.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="netqasm.backend.html">netqasm.backend package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="netqasm.lang.html">netqasm.lang package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="netqasm.logging.html">netqasm.logging package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="netqasm.runtime.html">netqasm.runtime package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="netqasm.sdk.html">netqasm.sdk package</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">netqasm.util package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-netqasm.util.error">netqasm.util.error module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-netqasm.util.log">netqasm.util.log module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-netqasm.util.quantum_gates">netqasm.util.quantum_gates module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-netqasm.util.states">netqasm.util.states module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-netqasm.util.string">netqasm.util.string module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-netqasm.util.thread">netqasm.util.thread module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-netqasm.util.yaml">netqasm.util.yaml module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-netqasm.util">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="netqasm.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="netqasm.html#module-netqasm.typing">netqasm.typing module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="netqasm.html#module-netqasm">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">netqasm</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="netqasm.html">netqasm package</a> &raquo;</li>
+        
+      <li>netqasm.util package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/netqasm.util.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="netqasm-util-package">
+<h1>netqasm.util package<a class="headerlink" href="#netqasm-util-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-netqasm.util.error">
+<span id="netqasm-util-error-module"></span><h2>netqasm.util.error module<a class="headerlink" href="#module-netqasm.util.error" title="Permalink to this headline">¶</a></h2>
+<dl class="exception">
+<dt id="netqasm.util.error.NetQASMSyntaxError">
+<em class="property">exception </em><code class="sig-prename descclassname">netqasm.util.error.</code><code class="sig-name descname">NetQASMSyntaxError</code><a class="headerlink" href="#netqasm.util.error.NetQASMSyntaxError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">SyntaxError</span></code></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="netqasm.util.error.NetQASMInstrError">
+<em class="property">exception </em><code class="sig-prename descclassname">netqasm.util.error.</code><code class="sig-name descname">NetQASMInstrError</code><a class="headerlink" href="#netqasm.util.error.NetQASMInstrError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ValueError</span></code></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="netqasm.util.error.NoCircuitRuleError">
+<em class="property">exception </em><code class="sig-prename descclassname">netqasm.util.error.</code><code class="sig-name descname">NoCircuitRuleError</code><a class="headerlink" href="#netqasm.util.error.NoCircuitRuleError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">RuntimeError</span></code></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="netqasm.util.error.NotAllocatedError">
+<em class="property">exception </em><code class="sig-prename descclassname">netqasm.util.error.</code><code class="sig-name descname">NotAllocatedError</code><a class="headerlink" href="#netqasm.util.error.NotAllocatedError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">RuntimeError</span></code></p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-netqasm.util.log">
+<span id="netqasm-util-log-module"></span><h2>netqasm.util.log module<a class="headerlink" href="#module-netqasm.util.log" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="netqasm.util.log.HostLine">
+<em class="property">class </em><code class="sig-prename descclassname">netqasm.util.log.</code><code class="sig-name descname">HostLine</code><span class="sig-paren">(</span><em class="sig-param">filename</em>, <em class="sig-param">lineno</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.util.log.HostLine" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="netqasm.util.log.LineTracker">
+<em class="property">class </em><code class="sig-prename descclassname">netqasm.util.log.</code><code class="sig-name descname">LineTracker</code><span class="sig-paren">(</span><em class="sig-param">log_config</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.util.log.LineTracker" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>log_config</strong> (<a class="reference internal" href="netqasm.sdk.html#netqasm.sdk.config.LogConfig" title="netqasm.sdk.config.LogConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">LogConfig</span></code></a>) – </p>
+</dd>
+</dl>
+<dl class="method">
+<dt id="netqasm.util.log.LineTracker.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">log_config</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.util.log.LineTracker.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>log_config</strong> (<a class="reference internal" href="netqasm.sdk.html#netqasm.sdk.config.LogConfig" title="netqasm.sdk.config.LogConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">LogConfig</span></code></a>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="netqasm.util.log.LineTracker.get_line">
+<code class="sig-name descname">get_line</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.util.log.LineTracker.get_line" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#netqasm.util.log.HostLine" title="netqasm.util.log.HostLine"><code class="xref py py-class docutils literal notranslate"><span class="pre">HostLine</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-netqasm.util.quantum_gates">
+<span id="netqasm-util-quantum-gates-module"></span><h2>netqasm.util.quantum_gates module<a class="headerlink" href="#module-netqasm.util.quantum_gates" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="netqasm.util.quantum_gates.get_rotation_matrix">
+<code class="sig-prename descclassname">netqasm.util.quantum_gates.</code><code class="sig-name descname">get_rotation_matrix</code><span class="sig-paren">(</span><em class="sig-param">axis</em>, <em class="sig-param">angle</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.util.quantum_gates.get_rotation_matrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a single-qubit rotation matrix given an axis and an angle</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="netqasm.util.quantum_gates.get_controlled_rotation_matrix">
+<code class="sig-prename descclassname">netqasm.util.quantum_gates.</code><code class="sig-name descname">get_controlled_rotation_matrix</code><span class="sig-paren">(</span><em class="sig-param">axis</em>, <em class="sig-param">angle</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.util.quantum_gates.get_controlled_rotation_matrix" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">array</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="netqasm.util.quantum_gates.gate_to_matrix">
+<code class="sig-prename descclassname">netqasm.util.quantum_gates.</code><code class="sig-name descname">gate_to_matrix</code><span class="sig-paren">(</span><em class="sig-param">instr</em>, <em class="sig-param">angle=None</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.util.quantum_gates.gate_to_matrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the matrix representation of a quantum gate</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="netqasm.util.quantum_gates.are_matrices_equal">
+<code class="sig-prename descclassname">netqasm.util.quantum_gates.</code><code class="sig-name descname">are_matrices_equal</code><span class="sig-paren">(</span><em class="sig-param">*matrices</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.util.quantum_gates.are_matrices_equal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if two matrices are equal, disregarding any global phase</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-netqasm.util.states">
+<span id="netqasm-util-states-module"></span><h2>netqasm.util.states module<a class="headerlink" href="#module-netqasm.util.states" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="netqasm.util.states.bloch_sphere_rep">
+<code class="sig-prename descclassname">netqasm.util.states.</code><code class="sig-name descname">bloch_sphere_rep</code><span class="sig-paren">(</span><em class="sig-param">mat</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.util.states.bloch_sphere_rep" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes polar coordinates in Bloch sphere given a single-qubit density matrix</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>mat</strong> (<em>numpy.ndarray</em>) – The single-qubit density matrix</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>tuple</strong></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>(theta, phi, r)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-netqasm.util.string">
+<span id="netqasm-util-string-module"></span><h2>netqasm.util.string module<a class="headerlink" href="#module-netqasm.util.string" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="netqasm.util.string.group_by_word">
+<code class="sig-prename descclassname">netqasm.util.string.</code><code class="sig-name descname">group_by_word</code><span class="sig-paren">(</span><em class="sig-param">line</em>, <em class="sig-param">seperator=' '</em>, <em class="sig-param">brackets=None</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.util.string.group_by_word" title="Permalink to this definition">¶</a></dt>
+<dd><p>Groups a string by words and contents within brackets</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="netqasm.util.string.is_variable_name">
+<code class="sig-prename descclassname">netqasm.util.string.</code><code class="sig-name descname">is_variable_name</code><span class="sig-paren">(</span><em class="sig-param">variable</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.util.string.is_variable_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="netqasm.util.string.is_number">
+<code class="sig-prename descclassname">netqasm.util.string.</code><code class="sig-name descname">is_number</code><span class="sig-paren">(</span><em class="sig-param">number</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.util.string.is_number" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="netqasm.util.string.is_float">
+<code class="sig-prename descclassname">netqasm.util.string.</code><code class="sig-name descname">is_float</code><span class="sig-paren">(</span><em class="sig-param">value</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.util.string.is_float" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="netqasm.util.string.rspaces">
+<code class="sig-prename descclassname">netqasm.util.string.</code><code class="sig-name descname">rspaces</code><span class="sig-paren">(</span><em class="sig-param">val</em>, <em class="sig-param">min_chars=4</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.util.string.rspaces" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-netqasm.util.thread">
+<span id="netqasm-util-thread-module"></span><h2>netqasm.util.thread module<a class="headerlink" href="#module-netqasm.util.thread" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="netqasm.util.thread.as_completed">
+<code class="sig-prename descclassname">netqasm.util.thread.</code><code class="sig-name descname">as_completed</code><span class="sig-paren">(</span><em class="sig-param">futures</em>, <em class="sig-param">names=None</em>, <em class="sig-param">sleep_time=0</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.util.thread.as_completed" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-netqasm.util.yaml">
+<span id="netqasm-util-yaml-module"></span><h2>netqasm.util.yaml module<a class="headerlink" href="#module-netqasm.util.yaml" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="netqasm.util.yaml.load_yaml">
+<code class="sig-prename descclassname">netqasm.util.yaml.</code><code class="sig-name descname">load_yaml</code><span class="sig-paren">(</span><em class="sig-param">file_path</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.util.yaml.load_yaml" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="netqasm.util.yaml.dump_yaml">
+<code class="sig-prename descclassname">netqasm.util.yaml.</code><code class="sig-name descname">dump_yaml</code><span class="sig-paren">(</span><em class="sig-param">data</em>, <em class="sig-param">file_path</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.util.yaml.dump_yaml" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-netqasm.util">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-netqasm.util" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="netqasm.sdk.toolbox.html" class="btn btn-neutral float-left" title="netqasm.sdk.toolbox package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2019, Axel Dahlberg
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

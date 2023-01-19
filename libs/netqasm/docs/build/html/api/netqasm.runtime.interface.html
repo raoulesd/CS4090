@@ -1,0 +1,857 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>netqasm.runtime.interface package &mdash; netqasm 0.5.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="netqasm.sdk package" href="netqasm.sdk.html" />
+    <link rel="prev" title="netqasm.runtime package" href="netqasm.runtime.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> netqasm
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html">Getting started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="netqasm.html">netqasm package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="netqasm.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="netqasm.backend.html">netqasm.backend package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="netqasm.lang.html">netqasm.lang package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="netqasm.logging.html">netqasm.logging package</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="netqasm.runtime.html">netqasm.runtime package</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="netqasm.runtime.html#subpackages">Subpackages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="netqasm.runtime.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="netqasm.runtime.html#module-netqasm.runtime.app_config">netqasm.runtime.app_config module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="netqasm.runtime.html#module-netqasm.runtime.cli">netqasm.runtime.cli module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="netqasm.runtime.html#module-netqasm.runtime.env">netqasm.runtime.env module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="netqasm.runtime.html#module-netqasm.runtime.hardware">netqasm.runtime.hardware module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="netqasm.runtime.html#module-netqasm.runtime.process_logs">netqasm.runtime.process_logs module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="netqasm.runtime.html#module-netqasm.runtime.settings">netqasm.runtime.settings module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="netqasm.runtime.html#module-netqasm.runtime">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="netqasm.sdk.html">netqasm.sdk package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="netqasm.util.html">netqasm.util package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="netqasm.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="netqasm.html#module-netqasm.typing">netqasm.typing module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="netqasm.html#module-netqasm">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">netqasm</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="netqasm.html">netqasm package</a> &raquo;</li>
+        
+          <li><a href="netqasm.runtime.html">netqasm.runtime package</a> &raquo;</li>
+        
+      <li>netqasm.runtime.interface package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/netqasm.runtime.interface.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="netqasm-runtime-interface-package">
+<h1>netqasm.runtime.interface package<a class="headerlink" href="#netqasm-runtime-interface-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-netqasm.runtime.interface.config">
+<span id="netqasm-runtime-interface-config-module"></span><h2>netqasm.runtime.interface.config module<a class="headerlink" href="#module-netqasm.runtime.interface.config" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="netqasm.runtime.interface.config.QuantumHardware">
+<em class="property">class </em><code class="sig-prename descclassname">netqasm.runtime.interface.config.</code><code class="sig-name descname">QuantumHardware</code><a class="headerlink" href="#netqasm.runtime.interface.config.QuantumHardware" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">enum.Enum</span></code></p>
+<p>An enumeration.</p>
+<dl class="attribute">
+<dt id="netqasm.runtime.interface.config.QuantumHardware.Generic">
+<code class="sig-name descname">Generic</code><em class="property"> = 'Generic'</em><a class="headerlink" href="#netqasm.runtime.interface.config.QuantumHardware.Generic" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.runtime.interface.config.QuantumHardware.NV">
+<code class="sig-name descname">NV</code><em class="property"> = 'NV'</em><a class="headerlink" href="#netqasm.runtime.interface.config.QuantumHardware.NV" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.runtime.interface.config.QuantumHardware.TrappedIon">
+<code class="sig-name descname">TrappedIon</code><em class="property"> = 'TrappedIon'</em><a class="headerlink" href="#netqasm.runtime.interface.config.QuantumHardware.TrappedIon" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="netqasm.runtime.interface.config.NoiseType">
+<em class="property">class </em><code class="sig-prename descclassname">netqasm.runtime.interface.config.</code><code class="sig-name descname">NoiseType</code><a class="headerlink" href="#netqasm.runtime.interface.config.NoiseType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">enum.Enum</span></code></p>
+<p>An enumeration.</p>
+<dl class="attribute">
+<dt id="netqasm.runtime.interface.config.NoiseType.NoNoise">
+<code class="sig-name descname">NoNoise</code><em class="property"> = 'NoNoise'</em><a class="headerlink" href="#netqasm.runtime.interface.config.NoiseType.NoNoise" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.runtime.interface.config.NoiseType.Depolarise">
+<code class="sig-name descname">Depolarise</code><em class="property"> = 'Depolarise'</em><a class="headerlink" href="#netqasm.runtime.interface.config.NoiseType.Depolarise" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.runtime.interface.config.NoiseType.DiscreteDepolarise">
+<code class="sig-name descname">DiscreteDepolarise</code><em class="property"> = 'DiscreteDepolarise'</em><a class="headerlink" href="#netqasm.runtime.interface.config.NoiseType.DiscreteDepolarise" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.runtime.interface.config.NoiseType.Bitflip">
+<code class="sig-name descname">Bitflip</code><em class="property"> = 'Bitflip'</em><a class="headerlink" href="#netqasm.runtime.interface.config.NoiseType.Bitflip" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="netqasm.runtime.interface.config.Qubit">
+<em class="property">class </em><code class="sig-prename descclassname">netqasm.runtime.interface.config.</code><code class="sig-name descname">Qubit</code><span class="sig-paren">(</span><em class="sig-param">id</em>, <em class="sig-param">t1</em>, <em class="sig-param">t2</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.runtime.interface.config.Qubit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>id</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – </p></li>
+<li><p><strong>t1</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – </p></li>
+<li><p><strong>t2</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – </p></li>
+</ul>
+</dd>
+</dl>
+<dl class="attribute">
+<dt id="netqasm.runtime.interface.config.Qubit.id">
+<code class="sig-name descname">id</code><em class="property">: int</em><em class="property"> = None</em><a class="headerlink" href="#netqasm.runtime.interface.config.Qubit.id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.runtime.interface.config.Qubit.t1">
+<code class="sig-name descname">t1</code><em class="property">: float</em><em class="property"> = None</em><a class="headerlink" href="#netqasm.runtime.interface.config.Qubit.t1" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.runtime.interface.config.Qubit.t2">
+<code class="sig-name descname">t2</code><em class="property">: float</em><em class="property"> = None</em><a class="headerlink" href="#netqasm.runtime.interface.config.Qubit.t2" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="netqasm.runtime.interface.config.Node">
+<em class="property">class </em><code class="sig-prename descclassname">netqasm.runtime.interface.config.</code><code class="sig-name descname">Node</code><span class="sig-paren">(</span><em class="sig-param">name</em>, <em class="sig-param">hardware</em>, <em class="sig-param">qubits</em>, <em class="sig-param">gate_fidelity=1.0</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.runtime.interface.config.Node" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – </p></li>
+<li><p><strong>hardware</strong> (<a class="reference internal" href="#netqasm.runtime.interface.config.QuantumHardware" title="netqasm.runtime.interface.config.QuantumHardware"><code class="xref py py-class docutils literal notranslate"><span class="pre">QuantumHardware</span></code></a>) – </p></li>
+<li><p><strong>qubits</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<a class="reference internal" href="#netqasm.runtime.interface.config.Qubit" title="netqasm.runtime.interface.config.Qubit"><code class="xref py py-class docutils literal notranslate"><span class="pre">Qubit</span></code></a>]) – </p></li>
+<li><p><strong>gate_fidelity</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – </p></li>
+</ul>
+</dd>
+</dl>
+<dl class="attribute">
+<dt id="netqasm.runtime.interface.config.Node.name">
+<code class="sig-name descname">name</code><em class="property">: str</em><em class="property"> = None</em><a class="headerlink" href="#netqasm.runtime.interface.config.Node.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.runtime.interface.config.Node.hardware">
+<code class="sig-name descname">hardware</code><em class="property">: QuantumHardware</em><em class="property"> = None</em><a class="headerlink" href="#netqasm.runtime.interface.config.Node.hardware" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.runtime.interface.config.Node.qubits">
+<code class="sig-name descname">qubits</code><em class="property">: List[Qubit]</em><em class="property"> = None</em><a class="headerlink" href="#netqasm.runtime.interface.config.Node.qubits" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.runtime.interface.config.Node.gate_fidelity">
+<code class="sig-name descname">gate_fidelity</code><em class="property">: float</em><em class="property"> = 1.0</em><a class="headerlink" href="#netqasm.runtime.interface.config.Node.gate_fidelity" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="netqasm.runtime.interface.config.Link">
+<em class="property">class </em><code class="sig-prename descclassname">netqasm.runtime.interface.config.</code><code class="sig-name descname">Link</code><span class="sig-paren">(</span><em class="sig-param">name</em>, <em class="sig-param">node_name1</em>, <em class="sig-param">node_name2</em>, <em class="sig-param">noise_type</em>, <em class="sig-param">fidelity</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.runtime.interface.config.Link" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – </p></li>
+<li><p><strong>node_name1</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – </p></li>
+<li><p><strong>node_name2</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – </p></li>
+<li><p><strong>noise_type</strong> (<a class="reference internal" href="#netqasm.runtime.interface.config.NoiseType" title="netqasm.runtime.interface.config.NoiseType"><code class="xref py py-class docutils literal notranslate"><span class="pre">NoiseType</span></code></a>) – </p></li>
+<li><p><strong>fidelity</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – </p></li>
+</ul>
+</dd>
+</dl>
+<dl class="attribute">
+<dt id="netqasm.runtime.interface.config.Link.name">
+<code class="sig-name descname">name</code><em class="property">: str</em><em class="property"> = None</em><a class="headerlink" href="#netqasm.runtime.interface.config.Link.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.runtime.interface.config.Link.node_name1">
+<code class="sig-name descname">node_name1</code><em class="property">: str</em><em class="property"> = None</em><a class="headerlink" href="#netqasm.runtime.interface.config.Link.node_name1" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.runtime.interface.config.Link.node_name2">
+<code class="sig-name descname">node_name2</code><em class="property">: str</em><em class="property"> = None</em><a class="headerlink" href="#netqasm.runtime.interface.config.Link.node_name2" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.runtime.interface.config.Link.noise_type">
+<code class="sig-name descname">noise_type</code><em class="property">: NoiseType</em><em class="property"> = None</em><a class="headerlink" href="#netqasm.runtime.interface.config.Link.noise_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.runtime.interface.config.Link.fidelity">
+<code class="sig-name descname">fidelity</code><em class="property">: float</em><em class="property"> = None</em><a class="headerlink" href="#netqasm.runtime.interface.config.Link.fidelity" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="netqasm.runtime.interface.config.NetworkConfig">
+<em class="property">class </em><code class="sig-prename descclassname">netqasm.runtime.interface.config.</code><code class="sig-name descname">NetworkConfig</code><span class="sig-paren">(</span><em class="sig-param">nodes</em>, <em class="sig-param">links</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.runtime.interface.config.NetworkConfig" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nodes</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<a class="reference internal" href="#netqasm.runtime.interface.config.Node" title="netqasm.runtime.interface.config.Node"><code class="xref py py-class docutils literal notranslate"><span class="pre">Node</span></code></a>]) – </p></li>
+<li><p><strong>links</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<a class="reference internal" href="#netqasm.runtime.interface.config.Link" title="netqasm.runtime.interface.config.Link"><code class="xref py py-class docutils literal notranslate"><span class="pre">Link</span></code></a>]) – </p></li>
+</ul>
+</dd>
+</dl>
+<dl class="attribute">
+<dt id="netqasm.runtime.interface.config.NetworkConfig.nodes">
+<code class="sig-name descname">nodes</code><em class="property">: List[Node]</em><em class="property"> = None</em><a class="headerlink" href="#netqasm.runtime.interface.config.NetworkConfig.nodes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.runtime.interface.config.NetworkConfig.links">
+<code class="sig-name descname">links</code><em class="property">: List[Link]</em><em class="property"> = None</em><a class="headerlink" href="#netqasm.runtime.interface.config.NetworkConfig.links" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="netqasm.runtime.interface.config.default_network_config">
+<code class="sig-prename descclassname">netqasm.runtime.interface.config.</code><code class="sig-name descname">default_network_config</code><span class="sig-paren">(</span><em class="sig-param">app_names</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.runtime.interface.config.default_network_config" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>app_names</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) – </p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="#netqasm.runtime.interface.config.NetworkConfig" title="netqasm.runtime.interface.config.NetworkConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">NetworkConfig</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="netqasm.runtime.interface.config.parse_network_config">
+<code class="sig-prename descclassname">netqasm.runtime.interface.config.</code><code class="sig-name descname">parse_network_config</code><span class="sig-paren">(</span><em class="sig-param">cfg</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.runtime.interface.config.parse_network_config" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#netqasm.runtime.interface.config.NetworkConfig" title="netqasm.runtime.interface.config.NetworkConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">NetworkConfig</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-netqasm.runtime.interface.logging">
+<span id="netqasm-runtime-interface-logging-module"></span><h2>netqasm.runtime.interface.logging module<a class="headerlink" href="#module-netqasm.runtime.interface.logging" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="netqasm.runtime.interface.logging.QubitGroup">
+<em class="property">class </em><code class="sig-prename descclassname">netqasm.runtime.interface.logging.</code><code class="sig-name descname">QubitGroup</code><span class="sig-paren">(</span><em class="sig-param">is_entangled</em>, <em class="sig-param">qubit_ids</em>, <em class="sig-param">state</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.runtime.interface.logging.QubitGroup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>is_entangled</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>]) – </p></li>
+<li><p><strong>qubit_ids</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]]]) – </p></li>
+<li><p><strong>state</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">complex</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">complex</span></code>], <code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">complex</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">complex</span></code>]]]) – </p></li>
+</ul>
+</dd>
+</dl>
+<dl class="attribute">
+<dt id="netqasm.runtime.interface.logging.QubitGroup.is_entangled">
+<code class="sig-name descname">is_entangled</code><em class="property">: Optional[bool]</em><em class="property"> = None</em><a class="headerlink" href="#netqasm.runtime.interface.logging.QubitGroup.is_entangled" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.runtime.interface.logging.QubitGroup.qubit_ids">
+<code class="sig-name descname">qubit_ids</code><em class="property">: List[AbsoluteQubitID]</em><em class="property"> = None</em><a class="headerlink" href="#netqasm.runtime.interface.logging.QubitGroup.qubit_ids" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.runtime.interface.logging.QubitGroup.state">
+<code class="sig-name descname">state</code><em class="property">: Optional[QubitState]</em><em class="property"> = None</em><a class="headerlink" href="#netqasm.runtime.interface.logging.QubitGroup.state" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="netqasm.runtime.interface.logging.EntanglementType">
+<em class="property">class </em><code class="sig-prename descclassname">netqasm.runtime.interface.logging.</code><code class="sig-name descname">EntanglementType</code><a class="headerlink" href="#netqasm.runtime.interface.logging.EntanglementType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">enum.Enum</span></code></p>
+<p>An enumeration.</p>
+<dl class="attribute">
+<dt id="netqasm.runtime.interface.logging.EntanglementType.CK">
+<code class="sig-name descname">CK</code><em class="property"> = 'CK'</em><a class="headerlink" href="#netqasm.runtime.interface.logging.EntanglementType.CK" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.runtime.interface.logging.EntanglementType.MD">
+<code class="sig-name descname">MD</code><em class="property"> = 'MD'</em><a class="headerlink" href="#netqasm.runtime.interface.logging.EntanglementType.MD" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="netqasm.runtime.interface.logging.EntanglementStage">
+<em class="property">class </em><code class="sig-prename descclassname">netqasm.runtime.interface.logging.</code><code class="sig-name descname">EntanglementStage</code><a class="headerlink" href="#netqasm.runtime.interface.logging.EntanglementStage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">enum.Enum</span></code></p>
+<p>An enumeration.</p>
+<dl class="attribute">
+<dt id="netqasm.runtime.interface.logging.EntanglementStage.START">
+<code class="sig-name descname">START</code><em class="property"> = 'start'</em><a class="headerlink" href="#netqasm.runtime.interface.logging.EntanglementStage.START" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.runtime.interface.logging.EntanglementStage.FINISH">
+<code class="sig-name descname">FINISH</code><em class="property"> = 'finish'</em><a class="headerlink" href="#netqasm.runtime.interface.logging.EntanglementStage.FINISH" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="netqasm.runtime.interface.logging.InstrLogEntry">
+<em class="property">class </em><code class="sig-prename descclassname">netqasm.runtime.interface.logging.</code><code class="sig-name descname">InstrLogEntry</code><span class="sig-paren">(</span><em class="sig-param">WCT</em>, <em class="sig-param">SIT</em>, <em class="sig-param">AID</em>, <em class="sig-param">SID</em>, <em class="sig-param">PRC</em>, <em class="sig-param">HLN</em>, <em class="sig-param">HFL</em>, <em class="sig-param">INS</em>, <em class="sig-param">OPR</em>, <em class="sig-param">QID</em>, <em class="sig-param">VID</em>, <em class="sig-param">OUT</em>, <em class="sig-param">QGR</em>, <em class="sig-param">LOG</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.runtime.interface.logging.InstrLogEntry" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>WCT</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – </p></li>
+<li><p><strong>SIT</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – </p></li>
+<li><p><strong>AID</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – </p></li>
+<li><p><strong>SID</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – </p></li>
+<li><p><strong>PRC</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – </p></li>
+<li><p><strong>HLN</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – </p></li>
+<li><p><strong>HFL</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – </p></li>
+<li><p><strong>INS</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – </p></li>
+<li><p><strong>OPR</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) – </p></li>
+<li><p><strong>QID</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]) – </p></li>
+<li><p><strong>VID</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]) – </p></li>
+<li><p><strong>OUT</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]) – </p></li>
+<li><p><strong>QGR</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <a class="reference internal" href="#netqasm.runtime.interface.logging.QubitGroup" title="netqasm.runtime.interface.logging.QubitGroup"><code class="xref py py-class docutils literal notranslate"><span class="pre">QubitGroup</span></code></a>]]) – </p></li>
+<li><p><strong>LOG</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – </p></li>
+</ul>
+</dd>
+</dl>
+<dl class="attribute">
+<dt id="netqasm.runtime.interface.logging.InstrLogEntry.WCT">
+<code class="sig-name descname">WCT</code><em class="property">: str</em><em class="property"> = None</em><a class="headerlink" href="#netqasm.runtime.interface.logging.InstrLogEntry.WCT" title="Permalink to this definition">¶</a></dt>
+<dd><p>Wall clock time. Format is Python’s <cite>datetime.now()</cite>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.runtime.interface.logging.InstrLogEntry.SIT">
+<code class="sig-name descname">SIT</code><em class="property">: int</em><em class="property"> = None</em><a class="headerlink" href="#netqasm.runtime.interface.logging.InstrLogEntry.SIT" title="Permalink to this definition">¶</a></dt>
+<dd><p>Time in NetSquid simulation, in nanoseconds.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.runtime.interface.logging.InstrLogEntry.AID">
+<code class="sig-name descname">AID</code><em class="property">: int</em><em class="property"> = None</em><a class="headerlink" href="#netqasm.runtime.interface.logging.InstrLogEntry.AID" title="Permalink to this definition">¶</a></dt>
+<dd><p>App ID, used internally by the backend.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.runtime.interface.logging.InstrLogEntry.SID">
+<code class="sig-name descname">SID</code><em class="property">: int</em><em class="property"> = None</em><a class="headerlink" href="#netqasm.runtime.interface.logging.InstrLogEntry.SID" title="Permalink to this definition">¶</a></dt>
+<dd><p>Subroutine ID. Used internally by the Executor.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.runtime.interface.logging.InstrLogEntry.PRC">
+<code class="sig-name descname">PRC</code><em class="property">: int</em><em class="property"> = None</em><a class="headerlink" href="#netqasm.runtime.interface.logging.InstrLogEntry.PRC" title="Permalink to this definition">¶</a></dt>
+<dd><p>Program counter. Used internally by the Executor.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.runtime.interface.logging.InstrLogEntry.HLN">
+<code class="sig-name descname">HLN</code><em class="property">: int</em><em class="property"> = None</em><a class="headerlink" href="#netqasm.runtime.interface.logging.InstrLogEntry.HLN" title="Permalink to this definition">¶</a></dt>
+<dd><p>Host line number.
+Line number in source file (.py) related to what is currently executed.
+The line is in the file given by HFL (see below).</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.runtime.interface.logging.InstrLogEntry.HFL">
+<code class="sig-name descname">HFL</code><em class="property">: str</em><em class="property"> = None</em><a class="headerlink" href="#netqasm.runtime.interface.logging.InstrLogEntry.HFL" title="Permalink to this definition">¶</a></dt>
+<dd><p>Host file.
+Source file (.py) of current executed instruction.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.runtime.interface.logging.InstrLogEntry.INS">
+<code class="sig-name descname">INS</code><em class="property">: str</em><em class="property"> = None</em><a class="headerlink" href="#netqasm.runtime.interface.logging.InstrLogEntry.INS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Mnemonic of the NetQASM instruction being executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.runtime.interface.logging.InstrLogEntry.OPR">
+<code class="sig-name descname">OPR</code><em class="property">: List[str]</em><em class="property"> = None</em><a class="headerlink" href="#netqasm.runtime.interface.logging.InstrLogEntry.OPR" title="Permalink to this definition">¶</a></dt>
+<dd><p>Operands (register, array-entries..).
+List of “op=val” strings</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.runtime.interface.logging.InstrLogEntry.QID">
+<code class="sig-name descname">QID</code><em class="property">: List[int]</em><em class="property"> = None</em><a class="headerlink" href="#netqasm.runtime.interface.logging.InstrLogEntry.QID" title="Permalink to this definition">¶</a></dt>
+<dd><p>Physical qubit IDs of qubits part of the current operation.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.runtime.interface.logging.InstrLogEntry.VID">
+<code class="sig-name descname">VID</code><em class="property">: List[int]</em><em class="property"> = None</em><a class="headerlink" href="#netqasm.runtime.interface.logging.InstrLogEntry.VID" title="Permalink to this definition">¶</a></dt>
+<dd><p>Virtual qubit IDs of qubits part of the current operation.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.runtime.interface.logging.InstrLogEntry.OUT">
+<code class="sig-name descname">OUT</code><em class="property">: Optional[int]</em><em class="property"> = None</em><a class="headerlink" href="#netqasm.runtime.interface.logging.InstrLogEntry.OUT" title="Permalink to this definition">¶</a></dt>
+<dd><p>Measurement outcome. Only set in case of a measurement instruction.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.runtime.interface.logging.InstrLogEntry.QGR">
+<code class="sig-name descname">QGR</code><em class="property">: Optional[QubitGroups]</em><em class="property"> = None</em><a class="headerlink" href="#netqasm.runtime.interface.logging.InstrLogEntry.QGR" title="Permalink to this definition">¶</a></dt>
+<dd><p>Dictionary specifying groups of qubits across the network.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.runtime.interface.logging.InstrLogEntry.LOG">
+<code class="sig-name descname">LOG</code><em class="property">: str</em><em class="property"> = None</em><a class="headerlink" href="#netqasm.runtime.interface.logging.InstrLogEntry.LOG" title="Permalink to this definition">¶</a></dt>
+<dd><p>Human-readable message.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="netqasm.runtime.interface.logging.NetworkLogEntry">
+<em class="property">class </em><code class="sig-prename descclassname">netqasm.runtime.interface.logging.</code><code class="sig-name descname">NetworkLogEntry</code><span class="sig-paren">(</span><em class="sig-param">WCT</em>, <em class="sig-param">SIT</em>, <em class="sig-param">TYP</em>, <em class="sig-param">INS</em>, <em class="sig-param">BAS</em>, <em class="sig-param">MSR</em>, <em class="sig-param">NOD</em>, <em class="sig-param">PTH</em>, <em class="sig-param">QID</em>, <em class="sig-param">QGR</em>, <em class="sig-param">LOG</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.runtime.interface.logging.NetworkLogEntry" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>WCT</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – </p></li>
+<li><p><strong>SIT</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – </p></li>
+<li><p><strong>TYP</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<a class="reference internal" href="#netqasm.runtime.interface.logging.EntanglementType" title="netqasm.runtime.interface.logging.EntanglementType"><code class="xref py py-class docutils literal notranslate"><span class="pre">EntanglementType</span></code></a>]) – </p></li>
+<li><p><strong>INS</strong> (<a class="reference internal" href="#netqasm.runtime.interface.logging.EntanglementStage" title="netqasm.runtime.interface.logging.EntanglementStage"><code class="xref py py-class docutils literal notranslate"><span class="pre">EntanglementStage</span></code></a>) – </p></li>
+<li><p><strong>BAS</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]]) – </p></li>
+<li><p><strong>MSR</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]) – </p></li>
+<li><p><strong>NOD</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) – </p></li>
+<li><p><strong>PTH</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) – </p></li>
+<li><p><strong>QID</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]) – </p></li>
+<li><p><strong>QGR</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <a class="reference internal" href="#netqasm.runtime.interface.logging.QubitGroup" title="netqasm.runtime.interface.logging.QubitGroup"><code class="xref py py-class docutils literal notranslate"><span class="pre">QubitGroup</span></code></a>]]) – </p></li>
+<li><p><strong>LOG</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – </p></li>
+</ul>
+</dd>
+</dl>
+<dl class="attribute">
+<dt id="netqasm.runtime.interface.logging.NetworkLogEntry.WCT">
+<code class="sig-name descname">WCT</code><em class="property">: str</em><em class="property"> = None</em><a class="headerlink" href="#netqasm.runtime.interface.logging.NetworkLogEntry.WCT" title="Permalink to this definition">¶</a></dt>
+<dd><p>Wall clock time. Format is Python’s <cite>datetime.now()</cite>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.runtime.interface.logging.NetworkLogEntry.SIT">
+<code class="sig-name descname">SIT</code><em class="property">: int</em><em class="property"> = None</em><a class="headerlink" href="#netqasm.runtime.interface.logging.NetworkLogEntry.SIT" title="Permalink to this definition">¶</a></dt>
+<dd><p>Time in NetSquid simulation, in nanoseconds.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.runtime.interface.logging.NetworkLogEntry.TYP">
+<code class="sig-name descname">TYP</code><em class="property">: Optional[EntanglementType]</em><em class="property"> = None</em><a class="headerlink" href="#netqasm.runtime.interface.logging.NetworkLogEntry.TYP" title="Permalink to this definition">¶</a></dt>
+<dd><p>Entanglement generation type(Measure Directly or Create and Keep).
+For the ‘start’ entanglement stage (see INS below), this value is None
+since at this stage the value cannot be determined yet.
+For the ‘finish’ stage, the correct value is filled in, however.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.runtime.interface.logging.NetworkLogEntry.INS">
+<code class="sig-name descname">INS</code><em class="property">: EntanglementStage</em><em class="property"> = None</em><a class="headerlink" href="#netqasm.runtime.interface.logging.NetworkLogEntry.INS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Entanglement generation stage(start or finish).</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.runtime.interface.logging.NetworkLogEntry.BAS">
+<code class="sig-name descname">BAS</code><em class="property">: Optional[List[int]]</em><em class="property"> = None</em><a class="headerlink" href="#netqasm.runtime.interface.logging.NetworkLogEntry.BAS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases in which the two qubits(one on each end) were measured in .
+Only applies to the Measure Directly case. It is <cite>None</cite> otherwise.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.runtime.interface.logging.NetworkLogEntry.MSR">
+<code class="sig-name descname">MSR</code><em class="property">: List[int]</em><em class="property"> = None</em><a class="headerlink" href="#netqasm.runtime.interface.logging.NetworkLogEntry.MSR" title="Permalink to this definition">¶</a></dt>
+<dd><p>Measurement outcomes of the two qubits(one on each end).
+Only applies to the Measure Directly case. It is <cite>None</cite> otherwise.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.runtime.interface.logging.NetworkLogEntry.NOD">
+<code class="sig-name descname">NOD</code><em class="property">: List[str]</em><em class="property"> = None</em><a class="headerlink" href="#netqasm.runtime.interface.logging.NetworkLogEntry.NOD" title="Permalink to this definition">¶</a></dt>
+<dd><p>Node names involved in this entanglement operation.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.runtime.interface.logging.NetworkLogEntry.PTH">
+<code class="sig-name descname">PTH</code><em class="property">: List[str]</em><em class="property"> = None</em><a class="headerlink" href="#netqasm.runtime.interface.logging.NetworkLogEntry.PTH" title="Permalink to this definition">¶</a></dt>
+<dd><p>Path of links used for entanglement generation.
+Links are identified using their names.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.runtime.interface.logging.NetworkLogEntry.QID">
+<code class="sig-name descname">QID</code><em class="property">: List[int]</em><em class="property"> = None</em><a class="headerlink" href="#netqasm.runtime.interface.logging.NetworkLogEntry.QID" title="Permalink to this definition">¶</a></dt>
+<dd><p>Physical qubit IDs of qubits part of the current operation.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.runtime.interface.logging.NetworkLogEntry.QGR">
+<code class="sig-name descname">QGR</code><em class="property">: Optional[QubitGroups]</em><em class="property"> = None</em><a class="headerlink" href="#netqasm.runtime.interface.logging.NetworkLogEntry.QGR" title="Permalink to this definition">¶</a></dt>
+<dd><p>Dictionary specifying groups of qubits across the network,
+as they are after the current operation.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.runtime.interface.logging.NetworkLogEntry.LOG">
+<code class="sig-name descname">LOG</code><em class="property">: str</em><em class="property"> = None</em><a class="headerlink" href="#netqasm.runtime.interface.logging.NetworkLogEntry.LOG" title="Permalink to this definition">¶</a></dt>
+<dd><p>Human-readable message.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="netqasm.runtime.interface.logging.ClassCommLogEntry">
+<em class="property">class </em><code class="sig-prename descclassname">netqasm.runtime.interface.logging.</code><code class="sig-name descname">ClassCommLogEntry</code><span class="sig-paren">(</span><em class="sig-param">WCT</em>, <em class="sig-param">HLN</em>, <em class="sig-param">HFL</em>, <em class="sig-param">INS</em>, <em class="sig-param">MSG</em>, <em class="sig-param">SEN</em>, <em class="sig-param">REC</em>, <em class="sig-param">SOD</em>, <em class="sig-param">LOG</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.runtime.interface.logging.ClassCommLogEntry" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>WCT</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – </p></li>
+<li><p><strong>HLN</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – </p></li>
+<li><p><strong>HFL</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – </p></li>
+<li><p><strong>INS</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – </p></li>
+<li><p><strong>MSG</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – </p></li>
+<li><p><strong>SEN</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – </p></li>
+<li><p><strong>REC</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – </p></li>
+<li><p><strong>SOD</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – </p></li>
+<li><p><strong>LOG</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – </p></li>
+</ul>
+</dd>
+</dl>
+<dl class="attribute">
+<dt id="netqasm.runtime.interface.logging.ClassCommLogEntry.WCT">
+<code class="sig-name descname">WCT</code><em class="property">: str</em><em class="property"> = None</em><a class="headerlink" href="#netqasm.runtime.interface.logging.ClassCommLogEntry.WCT" title="Permalink to this definition">¶</a></dt>
+<dd><p>Wall clock time. Format is Python’s <cite>datetime.now()</cite>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.runtime.interface.logging.ClassCommLogEntry.HLN">
+<code class="sig-name descname">HLN</code><em class="property">: int</em><em class="property"> = None</em><a class="headerlink" href="#netqasm.runtime.interface.logging.ClassCommLogEntry.HLN" title="Permalink to this definition">¶</a></dt>
+<dd><p>Host line number.
+Line number in source file (.py) related to what is currently executed.
+The line is in the file given by HFL(see below).</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.runtime.interface.logging.ClassCommLogEntry.HFL">
+<code class="sig-name descname">HFL</code><em class="property">: str</em><em class="property"> = None</em><a class="headerlink" href="#netqasm.runtime.interface.logging.ClassCommLogEntry.HFL" title="Permalink to this definition">¶</a></dt>
+<dd><p>Host file.
+Source file (.py) of current executed instruction.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.runtime.interface.logging.ClassCommLogEntry.INS">
+<code class="sig-name descname">INS</code><em class="property">: str</em><em class="property"> = None</em><a class="headerlink" href="#netqasm.runtime.interface.logging.ClassCommLogEntry.INS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Classical operation being performed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.runtime.interface.logging.ClassCommLogEntry.MSG">
+<code class="sig-name descname">MSG</code><em class="property">: str</em><em class="property"> = None</em><a class="headerlink" href="#netqasm.runtime.interface.logging.ClassCommLogEntry.MSG" title="Permalink to this definition">¶</a></dt>
+<dd><p>Message that is sent or received.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.runtime.interface.logging.ClassCommLogEntry.SEN">
+<code class="sig-name descname">SEN</code><em class="property">: str</em><em class="property"> = None</em><a class="headerlink" href="#netqasm.runtime.interface.logging.ClassCommLogEntry.SEN" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name(role) of the sender.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.runtime.interface.logging.ClassCommLogEntry.REC">
+<code class="sig-name descname">REC</code><em class="property">: str</em><em class="property"> = None</em><a class="headerlink" href="#netqasm.runtime.interface.logging.ClassCommLogEntry.REC" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name(role) of the receiver.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.runtime.interface.logging.ClassCommLogEntry.SOD">
+<code class="sig-name descname">SOD</code><em class="property">: str</em><em class="property"> = None</em><a class="headerlink" href="#netqasm.runtime.interface.logging.ClassCommLogEntry.SOD" title="Permalink to this definition">¶</a></dt>
+<dd><p>Socket ID(used internally).</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.runtime.interface.logging.ClassCommLogEntry.LOG">
+<code class="sig-name descname">LOG</code><em class="property">: str</em><em class="property"> = None</em><a class="headerlink" href="#netqasm.runtime.interface.logging.ClassCommLogEntry.LOG" title="Permalink to this definition">¶</a></dt>
+<dd><p>Human-readable message.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="netqasm.runtime.interface.logging.AppLogEntry">
+<em class="property">class </em><code class="sig-prename descclassname">netqasm.runtime.interface.logging.</code><code class="sig-name descname">AppLogEntry</code><span class="sig-paren">(</span><em class="sig-param">WCT</em>, <em class="sig-param">HLN</em>, <em class="sig-param">HFL</em>, <em class="sig-param">LOG</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.runtime.interface.logging.AppLogEntry" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>WCT</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – </p></li>
+<li><p><strong>HLN</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – </p></li>
+<li><p><strong>HFL</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – </p></li>
+<li><p><strong>LOG</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – </p></li>
+</ul>
+</dd>
+</dl>
+<dl class="attribute">
+<dt id="netqasm.runtime.interface.logging.AppLogEntry.WCT">
+<code class="sig-name descname">WCT</code><em class="property">: str</em><em class="property"> = None</em><a class="headerlink" href="#netqasm.runtime.interface.logging.AppLogEntry.WCT" title="Permalink to this definition">¶</a></dt>
+<dd><p>Wall clock time. Format is Python’s <cite>datetime.now()</cite>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.runtime.interface.logging.AppLogEntry.HLN">
+<code class="sig-name descname">HLN</code><em class="property">: int</em><em class="property"> = None</em><a class="headerlink" href="#netqasm.runtime.interface.logging.AppLogEntry.HLN" title="Permalink to this definition">¶</a></dt>
+<dd><p>Host line number.
+Line number in source file (.py) related to what is currently executed.
+The line is in the file given by HFL(see below).</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.runtime.interface.logging.AppLogEntry.HFL">
+<code class="sig-name descname">HFL</code><em class="property">: str</em><em class="property"> = None</em><a class="headerlink" href="#netqasm.runtime.interface.logging.AppLogEntry.HFL" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.runtime.interface.logging.AppLogEntry.LOG">
+<code class="sig-name descname">LOG</code><em class="property">: str</em><em class="property"> = None</em><a class="headerlink" href="#netqasm.runtime.interface.logging.AppLogEntry.LOG" title="Permalink to this definition">¶</a></dt>
+<dd><p>Human-readable message.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-netqasm.runtime.interface.results">
+<span id="netqasm-runtime-interface-results-module"></span><h2>netqasm.runtime.interface.results module<a class="headerlink" href="#module-netqasm.runtime.interface.results" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-netqasm.runtime.interface">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-netqasm.runtime.interface" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="netqasm.sdk.html" class="btn btn-neutral float-right" title="netqasm.sdk package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="netqasm.runtime.html" class="btn btn-neutral float-left" title="netqasm.runtime package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2019, Axel Dahlberg
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,758 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Using the SDK &mdash; netqasm 0.5.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Application file structure" href="file_structure.html" />
+    <link rel="prev" title="Running your first app" href="first-app.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> netqasm
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../quickstart.html">Getting started</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="first-app.html">Running your first app</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Using the SDK</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#writing-a-first-application">Writing a first application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#creating-entanglement-between-nodes">Creating entanglement between nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#adding-classical-communication">Adding classical communication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#a-more-complex-example">A more complex example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#simple-classical-logic">Simple classical logic</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="file_structure.html">Application file structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modules.html">SDK objects</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../api/netqasm.html">netqasm package</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">netqasm</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../quickstart.html">Getting started</a> &raquo;</li>
+        
+      <li>Using the SDK</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/quickstart/using-sdk.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="using-the-sdk">
+<span id="using-sdk"></span><h1>Using the SDK<a class="headerlink" href="#using-the-sdk" title="Permalink to this headline">¶</a></h1>
+<p>In <a class="reference internal" href="first-app.html#first-app"><span class="std std-ref">Running your first app</span></a> we have seen how to execute applications on a simulated quantum network.
+We will now learn how to write an application ourselves.
+Below are a few sample applications which we will go through, ranging from a very simple application on a single node to a more complicated examples further on.</p>
+<div class="section" id="writing-a-first-application">
+<h2>Writing a first application<a class="headerlink" href="#writing-a-first-application" title="Permalink to this headline">¶</a></h2>
+<p>We will now create an very simple <cite>hello-world</cite>-application which consists of a single node that creates a qubit, performs a Hadamard gate and measures the qubit.</p>
+<p>Let’s first create a new folder <code class="docutils literal notranslate"><span class="pre">my-app</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir my-app
+<span class="nb">cd</span> my-app
+</pre></div>
+</div>
+<p>In this folder we will now create our application</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>touch app_alice.py
+</pre></div>
+</div>
+<p>Open the file <code class="docutils literal notranslate"><span class="pre">app_alice.py</span></code> in your favorite editor/IDE and add the following code</p>
+<div class="literal-block-wrapper docutils container" id="id1">
+<div class="code-block-caption"><span class="caption-text">app_alice.py</span><a class="headerlink" href="#id1" title="Permalink to this code">¶</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">netqasm.sdk.external</span> <span class="kn">import</span> <span class="n">NetQASMConnection</span>
+
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">app_config</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+   <span class="c1"># Setup a connection to QNodeOS</span>
+    <span class="k">with</span> <span class="n">NetQASMConnection</span><span class="p">(</span><span class="s2">&quot;alice&quot;</span><span class="p">,</span> <span class="n">log_config</span><span class="o">=</span><span class="n">app_config</span><span class="o">.</span><span class="n">log_config</span><span class="p">)</span> <span class="k">as</span> <span class="n">alice</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Started NetQASM connection to QNodeOS&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The reason <code class="docutils literal notranslate"><span class="pre">NetQASMConnection</span></code> is imported from <code class="docutils literal notranslate"><span class="pre">netqasm.sdk.external</span></code> is that the class used
+will depend on which simulator is specified. The information about which simulator is used is
+stored in the environement varible <code class="docutils literal notranslate"><span class="pre">NETQASM_SIMULATOR</span></code>, and makes <code class="docutils literal notranslate"><span class="pre">netqasm.sdk.external</span></code>
+load different classes depending on its value. What this allows us to do is to simulate an
+application on different simulators, without changing anything, even imports.</p>
+</div>
+<p>What this code does is to setup a connection to the underlying (simulated) <code class="docutils literal notranslate"><span class="pre">QNodeOS</span></code> which can handle the NetQASM-instructions.
+More information about <code class="docutils literal notranslate"><span class="pre">QNodeOS</span></code> can be found <a class="reference external" href="#">here</a>.
+You can already run this application by doing <code class="docutils literal notranslate"><span class="pre">netqasm</span> <span class="pre">simulate</span></code>, and if everything was correct you will see the message being printed.</p>
+<p>In the context of the connection, we can now create a qubit</p>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">app_alice.py</span><a class="headerlink" href="#id2" title="Permalink to this code">¶</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">netqasm.sdk.external</span> <span class="kn">import</span> <span class="n">NetQASMConnection</span>
+<span class="hll"><span class="kn">from</span> <span class="nn">netqasm.sdk</span> <span class="kn">import</span> <span class="n">Qubit</span>
+</span>
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">app_config</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+   <span class="c1"># Setup a connection to QNodeOS</span>
+    <span class="k">with</span> <span class="n">NetQASMConnection</span><span class="p">(</span><span class="s2">&quot;alice&quot;</span><span class="p">,</span> <span class="n">log_config</span><span class="o">=</span><span class="n">app_config</span><span class="o">.</span><span class="n">log_config</span><span class="p">)</span> <span class="k">as</span> <span class="n">alice</span><span class="p">:</span>
+        <span class="c1"># Create a qubit</span>
+<span class="hll">        <span class="n">q</span> <span class="o">=</span> <span class="n">Qubit</span><span class="p">(</span><span class="n">alice</span><span class="p">)</span>
+</span></pre></div>
+</div>
+</div>
+<p>Running the application now seems perhaps to not do anything.
+To make sure that a qubit is actually created we can set the log-level to <code class="docutils literal notranslate"><span class="pre">INFO</span></code></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>netqasm simulate --log-level<span class="o">=</span>DEBUG
+</pre></div>
+</div>
+<p>You will then see that a subroutine is flushed and handled by the <code class="xref py py-class docutils literal notranslate"><span class="pre">SubroutineHandler</span></code>, which is a simplified version of a <code class="docutils literal notranslate"><span class="pre">QNodeOS</span></code> used in simulation.</p>
+<p>Let’s now perform a gate on the qubit and also measure it.</p>
+<div class="literal-block-wrapper docutils container" id="id3">
+<div class="code-block-caption"><span class="caption-text">app_alice.py</span><a class="headerlink" href="#id3" title="Permalink to this code">¶</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">netqasm.sdk.external</span> <span class="kn">import</span> <span class="n">NetQASMConnection</span>
+<span class="kn">from</span> <span class="nn">netqasm.sdk</span> <span class="kn">import</span> <span class="n">Qubit</span>
+
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">app_config</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+   <span class="c1"># Setup a connection to QNodeOS</span>
+    <span class="k">with</span> <span class="n">NetQASMConnection</span><span class="p">(</span><span class="s2">&quot;alice&quot;</span><span class="p">,</span> <span class="n">log_config</span><span class="o">=</span><span class="n">app_config</span><span class="o">.</span><span class="n">log_config</span><span class="p">)</span> <span class="k">as</span> <span class="n">alice</span><span class="p">:</span>
+        <span class="c1"># Create a qubit</span>
+        <span class="n">q</span> <span class="o">=</span> <span class="n">Qubit</span><span class="p">(</span><span class="n">alice</span><span class="p">)</span>
+        <span class="c1"># Perform a Hadamard gate</span>
+<span class="hll">        <span class="n">q</span><span class="o">.</span><span class="n">H</span><span class="p">()</span>
+</span>        <span class="c1"># Measure the qubit</span>
+<span class="hll">        <span class="n">m</span> <span class="o">=</span> <span class="n">q</span><span class="o">.</span><span class="n">measure</span><span class="p">()</span>
+</span>        <span class="c1"># Print the outcome</span>
+<span class="hll">        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Outcome is: </span><span class="si">{</span><span class="n">m</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span></pre></div>
+</div>
+</div>
+<p>Let’s run this now (without setting the <code class="docutils literal notranslate"><span class="pre">--log-level</span></code>-flag) and see what the outcome is.
+Hmm, it doesn’t print the outcome but rather says:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Outcome is: Future to be stored in array with address 0 at index 0.
+To access the value, the subroutine must first be executed which can be done by flushing.
+</pre></div>
+</div>
+<p>The reason this happens is because the operations specified are in fact not directly executed on the (simulated) quantum hardware.
+Rather, they are buffered into a <code class="docutils literal notranslate"><span class="pre">NetQASM</span></code>-subroutine, until the subroutine is flushed and sent to <code class="docutils literal notranslate"><span class="pre">QNodeOS</span></code>.
+Let’s fix our code by adding an explicit <code class="docutils literal notranslate"><span class="pre">flush</span></code> before the <code class="docutils literal notranslate"><span class="pre">print</span></code>.</p>
+<div class="literal-block-wrapper docutils container" id="id4">
+<div class="code-block-caption"><span class="caption-text">app_alice.py</span><a class="headerlink" href="#id4" title="Permalink to this code">¶</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">netqasm.sdk.external</span> <span class="kn">import</span> <span class="n">NetQASMConnection</span>
+<span class="kn">from</span> <span class="nn">netqasm.sdk</span> <span class="kn">import</span> <span class="n">Qubit</span>
+
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">app_config</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+   <span class="c1"># Setup a connection to QNodeOS</span>
+    <span class="k">with</span> <span class="n">NetQASMConnection</span><span class="p">(</span><span class="s2">&quot;alice&quot;</span><span class="p">,</span> <span class="n">log_config</span><span class="o">=</span><span class="n">app_config</span><span class="o">.</span><span class="n">log_config</span><span class="p">)</span> <span class="k">as</span> <span class="n">alice</span><span class="p">:</span>
+        <span class="c1"># Create a qubit</span>
+        <span class="n">q</span> <span class="o">=</span> <span class="n">Qubit</span><span class="p">(</span><span class="n">alice</span><span class="p">)</span>
+        <span class="c1"># Perform a Hadamard gate</span>
+        <span class="n">q</span><span class="o">.</span><span class="n">H</span><span class="p">()</span>
+        <span class="c1"># Measure the qubit</span>
+        <span class="n">m</span> <span class="o">=</span> <span class="n">q</span><span class="o">.</span><span class="n">measure</span><span class="p">()</span>
+        <span class="c1"># Flush the current subroutine</span>
+<span class="hll">        <span class="n">alice</span><span class="o">.</span><span class="n">flush</span><span class="p">()</span>
+</span>        <span class="c1"># Print the outcome</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Outcome is: </span><span class="si">{</span><span class="n">m</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>Running the application again will now either print <code class="docutils literal notranslate"><span class="pre">Outcome</span> <span class="pre">is:</span> <span class="pre">0</span></code> or <code class="docutils literal notranslate"><span class="pre">Outcome</span> <span class="pre">is:</span> <span class="pre">1</span></code>.
+Run it a few times to see the different outcomes.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>A connection is automatically flushed whenever it goes out of scope.
+So in the above example we could have just as well done:</p>
+<div class="literal-block-wrapper docutils container" id="id5">
+<div class="code-block-caption"><span class="caption-text">app_alice.py</span><a class="headerlink" href="#id5" title="Permalink to this code">¶</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">netqasm.sdk.external</span> <span class="kn">import</span> <span class="n">NetQASMConnection</span>
+<span class="kn">from</span> <span class="nn">netqasm.sdk</span> <span class="kn">import</span> <span class="n">Qubit</span>
+
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">app_config</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+   <span class="c1"># Setup a connection to QNodeOS</span>
+    <span class="k">with</span> <span class="n">NetQASMConnection</span><span class="p">(</span><span class="s2">&quot;alice&quot;</span><span class="p">,</span> <span class="n">log_config</span><span class="o">=</span><span class="n">app_config</span><span class="o">.</span><span class="n">log_config</span><span class="p">)</span> <span class="k">as</span> <span class="n">alice</span><span class="p">:</span>
+        <span class="c1"># Create a qubit</span>
+        <span class="n">q</span> <span class="o">=</span> <span class="n">Qubit</span><span class="p">(</span><span class="n">alice</span><span class="p">)</span>
+        <span class="c1"># Perform a Hadamard gate</span>
+        <span class="n">q</span><span class="o">.</span><span class="n">H</span><span class="p">()</span>
+        <span class="c1"># Measure the qubit</span>
+        <span class="n">m</span> <span class="o">=</span> <span class="n">q</span><span class="o">.</span><span class="n">measure</span><span class="p">()</span>
+     <span class="c1"># Print the outcome</span>
+     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Outcome is: </span><span class="si">{</span><span class="n">m</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>It is important to understand how the execution happens when running the application.
+Try adding some print statements in the application, turn on <code class="docutils literal notranslate"><span class="pre">INFO</span></code>-logging and see if you
+can understand why the print-statements and logging-statements are in the other you see.</p>
+</div>
+</div>
+<div class="section" id="creating-entanglement-between-nodes">
+<h2>Creating entanglement between nodes<a class="headerlink" href="#creating-entanglement-between-nodes" title="Permalink to this headline">¶</a></h2>
+<p>Let’s now extend our application by adding another node <code class="docutils literal notranslate"><span class="pre">bob</span></code> and have the two nodes create entanglement with each other.</p>
+<p>To do this we will need to setup an <a class="reference external" href="https://arxiv.org/abs/2010.02575/">EPR socket</a>.
+We do this by instanciating an object of <a class="reference internal" href="../api/netqasm.sdk.html#netqasm.sdk.epr_socket.EPRSocket" title="netqasm.sdk.epr_socket.EPRSocket"><code class="xref py py-class docutils literal notranslate"><span class="pre">EPRSocket</span></code></a> and give this to the <code class="docutils literal notranslate"><span class="pre">NetQASMConnection</span></code>.
+Consider the following code-example for the node with role <code class="docutils literal notranslate"><span class="pre">alice</span></code>:</p>
+<div class="literal-block-wrapper docutils container" id="id6">
+<div class="code-block-caption"><span class="caption-text">app_alice.py</span><a class="headerlink" href="#id6" title="Permalink to this code">¶</a></div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">netqasm.sdk.external</span> <span class="kn">import</span> <span class="n">NetQASMConnection</span>
+<span class="hll"><span class="kn">from</span> <span class="nn">netqasm.sdk</span> <span class="kn">import</span> <span class="n">EPRSocket</span>
+</span>
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">app_config</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="c1"># Specify an EPR socket to bob</span>
+<span class="hll">    <span class="n">epr_socket</span> <span class="o">=</span> <span class="n">EPRSocket</span><span class="p">(</span><span class="s2">&quot;bob&quot;</span><span class="p">)</span>
+</span>
+    <span class="n">alice</span> <span class="o">=</span> <span class="n">NetQASMConnection</span><span class="p">(</span>
+        <span class="s2">&quot;alice&quot;</span><span class="p">,</span>
+        <span class="n">log_config</span><span class="o">=</span><span class="n">app_config</span><span class="o">.</span><span class="n">log_config</span><span class="p">,</span>
+<span class="hll">        <span class="n">epr_sockets</span><span class="o">=</span><span class="p">[</span><span class="n">epr_socket</span><span class="p">],</span>
+</span>    <span class="p">)</span>
+    <span class="k">with</span> <span class="n">alice</span><span class="p">:</span>
+        <span class="c1"># Create an entangled pair using the EPR socket to bob</span>
+<span class="hll">        <span class="n">q_ent</span> <span class="o">=</span> <span class="n">epr_socket</span><span class="o">.</span><span class="n">create</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+</span>        <span class="c1"># Measure the qubit</span>
+        <span class="n">m</span> <span class="o">=</span> <span class="n">q_ent</span><span class="o">.</span><span class="n">measure</span><span class="p">()</span>
+    <span class="c1"># Print the outcome</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;alice&#39;s outcome is: </span><span class="si">{</span><span class="n">m</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>The code for <code class="docutils literal notranslate"><span class="pre">bob</span></code> will be very similar, with the only difference being that <code class="docutils literal notranslate"><span class="pre">bob</span></code> <cite>receives</cite> an entangled pair by calling <code class="docutils literal notranslate"><span class="pre">recv</span></code> on the EPR socket object:</p>
+<div class="literal-block-wrapper docutils container" id="id7">
+<div class="code-block-caption"><span class="caption-text">app_bob.py</span><a class="headerlink" href="#id7" title="Permalink to this code">¶</a></div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">netqasm.sdk.external</span> <span class="kn">import</span> <span class="n">NetQASMConnection</span>
+<span class="kn">from</span> <span class="nn">netqasm.sdk</span> <span class="kn">import</span> <span class="n">EPRSocket</span>
+
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">app_config</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="c1"># Specify an EPR socket to bob</span>
+    <span class="n">epr_socket</span> <span class="o">=</span> <span class="n">EPRSocket</span><span class="p">(</span><span class="s2">&quot;alice&quot;</span><span class="p">)</span>
+
+    <span class="n">bob</span> <span class="o">=</span> <span class="n">NetQASMConnection</span><span class="p">(</span>
+        <span class="s2">&quot;bob&quot;</span><span class="p">,</span>
+        <span class="n">log_config</span><span class="o">=</span><span class="n">app_config</span><span class="o">.</span><span class="n">log_config</span><span class="p">,</span>
+        <span class="n">epr_sockets</span><span class="o">=</span><span class="p">[</span><span class="n">epr_socket</span><span class="p">],</span>
+    <span class="p">)</span>
+    <span class="k">with</span> <span class="n">bob</span><span class="p">:</span>
+        <span class="c1"># Receive an entangled pair using the EPR socket to alice</span>
+<span class="hll">        <span class="n">q_ent</span> <span class="o">=</span> <span class="n">epr_socket</span><span class="o">.</span><span class="n">recv</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+</span>        <span class="c1"># Measure the qubit</span>
+        <span class="n">m</span> <span class="o">=</span> <span class="n">q_ent</span><span class="o">.</span><span class="n">measure</span><span class="p">()</span>
+    <span class="c1"># Print the outcome</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;bob&#39;s outcome is: </span><span class="si">{</span><span class="n">m</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>Running this application files using <code class="docutils literal notranslate"><span class="pre">netqasm</span> <span class="pre">simulate</span></code> prints the outcomes of the two nodes.
+Since by default no noise is used, their outcomes will always be equal.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Checkout the documentation of <a class="reference internal" href="../api/netqasm.sdk.html#netqasm.sdk.epr_socket.EPRSocket" title="netqasm.sdk.epr_socket.EPRSocket"><code class="xref py py-class docutils literal notranslate"><span class="pre">EPRSocket</span></code></a> to see what arguments <a class="reference internal" href="../api/netqasm.sdk.html#netqasm.sdk.epr_socket.EPRSocket.create" title="netqasm.sdk.epr_socket.EPRSocket.create"><code class="xref py py-meth docutils literal notranslate"><span class="pre">create()</span></code></a> and <a class="reference internal" href="../api/netqasm.sdk.html#netqasm.sdk.epr_socket.EPRSocket.recv" title="netqasm.sdk.epr_socket.EPRSocket.recv"><code class="xref py py-meth docutils literal notranslate"><span class="pre">recv()</span></code></a> can take.
+For example you will see that a number of pairs can be specified, which is why these methods return a list of <a class="reference internal" href="../api/netqasm.sdk.html#netqasm.sdk.qubit.Qubit" title="netqasm.sdk.qubit.Qubit"><code class="xref py py-class docutils literal notranslate"><span class="pre">Qubit</span></code></a>-objects.
+Also checkout the methods <a class="reference internal" href="../api/netqasm.sdk.html#netqasm.sdk.epr_socket.EPRSocket.create_context" title="netqasm.sdk.epr_socket.EPRSocket.create_context"><code class="xref py py-meth docutils literal notranslate"><span class="pre">create_context()</span></code></a> and <a class="reference internal" href="../api/netqasm.sdk.html#netqasm.sdk.epr_socket.EPRSocket.recv_context" title="netqasm.sdk.epr_socket.EPRSocket.recv_context"><code class="xref py py-meth docutils literal notranslate"><span class="pre">recv_context()</span></code></a>, which allows to specify what to do whenever a pair is generated, using a context.</p>
+</div>
+</div>
+<div class="section" id="adding-classical-communication">
+<h2>Adding classical communication<a class="headerlink" href="#adding-classical-communication" title="Permalink to this headline">¶</a></h2>
+<p>Applications generally also need to communicate classicaly between nodes, to for example communicate measurement outcomes.
+We will extend our example by having <code class="docutils literal notranslate"><span class="pre">alice</span></code> communicate her outcome to <code class="docutils literal notranslate"><span class="pre">bob</span></code>.
+<code class="docutils literal notranslate"><span class="pre">bob</span></code> will use this outcome to possible apply a correction in order to make his qubit be in the state <span class="math notranslate nohighlight">\(|0\rangle\)</span> in both cases.
+Consider the following code-snippets for <code class="docutils literal notranslate"><span class="pre">alice</span></code> and <code class="docutils literal notranslate"><span class="pre">bob</span></code>:</p>
+<div class="literal-block-wrapper docutils container" id="id8">
+<div class="code-block-caption"><span class="caption-text">app_alice.py</span><a class="headerlink" href="#id8" title="Permalink to this code">¶</a></div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="hll"><span class="kn">from</span> <span class="nn">netqasm.sdk.external</span> <span class="kn">import</span> <span class="n">NetQASMConnection</span><span class="p">,</span> <span class="n">Socket</span>
+</span><span class="kn">from</span> <span class="nn">netqasm.sdk</span> <span class="kn">import</span> <span class="n">EPRSocket</span>
+
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">app_config</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="c1"># Setup a classical socket to bob</span>
+<span class="hll">    <span class="n">socket</span> <span class="o">=</span> <span class="n">Socket</span><span class="p">(</span><span class="s2">&quot;alice&quot;</span><span class="p">,</span> <span class="s2">&quot;bob&quot;</span><span class="p">,</span> <span class="n">log_config</span><span class="o">=</span><span class="n">app_config</span><span class="o">.</span><span class="n">log_config</span><span class="p">)</span>
+</span>
+    <span class="c1"># Specify an EPR socket to bob</span>
+    <span class="n">epr_socket</span> <span class="o">=</span> <span class="n">EPRSocket</span><span class="p">(</span><span class="s2">&quot;bob&quot;</span><span class="p">)</span>
+
+    <span class="n">alice</span> <span class="o">=</span> <span class="n">NetQASMConnection</span><span class="p">(</span>
+        <span class="s2">&quot;alice&quot;</span><span class="p">,</span>
+        <span class="n">log_config</span><span class="o">=</span><span class="n">app_config</span><span class="o">.</span><span class="n">log_config</span><span class="p">,</span>
+        <span class="n">epr_sockets</span><span class="o">=</span><span class="p">[</span><span class="n">epr_socket</span><span class="p">],</span>
+    <span class="p">)</span>
+    <span class="k">with</span> <span class="n">alice</span><span class="p">:</span>
+        <span class="c1"># Create an entangled pair using the EPR socket to bob</span>
+        <span class="n">q_ent</span> <span class="o">=</span> <span class="n">epr_socket</span><span class="o">.</span><span class="n">create</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="c1"># Measure the qubit</span>
+        <span class="n">m</span> <span class="o">=</span> <span class="n">q_ent</span><span class="o">.</span><span class="n">measure</span><span class="p">()</span>
+    <span class="c1"># Print the outcome</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;alice&#39;s outcome is: </span><span class="si">{</span><span class="n">m</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Send the outcome to bob</span>
+<span class="hll">    <span class="n">socket</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">m</span><span class="p">))</span>
+</span></pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id9">
+<div class="code-block-caption"><span class="caption-text">app_bob.py</span><a class="headerlink" href="#id9" title="Permalink to this code">¶</a></div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="hll"><span class="kn">from</span> <span class="nn">netqasm.sdk.external</span> <span class="kn">import</span> <span class="n">NetQASMConnection</span><span class="p">,</span> <span class="n">Socket</span>
+</span><span class="kn">from</span> <span class="nn">netqasm.sdk</span> <span class="kn">import</span> <span class="n">EPRSocket</span>
+
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">app_config</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="c1"># Setup a classical socket to alice</span>
+<span class="hll">    <span class="n">socket</span> <span class="o">=</span> <span class="n">Socket</span><span class="p">(</span><span class="s2">&quot;bob&quot;</span><span class="p">,</span> <span class="s2">&quot;alice&quot;</span><span class="p">,</span> <span class="n">log_config</span><span class="o">=</span><span class="n">app_config</span><span class="o">.</span><span class="n">log_config</span><span class="p">)</span>
+</span>
+    <span class="c1"># Specify an EPR socket to bob</span>
+    <span class="n">epr_socket</span> <span class="o">=</span> <span class="n">EPRSocket</span><span class="p">(</span><span class="s2">&quot;alice&quot;</span><span class="p">)</span>
+
+    <span class="n">bob</span> <span class="o">=</span> <span class="n">NetQASMConnection</span><span class="p">(</span>
+        <span class="s2">&quot;bob&quot;</span><span class="p">,</span>
+        <span class="n">log_config</span><span class="o">=</span><span class="n">app_config</span><span class="o">.</span><span class="n">log_config</span><span class="p">,</span>
+        <span class="n">epr_sockets</span><span class="o">=</span><span class="p">[</span><span class="n">epr_socket</span><span class="p">],</span>
+    <span class="p">)</span>
+    <span class="k">with</span> <span class="n">bob</span><span class="p">:</span>
+        <span class="c1"># Receive an entangled pair using the EPR socket to alice</span>
+<span class="hll">        <span class="n">q_ent</span> <span class="o">=</span> <span class="n">epr_socket</span><span class="o">.</span><span class="n">recv</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+</span>
+        <span class="c1"># Receive the outcome from alice</span>
+        <span class="n">m</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">recv</span><span class="p">())</span>
+
+        <span class="c1"># Apply correction depending on outcome</span>
+        <span class="k">if</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+<span class="hll">            <span class="n">q_ent</span><span class="o">.</span><span class="n">X</span><span class="p">()</span>
+</span>
+        <span class="c1"># Measure the qubit</span>
+        <span class="n">m</span> <span class="o">=</span> <span class="n">q_ent</span><span class="o">.</span><span class="n">measure</span><span class="p">()</span>
+
+    <span class="c1"># Print the outcome</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;bob&#39;s outcome is: </span><span class="si">{</span><span class="n">m</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>Running the above example we can see that the outcome of <code class="docutils literal notranslate"><span class="pre">bob</span></code> is always 0, independently of the outcome of <code class="docutils literal notranslate"><span class="pre">alice</span></code>.</p>
+</div>
+<div class="section" id="a-more-complex-example">
+<h2>A more complex example<a class="headerlink" href="#a-more-complex-example" title="Permalink to this headline">¶</a></h2>
+<p>We will now look at a more complicated example, where we will use quantum error correction to protect an entangled qubit from errors.
+In this example we will use the most simple quantum error-correction code, namely the <a class="reference external" href="https://en.wikipedia.org/wiki/Quantum_error_correction/">repition code</a> on three qubits.
+Before implementing the actual quantum error-correction code, let’s define how we want the main functions to look like.
+On <code class="docutils literal notranslate"><span class="pre">alice</span></code>’s side we will</p>
+<ol class="arabic simple">
+<li><p>Create encode the qubit</p></li>
+<li><p>Randomly apply a bit-flip</p></li>
+<li><p>Correct any error</p></li>
+<li><p>Decode the qubit again.</p></li>
+<li><p>Measure the qubit and print the outcome</p></li>
+</ol>
+<div class="literal-block-wrapper docutils container" id="id10">
+<div class="code-block-caption"><span class="caption-text">app_alice.py</span><a class="headerlink" href="#id10" title="Permalink to this code">¶</a></div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">app_config</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="c1"># Specify an EPR socket to bob</span>
+    <span class="n">epr_socket</span> <span class="o">=</span> <span class="n">EPRSocket</span><span class="p">(</span><span class="s2">&quot;bob&quot;</span><span class="p">)</span>
+
+    <span class="n">alice</span> <span class="o">=</span> <span class="n">NetQASMConnection</span><span class="p">(</span>
+        <span class="s2">&quot;alice&quot;</span><span class="p">,</span>
+        <span class="n">log_config</span><span class="o">=</span><span class="n">app_config</span><span class="o">.</span><span class="n">log_config</span><span class="p">,</span>
+        <span class="n">epr_sockets</span><span class="o">=</span><span class="p">[</span><span class="n">epr_socket</span><span class="p">],</span>
+    <span class="p">)</span>
+    <span class="k">with</span> <span class="n">alice</span><span class="p">:</span>
+        <span class="c1"># Create an entangled pair using the EPR socket to bob</span>
+        <span class="n">q_ent</span> <span class="o">=</span> <span class="n">epr_socket</span><span class="o">.</span><span class="n">create</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+
+        <span class="c1"># Encode into repitition code</span>
+<span class="hll">        <span class="n">logical_qubit</span> <span class="o">=</span> <span class="n">encode</span><span class="p">(</span><span class="n">q_ent</span><span class="p">)</span>
+</span>
+        <span class="c1"># Randomly introduce a bit-flip</span>
+<span class="hll">        <span class="k">if</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span>
+</span><span class="hll">            <span class="n">i</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+</span><span class="hll">            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;applying bit flip on qubit </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span class="hll">            <span class="c1"># q = random.choice(logical_qubit)</span>
+</span><span class="hll">            <span class="n">q</span> <span class="o">=</span> <span class="n">logical_qubit</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+</span><span class="hll">            <span class="n">q</span><span class="o">.</span><span class="n">X</span><span class="p">()</span>
+</span>
+        <span class="c1"># Correct a possible bit-flip</span>
+<span class="hll">        <span class="n">correct</span><span class="p">(</span><span class="n">logical_qubit</span><span class="p">)</span>
+</span>
+        <span class="c1"># Decode back</span>
+<span class="hll">        <span class="n">decode</span><span class="p">(</span><span class="n">logical_qubit</span><span class="p">)</span>
+</span>
+        <span class="c1"># Measure the qubit</span>
+        <span class="n">m</span> <span class="o">=</span> <span class="n">logical_qubit</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">measure</span><span class="p">()</span>
+
+    <span class="c1"># Print the outcome</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;alice&#39;s outcome is: </span><span class="si">{</span><span class="n">m</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">bob</span></code> on the other hand will simple measure his entangled qubit and print the outcome.</p>
+<div class="literal-block-wrapper docutils container" id="id11">
+<div class="code-block-caption"><span class="caption-text">app_bob.py</span><a class="headerlink" href="#id11" title="Permalink to this code">¶</a></div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">app_config</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="c1"># Specify an EPR socket to bob</span>
+    <span class="n">epr_socket</span> <span class="o">=</span> <span class="n">EPRSocket</span><span class="p">(</span><span class="s2">&quot;alice&quot;</span><span class="p">)</span>
+
+    <span class="n">bob</span> <span class="o">=</span> <span class="n">NetQASMConnection</span><span class="p">(</span>
+        <span class="s2">&quot;bob&quot;</span><span class="p">,</span>
+        <span class="n">log_config</span><span class="o">=</span><span class="n">app_config</span><span class="o">.</span><span class="n">log_config</span><span class="p">,</span>
+        <span class="n">epr_sockets</span><span class="o">=</span><span class="p">[</span><span class="n">epr_socket</span><span class="p">],</span>
+    <span class="p">)</span>
+    <span class="k">with</span> <span class="n">bob</span><span class="p">:</span>
+        <span class="c1"># Receive an entangled pair using the EPR socket to alice</span>
+        <span class="n">q_ent</span> <span class="o">=</span> <span class="n">epr_socket</span><span class="o">.</span><span class="n">recv</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+
+        <span class="c1"># Measure the qubit</span>
+        <span class="n">m</span> <span class="o">=</span> <span class="n">q_ent</span><span class="o">.</span><span class="n">measure</span><span class="p">()</span>
+
+    <span class="c1"># Print the outcome</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;bob&#39;s outcome is: </span><span class="si">{</span><span class="n">m</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>Let’s now implement the functions: <code class="docutils literal notranslate"><span class="pre">encode</span></code>, <code class="docutils literal notranslate"><span class="pre">correct</span></code> and <code class="docutils literal notranslate"><span class="pre">decode</span></code>:</p>
+<div class="literal-block-wrapper docutils container" id="id12">
+<div class="code-block-caption"><span class="caption-text">app_alice.py</span><a class="headerlink" href="#id12" title="Permalink to this code">¶</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
+
+<span class="kn">from</span> <span class="nn">netqasm.sdk.external</span> <span class="kn">import</span> <span class="n">NetQASMConnection</span><span class="p">,</span> <span class="n">Socket</span>
+<span class="kn">from</span> <span class="nn">netqasm.sdk</span> <span class="kn">import</span> <span class="n">EPRSocket</span><span class="p">,</span> <span class="n">Qubit</span><span class="p">,</span> <span class="n">parity_meas</span><span class="p">,</span> <span class="n">t_inverse</span><span class="p">,</span> <span class="n">toffoli_gate</span>
+
+<span class="k">def</span> <span class="nf">encode</span><span class="p">(</span><span class="n">qubit</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Encodes a qubit into a repitition code by intializing two more</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    qubit : :class:`~.Qubit`</span>
+<span class="sd">        Qubit to be encoded</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    list : list of encoded qubits</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">conn</span> <span class="o">=</span> <span class="n">qubit</span><span class="o">.</span><span class="n">connection</span>
+    <span class="n">logical_qubit</span> <span class="o">=</span> <span class="p">[</span><span class="n">qubit</span><span class="p">,</span> <span class="n">Qubit</span><span class="p">(</span><span class="n">conn</span><span class="p">),</span> <span class="n">Qubit</span><span class="p">(</span><span class="n">conn</span><span class="p">)]</span>
+    <span class="k">for</span> <span class="n">q</span> <span class="ow">in</span> <span class="n">logical_qubit</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>
+        <span class="n">logical_qubit</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">cnot</span><span class="p">(</span><span class="n">q</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">logical_qubit</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id13">
+<div class="code-block-caption"><span class="caption-text">app_alice.py</span><a class="headerlink" href="#id13" title="Permalink to this code">¶</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">correct</span><span class="p">(</span><span class="n">logical_qubit</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Tries to correct a bit flip</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    logical_qubit : list of :class:`~.Qubit`</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Check code syndromes</span>
+    <span class="n">s1</span> <span class="o">=</span> <span class="n">parity_meas</span><span class="p">(</span><span class="n">logical_qubit</span><span class="p">,</span> <span class="s1">&#39;ZZI&#39;</span><span class="p">)</span>
+    <span class="n">s2</span> <span class="o">=</span> <span class="n">parity_meas</span><span class="p">(</span><span class="n">logical_qubit</span><span class="p">,</span> <span class="s1">&#39;IZZ&#39;</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;syndrome is (</span><span class="si">{</span><span class="n">s1</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">s2</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">s1</span><span class="p">,</span> <span class="n">s2</span><span class="p">)</span> <span class="o">==</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">):</span>  <span class="c1"># No error</span>
+        <span class="k">pass</span>
+    <span class="k">elif</span> <span class="p">(</span><span class="n">s1</span><span class="p">,</span> <span class="n">s2</span><span class="p">)</span> <span class="o">==</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span>  <span class="c1"># Error on third</span>
+        <span class="n">logical_qubit</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">X</span><span class="p">()</span>
+    <span class="k">elif</span> <span class="p">(</span><span class="n">s1</span><span class="p">,</span> <span class="n">s2</span><span class="p">)</span> <span class="o">==</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">):</span>  <span class="c1"># Error on first qubit</span>
+        <span class="n">logical_qubit</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">X</span><span class="p">()</span>
+    <span class="k">else</span><span class="p">:</span>  <span class="c1"># Error on second qubit</span>
+        <span class="n">logical_qubit</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">X</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id14">
+<div class="code-block-caption"><span class="caption-text">app_alice.py</span><a class="headerlink" href="#id14" title="Permalink to this code">¶</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">decode</span><span class="p">(</span><span class="n">logical_qubit</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Decodes the repitition code on three qubits</span>
+<span class="sd">    After the first qubit in the list will be the decode qubit.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    logical_qubit : list of :class:`~.Qubit</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">q</span> <span class="ow">in</span> <span class="n">logical_qubit</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>
+        <span class="n">logical_qubit</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">cnot</span><span class="p">(</span><span class="n">q</span><span class="p">)</span>
+        <span class="c1"># Toffoli with first qubit as target</span>
+        <span class="n">toffoli_gate</span><span class="p">(</span><span class="o">*</span><span class="nb">reversed</span><span class="p">(</span><span class="n">logical_qubit</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<p>Let’s now run our application and see what happens.
+Hmm, we get an error.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Try to figure out what goes wrong before reading the solution below.</p>
+</div>
+<p>Our mistake is that we are trying to use the outcomes <code class="docutils literal notranslate"><span class="pre">s1</span></code> and <code class="docutils literal notranslate"><span class="pre">s2</span></code>, in the <code class="docutils literal notranslate"><span class="pre">correct</span></code>-function, before the subroutine is flushed.
+One way to solve this is to add a <code class="docutils literal notranslate"><span class="pre">flush</span></code>-statement as follows:</p>
+<div class="literal-block-wrapper docutils container" id="id15">
+<div class="code-block-caption"><span class="caption-text">app_alice.py</span><a class="headerlink" href="#id15" title="Permalink to this code">¶</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">correct</span><span class="p">(</span><span class="n">logical_qubit</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Tries to correct a bit flip</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    logical_qubit : list of :class:`~.Qubit`</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Check code syndromes</span>
+    <span class="n">s1</span> <span class="o">=</span> <span class="n">parity_meas</span><span class="p">(</span><span class="n">logical_qubit</span><span class="p">,</span> <span class="s1">&#39;ZZI&#39;</span><span class="p">)</span>
+    <span class="n">s2</span> <span class="o">=</span> <span class="n">parity_meas</span><span class="p">(</span><span class="n">logical_qubit</span><span class="p">,</span> <span class="s1">&#39;IZZ&#39;</span><span class="p">)</span>
+
+    <span class="n">conn</span> <span class="o">=</span> <span class="n">logical_qubit</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">connection</span>
+    <span class="n">conn</span><span class="o">.</span><span class="n">flush</span><span class="p">()</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;syndrome is (</span><span class="si">{</span><span class="n">s1</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">s2</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">s1</span><span class="p">,</span> <span class="n">s2</span><span class="p">)</span> <span class="o">==</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">):</span>  <span class="c1"># No error</span>
+        <span class="k">pass</span>
+    <span class="k">elif</span> <span class="p">(</span><span class="n">s1</span><span class="p">,</span> <span class="n">s2</span><span class="p">)</span> <span class="o">==</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span>  <span class="c1"># Error on third</span>
+        <span class="n">logical_qubit</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">X</span><span class="p">()</span>
+    <span class="k">elif</span> <span class="p">(</span><span class="n">s1</span><span class="p">,</span> <span class="n">s2</span><span class="p">)</span> <span class="o">==</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">):</span>  <span class="c1"># Error on first qubit</span>
+        <span class="n">logical_qubit</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">X</span><span class="p">()</span>
+    <span class="k">else</span><span class="p">:</span>  <span class="c1"># Error on second qubit</span>
+        <span class="n">logical_qubit</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">X</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<p>The application now works :)
+You can see that independently on which qubit the bit-flip might occur, <code class="docutils literal notranslate"><span class="pre">alice</span></code> and <code class="docutils literal notranslate"><span class="pre">bob</span></code> always receive the same outcome, meaning that our error-correction code is working.</p>
+<p>However, there is something we can still improve.
+Namely, we can avoid the call to <code class="docutils literal notranslate"><span class="pre">flush</span></code> and instead make use of classical logic in <code class="docutils literal notranslate"><span class="pre">NetQASM</span></code> and let this be handled by <code class="docutils literal notranslate"><span class="pre">QNodeOS</span></code>.
+The reason we would want to do this is that whenever a <code class="docutils literal notranslate"><span class="pre">flush</span></code> happens, extra communication between the <code class="docutils literal notranslate"><span class="pre">Host</span></code> and <code class="docutils literal notranslate"><span class="pre">QNodeOS</span></code> is needed, see our <a class="reference external" href="https://gitlab.tudelft.nl/qinc-wehner/netqasm/netqasm-paper/">paper</a> for more details.
+We can see this happen if we increase the logging.
+Run the above example by <code class="docutils literal notranslate"><span class="pre">netqasm</span> <span class="pre">simulate</span> <span class="pre">--log-level=INFO</span></code>, which will produce a lot of logging.
+Importantly, you can see that <code class="docutils literal notranslate"><span class="pre">alice</span></code> submits two subroutines to <code class="docutils literal notranslate"><span class="pre">QNodeOS</span></code> and not only one.</p>
+<p>In the next part we look at how to use simple built-in classical logic in <code class="docutils literal notranslate"><span class="pre">NetQASM</span></code> to minimize the communication needed between the <code class="docutils literal notranslate"><span class="pre">Host</span></code> and <code class="docutils literal notranslate"><span class="pre">QNodeOS</span></code>.</p>
+</div>
+<div class="section" id="simple-classical-logic">
+<h2>Simple classical logic<a class="headerlink" href="#simple-classical-logic" title="Permalink to this headline">¶</a></h2>
+<p>Let’s now improve our <code class="docutils literal notranslate"><span class="pre">correct</span></code>-function above by avoiding the call to flush and use the simple logic built-in to <code class="docutils literal notranslate"><span class="pre">NetQASM</span></code>.
+We can rewrite the function to instead do:</p>
+<div class="literal-block-wrapper docutils container" id="id16">
+<div class="code-block-caption"><span class="caption-text">app_alice.py</span><a class="headerlink" href="#id16" title="Permalink to this code">¶</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">correct2</span><span class="p">(</span><span class="n">logical_qubit</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Tries to correct a bit flip</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    logical_qubit : list of :class:`~.Qubit`</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Check code syndromes</span>
+    <span class="n">s1</span> <span class="o">=</span> <span class="n">parity_meas</span><span class="p">(</span><span class="n">logical_qubit</span><span class="p">,</span> <span class="s1">&#39;ZZI&#39;</span><span class="p">)</span>
+    <span class="n">s2</span> <span class="o">=</span> <span class="n">parity_meas</span><span class="p">(</span><span class="n">logical_qubit</span><span class="p">,</span> <span class="s1">&#39;IZZ&#39;</span><span class="p">)</span>
+
+    <span class="k">with</span> <span class="n">s1</span><span class="o">.</span><span class="n">if_eq</span><span class="p">(</span><span class="mi">0</span><span class="p">):</span>
+        <span class="k">with</span> <span class="n">s2</span><span class="o">.</span><span class="n">if_eq</span><span class="p">(</span><span class="mi">1</span><span class="p">):</span>  <span class="c1"># outcomes (0, 1) error on third qubit</span>
+            <span class="n">logical_qubit</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">X</span><span class="p">()</span>
+    <span class="k">with</span> <span class="n">s1</span><span class="o">.</span><span class="n">if_eq</span><span class="p">(</span><span class="mi">1</span><span class="p">):</span>
+        <span class="k">with</span> <span class="n">s2</span><span class="o">.</span><span class="n">if_eq</span><span class="p">(</span><span class="mi">0</span><span class="p">):</span>  <span class="c1"># outcomes (1, 0) error on first qubit</span>
+            <span class="n">logical_qubit</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">X</span><span class="p">()</span>
+        <span class="k">with</span> <span class="n">s2</span><span class="o">.</span><span class="n">if_eq</span><span class="p">(</span><span class="mi">1</span><span class="p">):</span>  <span class="c1"># outcomes (1, 1) error on second qubit</span>
+            <span class="n">logical_qubit</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">X</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<p>If you now run the application with the update function and with <code class="docutils literal notranslate"><span class="pre">INFO</span></code> logging, you will see that <code class="docutils literal notranslate"><span class="pre">alice</span></code> only uses one subroutine.
+What happens under the hood, is that these if-statements are compiled into branching instructions in the <code class="docutils literal notranslate"><span class="pre">NetQASM</span></code>-language.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The current syntax, e.g. <code class="docutils literal notranslate"><span class="pre">with</span> <span class="pre">s1.if_eq(0):</span></code> might change.
+Ideally, we would be able to write plain Python-if-statements in the future.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Checkout the documentation for <a class="reference internal" href="../api/netqasm.sdk.html#netqasm.sdk.futures.Future" title="netqasm.sdk.futures.Future"><code class="xref py py-class docutils literal notranslate"><span class="pre">Future</span></code></a>.
+This is what’s returned when measuring a qubit and on which one can apply simple logical statements such as <code class="xref py py-meth docutils literal notranslate"><span class="pre">if_eq()</span></code>.
+Could you instead for example use the methods <code class="xref py py-meth docutils literal notranslate"><span class="pre">if_ez()</span></code> and <code class="xref py py-meth docutils literal notranslate"><span class="pre">if_nz()</span></code>.</p>
+</div>
+<p>As a next step, you can read more about how to configure the simulation of the application, what network to use, noise etc, in the section <a class="reference internal" href="file_structure.html#file-structure"><span class="std std-ref">Application file structure</span></a>.
+In <a class="reference internal" href="modules.html#sdk-objects"><span class="std std-ref">SDK objects</span></a> the main functions and classes to be used are documented.
+For the full API of the package, refer to <a class="reference internal" href="../api/netqasm.html#api"><span class="std std-ref">netqasm package</span></a>.
+Enjoy programming applications for a quantum internet!</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="file_structure.html" class="btn btn-neutral float-right" title="Application file structure" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="first-app.html" class="btn btn-neutral float-left" title="Running your first app" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2019, Axel Dahlberg
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

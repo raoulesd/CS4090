@@ -1,0 +1,360 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>netqasm package &mdash; netqasm 0.5.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="netqasm.backend package" href="netqasm.backend.html" />
+    <link rel="prev" title="SDK objects" href="../quickstart/modules.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> netqasm
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html">Getting started</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">netqasm package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="netqasm.backend.html">netqasm.backend package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="netqasm.lang.html">netqasm.lang package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="netqasm.logging.html">netqasm.logging package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="netqasm.runtime.html">netqasm.runtime package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="netqasm.sdk.html">netqasm.sdk package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="netqasm.util.html">netqasm.util package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-netqasm.typing">netqasm.typing module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-netqasm">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">netqasm</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>netqasm package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/netqasm.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="netqasm-package">
+<span id="api"></span><h1>netqasm package<a class="headerlink" href="#netqasm-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="netqasm.backend.html">netqasm.backend package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="netqasm.backend.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="netqasm.backend.html#module-netqasm.backend.executioner">netqasm.backend.executioner module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="netqasm.backend.html#module-netqasm.backend.messages">netqasm.backend.messages module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="netqasm.backend.html#module-netqasm.backend.network_stack">netqasm.backend.network_stack module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="netqasm.backend.html#module-netqasm.backend.qnodeos">netqasm.backend.qnodeos module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="netqasm.backend.html#module-netqasm.backend">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="netqasm.lang.html">netqasm.lang package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="netqasm.lang.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="netqasm.lang.instr.html">netqasm.lang.instr package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="netqasm.lang.instr.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="netqasm.lang.instr.html#module-netqasm.lang.instr.base">netqasm.lang.instr.base module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="netqasm.lang.instr.html#module-netqasm.lang.instr.core">netqasm.lang.instr.core module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="netqasm.lang.instr.html#module-netqasm.lang.instr.flavour">netqasm.lang.instr.flavour module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="netqasm.lang.instr.html#module-netqasm.lang.instr.instr_enum">netqasm.lang.instr.instr_enum module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="netqasm.lang.instr.html#module-netqasm.lang.instr.nv">netqasm.lang.instr.nv module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="netqasm.lang.instr.html#module-netqasm.lang.instr.operand">netqasm.lang.instr.operand module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="netqasm.lang.instr.html#module-netqasm.lang.instr.vanilla">netqasm.lang.instr.vanilla module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="netqasm.lang.instr.html#module-netqasm.lang.instr">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="netqasm.lang.parsing.html">netqasm.lang.parsing package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="netqasm.lang.parsing.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="netqasm.lang.parsing.html#module-netqasm.lang.parsing.binary">netqasm.lang.parsing.binary module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="netqasm.lang.parsing.html#module-netqasm.lang.parsing.text">netqasm.lang.parsing.text module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="netqasm.lang.parsing.html#module-netqasm.lang.parsing">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="netqasm.lang.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="netqasm.lang.html#module-netqasm.lang.encoding">netqasm.lang.encoding module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="netqasm.lang.html#module-netqasm.lang.subroutine">netqasm.lang.subroutine module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="netqasm.lang.html#module-netqasm.lang.symbols">netqasm.lang.symbols module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="netqasm.lang.html#module-netqasm.lang">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="netqasm.logging.html">netqasm.logging package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="netqasm.logging.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="netqasm.logging.html#module-netqasm.logging.glob">netqasm.logging.glob module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="netqasm.logging.html#module-netqasm.logging.output">netqasm.logging.output module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="netqasm.logging.html#module-netqasm.logging">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="netqasm.runtime.html">netqasm.runtime package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="netqasm.runtime.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="netqasm.runtime.interface.html">netqasm.runtime.interface package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="netqasm.runtime.interface.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="netqasm.runtime.interface.html#module-netqasm.runtime.interface.config">netqasm.runtime.interface.config module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="netqasm.runtime.interface.html#module-netqasm.runtime.interface.logging">netqasm.runtime.interface.logging module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="netqasm.runtime.interface.html#module-netqasm.runtime.interface.results">netqasm.runtime.interface.results module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="netqasm.runtime.interface.html#module-netqasm.runtime.interface">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="netqasm.runtime.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="netqasm.runtime.html#module-netqasm.runtime.app_config">netqasm.runtime.app_config module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="netqasm.runtime.html#module-netqasm.runtime.cli">netqasm.runtime.cli module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="netqasm.runtime.html#module-netqasm.runtime.env">netqasm.runtime.env module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="netqasm.runtime.html#module-netqasm.runtime.hardware">netqasm.runtime.hardware module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="netqasm.runtime.html#module-netqasm.runtime.process_logs">netqasm.runtime.process_logs module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="netqasm.runtime.html#module-netqasm.runtime.settings">netqasm.runtime.settings module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="netqasm.runtime.html#module-netqasm.runtime">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="netqasm.sdk.html">netqasm.sdk package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="netqasm.sdk.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="netqasm.sdk.classical_communication.html">netqasm.sdk.classical_communication package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="netqasm.sdk.classical_communication.html#subpackages">Subpackages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="netqasm.sdk.classical_communication.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="netqasm.sdk.classical_communication.html#module-netqasm.sdk.classical_communication.broadcast_channel">netqasm.sdk.classical_communication.broadcast_channel module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="netqasm.sdk.classical_communication.html#module-netqasm.sdk.classical_communication.socket">netqasm.sdk.classical_communication.socket module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="netqasm.sdk.classical_communication.html#module-netqasm.sdk.classical_communication">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="netqasm.sdk.toolbox.html">netqasm.sdk.toolbox package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="netqasm.sdk.toolbox.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="netqasm.sdk.toolbox.html#module-netqasm.sdk.toolbox.measurements">netqasm.sdk.toolbox.measurements module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="netqasm.sdk.toolbox.html#module-netqasm.sdk.toolbox.multi_node">netqasm.sdk.toolbox.multi_node module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="netqasm.sdk.toolbox.html#module-netqasm.sdk.toolbox.state_prep">netqasm.sdk.toolbox.state_prep module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="netqasm.sdk.toolbox.html#module-netqasm.sdk.toolbox">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="netqasm.sdk.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="netqasm.sdk.html#module-netqasm.sdk.compiling">netqasm.sdk.compiling module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="netqasm.sdk.html#module-netqasm.sdk.config">netqasm.sdk.config module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="netqasm.sdk.html#module-netqasm.sdk.connection">netqasm.sdk.connection module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="netqasm.sdk.html#module-netqasm.sdk.epr_socket">netqasm.sdk.epr_socket module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="netqasm.sdk.html#module-netqasm.sdk.external">netqasm.sdk.external module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="netqasm.sdk.html#module-netqasm.sdk.futures">netqasm.sdk.futures module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="netqasm.sdk.html#module-netqasm.sdk.network">netqasm.sdk.network module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="netqasm.sdk.html#module-netqasm.sdk.progress_bar">netqasm.sdk.progress_bar module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="netqasm.sdk.html#module-netqasm.sdk.qubit">netqasm.sdk.qubit module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="netqasm.sdk.html#module-netqasm.sdk.shared_memory">netqasm.sdk.shared_memory module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="netqasm.sdk.html#module-netqasm.sdk">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="netqasm.util.html">netqasm.util package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="netqasm.util.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="netqasm.util.html#module-netqasm.util.error">netqasm.util.error module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="netqasm.util.html#module-netqasm.util.log">netqasm.util.log module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="netqasm.util.html#module-netqasm.util.quantum_gates">netqasm.util.quantum_gates module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="netqasm.util.html#module-netqasm.util.states">netqasm.util.states module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="netqasm.util.html#module-netqasm.util.string">netqasm.util.string module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="netqasm.util.html#module-netqasm.util.thread">netqasm.util.thread module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="netqasm.util.html#module-netqasm.util.yaml">netqasm.util.yaml module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="netqasm.util.html#module-netqasm.util">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-netqasm.typing">
+<span id="netqasm-typing-module"></span><h2>netqasm.typing module<a class="headerlink" href="#module-netqasm.typing" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-netqasm">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-netqasm" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="netqasm.backend.html" class="btn btn-neutral float-right" title="netqasm.backend package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../quickstart/modules.html" class="btn btn-neutral float-left" title="SDK objects" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2019, Axel Dahlberg
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

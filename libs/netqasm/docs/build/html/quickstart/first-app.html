@@ -1,0 +1,315 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Running your first app &mdash; netqasm 0.5.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Using the SDK" href="using-sdk.html" />
+    <link rel="prev" title="Getting started" href="../quickstart.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> netqasm
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../quickstart.html">Getting started</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Running your first app</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#creating-an-application-folder">Creating an application folder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#running-the-app">Running the app</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#inspecting-the-results">Inspecting the results</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#other-pre-defined-apps">Other pre-defined apps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-other-simulators">Using other simulators</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="using-sdk.html">Using the SDK</a></li>
+<li class="toctree-l2"><a class="reference internal" href="file_structure.html">Application file structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modules.html">SDK objects</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../api/netqasm.html">netqasm package</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">netqasm</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../quickstart.html">Getting started</a> &raquo;</li>
+        
+      <li>Running your first app</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/quickstart/first-app.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="running-your-first-app">
+<span id="first-app"></span><h1>Running your first app<a class="headerlink" href="#running-your-first-app" title="Permalink to this headline">¶</a></h1>
+<p>Before writing our own application we will see how we can execute a pre-defined one on the simulator <a class="reference external" href="https://netsquid.org/">NetSquid</a>.
+Make sure you first followed the previous parts and have the relevant packages installed.</p>
+<div class="section" id="creating-an-application-folder">
+<h2>Creating an application folder<a class="headerlink" href="#creating-an-application-folder" title="Permalink to this headline">¶</a></h2>
+<p>We’ll first create an applicaton folder using a template.
+Do this by running:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>netqasm new my-app
+</pre></div>
+</div>
+<p>You can replace <code class="docutils literal notranslate"><span class="pre">my-app</span></code> with another name.
+What’s important is that this directiory cannot exist in your current working directory, since it will be created.
+Go into the directory and see what files were created.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> my-app
+ls
+</pre></div>
+</div>
+<p>You will see two files <code class="docutils literal notranslate"><span class="pre">app_sender.py</span></code> and <code class="docutils literal notranslate"><span class="pre">app_receiver.py</span></code>.
+These are the files defining the application itself.
+There are two parties in this application: <code class="docutils literal notranslate"><span class="pre">sender</span></code> and <code class="docutils literal notranslate"><span class="pre">recevier</span></code>, but you can have an arbitary number of parties.
+Each party is associated with a specific node in the network by the <cite>roles.yaml</cite> file.
+Furthermore, the network is specified in the file <cite>network.yaml</cite>.
+Lastly, the <code class="docutils literal notranslate"><span class="pre">sender.yaml</span></code> and <code class="docutils literal notranslate"><span class="pre">recevier.yaml</span></code> defines input to the application.
+For more details about these files and how to configure them, see <a class="reference internal" href="file_structure.html#file-structure"><span class="std std-ref">Application file structure</span></a>.</p>
+</div>
+<div class="section" id="running-the-app">
+<h2>Running the app<a class="headerlink" href="#running-the-app" title="Permalink to this headline">¶</a></h2>
+<p>Before describing what the application does and how you can change it, lets just run it and see what happens.
+To do this, type</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>netqasm simulate
+</pre></div>
+</div>
+<p>which, if everything went well, will print some information about a <code class="docutils literal notranslate"><span class="pre">sender</span></code> and a <code class="docutils literal notranslate"><span class="pre">recevier</span></code>.
+What this application in fact does is to teleport a qubit from the <code class="docutils literal notranslate"><span class="pre">sender</span></code> to the <code class="docutils literal notranslate"><span class="pre">recevier</span></code>.
+We will go through how this works more in detail in <a class="reference internal" href="using-sdk.html#using-sdk"><span class="std std-ref">Using the SDK</span></a>.
+Amazing, you have just teleported qubit over a simulated quantum network.
+What’s perhaps even more exiting is that you will soon be able to execute this application without changing the files on real quantum hardware using our Web SDK which is work in progress.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>TODO provide link to Web SDK?</p>
+</div>
+<p>To see what options the CLI tool takes, do:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>netqasm simulate --help
+</pre></div>
+</div>
+<p>You can for example increase the amount of logging shown by <code class="docutils literal notranslate"><span class="pre">--log-level=INFO</span></code> (or <code class="docutils literal notranslate"><span class="pre">DEBUG</span></code>) or use a different qubit representation in the simulation by <code class="docutils literal notranslate"><span class="pre">--formalism=dm</span></code> to use density matrix.
+As described below you can also use a different simulator.</p>
+</div>
+<div class="section" id="inspecting-the-results">
+<h2>Inspecting the results<a class="headerlink" href="#inspecting-the-results" title="Permalink to this headline">¶</a></h2>
+<p>You may have seen that after running the application a new directory has appeared: <code class="docutils literal notranslate"><span class="pre">log</span></code>.
+This is were all the results of the simulation get stored.
+Each execution of the application creates a new directory in <code class="docutils literal notranslate"><span class="pre">log</span></code> using a timestamp.
+For convenience, a copy of this folder is also created with the name <code class="docutils literal notranslate"><span class="pre">LAST</span></code>.
+The files in the log-folder contain information what happened during the simulation: what quantum operations were applied, what classical messages were sent, what entangled pairs were created and what the outcome of the application was.
+This is further detailed in <a class="reference internal" href="file_structure.html#file-structure"><span class="std std-ref">Application file structure</span></a>.</p>
+</div>
+<div class="section" id="other-pre-defined-apps">
+<h2>Other pre-defined apps<a class="headerlink" href="#other-pre-defined-apps" title="Permalink to this headline">¶</a></h2>
+<p>You have just simulated an application which teleports a qubit.
+In <a class="reference internal" href="using-sdk.html#using-sdk"><span class="std std-ref">Using the SDK</span></a> you will learn how to write your own.
+However, before that, there are also other pre-defined applications you can easily instantiate and execute using the <code class="docutils literal notranslate"><span class="pre">--template</span></code> flag to <code class="docutils literal notranslate"><span class="pre">netqasm</span> <span class="pre">new</span></code>.
+Type <code class="docutils literal notranslate"><span class="pre">netqasm</span> <span class="pre">new</span> <span class="pre">--help</span></code> for a complete list.
+To for example try out an application which performs anonymous transmission of a qubit, do:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>netqasm new my-anonymous-app --template<span class="o">=</span>anonymous_transmission
+</pre></div>
+</div>
+</div>
+<div class="section" id="using-other-simulators">
+<h2>Using other simulators<a class="headerlink" href="#using-other-simulators" title="Permalink to this headline">¶</a></h2>
+<p>Above we have simulated an application which teleports a qubit over a quantum network using the simulator <a class="reference external" href="https://netsquid.org/">NetSquid</a>.
+You can easily run the same application using another supported simulator.
+For example to use <a class="reference external" href="http://www.simulaqron.org/">SimulaQron</a> instead, simply do:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>netqasm simulate --simulator<span class="o">=</span>simulaqron
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For this to work you need simulaqron installed, otherwise the CLI will tell you that <code class="docutils literal notranslate"><span class="pre">ModuleNotFoundError:</span> <span class="pre">to</span> <span class="pre">use</span> <span class="pre">simulaqron</span> <span class="pre">as</span> <span class="pre">simulator,</span> <span class="pre">`simulaqron`</span> <span class="pre">needs</span> <span class="pre">to</span> <span class="pre">be</span> <span class="pre">installed</span></code>.
+SimulaQron can be installed using pip by</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install simulaqron
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="using-sdk.html" class="btn btn-neutral float-right" title="Using the SDK" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../quickstart.html" class="btn btn-neutral float-left" title="Getting started" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2019, Axel Dahlberg
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

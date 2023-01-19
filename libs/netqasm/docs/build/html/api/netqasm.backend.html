@@ -1,0 +1,964 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>netqasm.backend package &mdash; netqasm 0.5.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="netqasm.lang package" href="netqasm.lang.html" />
+    <link rel="prev" title="netqasm package" href="netqasm.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> netqasm
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html">Getting started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="netqasm.html">netqasm package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="netqasm.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">netqasm.backend package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-netqasm.backend.executioner">netqasm.backend.executioner module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-netqasm.backend.messages">netqasm.backend.messages module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-netqasm.backend.network_stack">netqasm.backend.network_stack module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-netqasm.backend.qnodeos">netqasm.backend.qnodeos module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-netqasm.backend">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="netqasm.lang.html">netqasm.lang package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="netqasm.logging.html">netqasm.logging package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="netqasm.runtime.html">netqasm.runtime package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="netqasm.sdk.html">netqasm.sdk package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="netqasm.util.html">netqasm.util package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="netqasm.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="netqasm.html#module-netqasm.typing">netqasm.typing module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="netqasm.html#module-netqasm">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">netqasm</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="netqasm.html">netqasm package</a> &raquo;</li>
+        
+      <li>netqasm.backend package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/netqasm.backend.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="netqasm-backend-package">
+<h1>netqasm.backend package<a class="headerlink" href="#netqasm-backend-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-netqasm.backend.executioner">
+<span id="netqasm-backend-executioner-module"></span><h2>netqasm.backend.executioner module<a class="headerlink" href="#module-netqasm.backend.executioner" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="netqasm.backend.executioner.EprCmdData">
+<em class="property">class </em><code class="sig-prename descclassname">netqasm.backend.executioner.</code><code class="sig-name descname">EprCmdData</code><span class="sig-paren">(</span><em class="sig-param">subroutine_id</em>, <em class="sig-param">ent_info_array_address</em>, <em class="sig-param">q_array_address</em>, <em class="sig-param">request</em>, <em class="sig-param">tot_pairs</em>, <em class="sig-param">pairs_left</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.backend.executioner.EprCmdData" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>subroutine_id</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – </p></li>
+<li><p><strong>ent_info_array_address</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – </p></li>
+<li><p><strong>q_array_address</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – </p></li>
+<li><p><strong>request</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code>) – </p></li>
+<li><p><strong>tot_pairs</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – </p></li>
+<li><p><strong>pairs_left</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – </p></li>
+</ul>
+</dd>
+</dl>
+<dl class="attribute">
+<dt id="netqasm.backend.executioner.EprCmdData.subroutine_id">
+<code class="sig-name descname">subroutine_id</code><em class="property">: int</em><em class="property"> = None</em><a class="headerlink" href="#netqasm.backend.executioner.EprCmdData.subroutine_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.backend.executioner.EprCmdData.ent_info_array_address">
+<code class="sig-name descname">ent_info_array_address</code><em class="property">: int</em><em class="property"> = None</em><a class="headerlink" href="#netqasm.backend.executioner.EprCmdData.ent_info_array_address" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.backend.executioner.EprCmdData.q_array_address">
+<code class="sig-name descname">q_array_address</code><em class="property">: int</em><em class="property"> = None</em><a class="headerlink" href="#netqasm.backend.executioner.EprCmdData.q_array_address" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.backend.executioner.EprCmdData.request">
+<code class="sig-name descname">request</code><em class="property">: tuple</em><em class="property"> = None</em><a class="headerlink" href="#netqasm.backend.executioner.EprCmdData.request" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.backend.executioner.EprCmdData.tot_pairs">
+<code class="sig-name descname">tot_pairs</code><em class="property">: int</em><em class="property"> = None</em><a class="headerlink" href="#netqasm.backend.executioner.EprCmdData.tot_pairs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.backend.executioner.EprCmdData.pairs_left">
+<code class="sig-name descname">pairs_left</code><em class="property">: int</em><em class="property"> = None</em><a class="headerlink" href="#netqasm.backend.executioner.EprCmdData.pairs_left" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="netqasm.backend.executioner.inc_program_counter">
+<code class="sig-prename descclassname">netqasm.backend.executioner.</code><code class="sig-name descname">inc_program_counter</code><span class="sig-paren">(</span><em class="sig-param">method</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.backend.executioner.inc_program_counter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="netqasm.backend.executioner.Executioner">
+<em class="property">class </em><code class="sig-prename descclassname">netqasm.backend.executioner.</code><code class="sig-name descname">Executioner</code><span class="sig-paren">(</span><em class="sig-param">name=None</em>, <em class="sig-param">instr_log_dir=None</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.backend.executioner.Executioner" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Executes a sequence of NetQASM instructions.</p>
+<p>The methods starting with <cite>_instr_xxx</cite> define what a given instruction should do and
+returns the new program counter (+1 unless a branching instruction).
+There are default implementations of these methods, however those involving qubits simply logs (DEBUG) what
+is being executed without actually updating any qubit state. For this reason the measurement instruction
+simply leaves the classical register unchanged.</p>
+<p>The intention is that all these methods should be overriden to define what should actually happen
+but the default implementations can be used testing and debugging.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>name</strong> (<em>str</em><em> or </em><em>None</em>) – Give a name to the executioner for logging purposes.</p>
+</dd>
+</dl>
+<dl class="attribute">
+<dt id="netqasm.backend.executioner.Executioner.instr_logger_class">
+<code class="sig-name descname">instr_logger_class</code><a class="headerlink" href="#netqasm.backend.executioner.Executioner.instr_logger_class" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="netqasm.logging.html#netqasm.logging.output.InstrLogger" title="netqasm.logging.output.InstrLogger"><code class="xref py py-class docutils literal notranslate"><span class="pre">netqasm.logging.output.InstrLogger</span></code></a></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="netqasm.backend.executioner.Executioner.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">name=None</em>, <em class="sig-param">instr_log_dir=None</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.backend.executioner.Executioner.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Executes a sequence of NetQASM instructions.</p>
+<p>The methods starting with <cite>_instr_xxx</cite> define what a given instruction should do and
+returns the new program counter (+1 unless a branching instruction).
+There are default implementations of these methods, however those involving qubits simply logs (DEBUG) what
+is being executed without actually updating any qubit state. For this reason the measurement instruction
+simply leaves the classical register unchanged.</p>
+<p>The intention is that all these methods should be overriden to define what should actually happen
+but the default implementations can be used testing and debugging.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>name</strong> (<em>str</em><em> or </em><em>None</em>) – Give a name to the executioner for logging purposes.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="netqasm.backend.executioner.Executioner.name">
+<em class="property">property </em><code class="sig-name descname">name</code><a class="headerlink" href="#netqasm.backend.executioner.Executioner.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="netqasm.backend.executioner.Executioner.node_id">
+<em class="property">property </em><code class="sig-name descname">node_id</code><a class="headerlink" href="#netqasm.backend.executioner.Executioner.node_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="netqasm.backend.executioner.Executioner.get_instr_logger">
+<em class="property">classmethod </em><code class="sig-name descname">get_instr_logger</code><span class="sig-paren">(</span><em class="sig-param">node_name</em>, <em class="sig-param">instr_log_dir</em>, <em class="sig-param">executioner</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.backend.executioner.Executioner.get_instr_logger" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="netqasm.backend.executioner.Executioner.network_stack">
+<em class="property">property </em><code class="sig-name descname">network_stack</code><a class="headerlink" href="#netqasm.backend.executioner.Executioner.network_stack" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="netqasm.backend.executioner.Executioner.init_new_application">
+<code class="sig-name descname">init_new_application</code><span class="sig-paren">(</span><em class="sig-param">app_id</em>, <em class="sig-param">max_qubits</em>, <em class="sig-param">circuit_rules=None</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.backend.executioner.Executioner.init_new_application" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets up a unit module and a shared memory for a new application</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="netqasm.backend.executioner.Executioner.setup_registers">
+<code class="sig-name descname">setup_registers</code><span class="sig-paren">(</span><em class="sig-param">app_id</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.backend.executioner.Executioner.setup_registers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Setup registers for application</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="netqasm.backend.executioner.Executioner.setup_arrays">
+<code class="sig-name descname">setup_arrays</code><span class="sig-paren">(</span><em class="sig-param">app_id</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.backend.executioner.Executioner.setup_arrays" title="Permalink to this definition">¶</a></dt>
+<dd><p>Setup memory for storing arrays for application</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="netqasm.backend.executioner.Executioner.new_shared_memory">
+<code class="sig-name descname">new_shared_memory</code><span class="sig-paren">(</span><em class="sig-param">app_id</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.backend.executioner.Executioner.new_shared_memory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Instanciated a new shared memory with an application</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="netqasm.backend.executioner.Executioner.setup_epr_socket">
+<code class="sig-name descname">setup_epr_socket</code><span class="sig-paren">(</span><em class="sig-param">epr_socket_id</em>, <em class="sig-param">remote_node_id</em>, <em class="sig-param">remote_epr_socket_id</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.backend.executioner.Executioner.setup_epr_socket" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="netqasm.backend.executioner.Executioner.stop_application">
+<code class="sig-name descname">stop_application</code><span class="sig-paren">(</span><em class="sig-param">app_id</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.backend.executioner.Executioner.stop_application" title="Permalink to this definition">¶</a></dt>
+<dd><p>Stops an application and clears all qubits and classical memories</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="netqasm.backend.executioner.Executioner.reset_program_counter">
+<code class="sig-name descname">reset_program_counter</code><span class="sig-paren">(</span><em class="sig-param">subroutine_id</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.backend.executioner.Executioner.reset_program_counter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resets the program counter for a given subroutine ID</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="netqasm.backend.executioner.Executioner.clear_subroutine">
+<code class="sig-name descname">clear_subroutine</code><span class="sig-paren">(</span><em class="sig-param">subroutine_id</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.backend.executioner.Executioner.clear_subroutine" title="Permalink to this definition">¶</a></dt>
+<dd><p>Clears a subroutine from the executioner</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="netqasm.backend.executioner.Executioner.execute_subroutine">
+<code class="sig-name descname">execute_subroutine</code><span class="sig-paren">(</span><em class="sig-param">subroutine</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.backend.executioner.Executioner.execute_subroutine" title="Permalink to this definition">¶</a></dt>
+<dd><p>Executes the a subroutine given to the executioner</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="netqasm.backend.executioner.Executioner.allocate_new_qubit_unit_module">
+<code class="sig-name descname">allocate_new_qubit_unit_module</code><span class="sig-paren">(</span><em class="sig-param">app_id</em>, <em class="sig-param">num_qubits</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.backend.executioner.Executioner.allocate_new_qubit_unit_module" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-netqasm.backend.messages">
+<span id="netqasm-backend-messages-module"></span><h2>netqasm.backend.messages module<a class="headerlink" href="#module-netqasm.backend.messages" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="netqasm.backend.messages.MessageHeader">
+<em class="property">class </em><code class="sig-prename descclassname">netqasm.backend.messages.</code><code class="sig-name descname">MessageHeader</code><a class="headerlink" href="#netqasm.backend.messages.MessageHeader" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">_ctypes.Structure</span></code></p>
+<dl class="method">
+<dt id="netqasm.backend.messages.MessageHeader.len">
+<em class="property">classmethod </em><code class="sig-name descname">len</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.backend.messages.MessageHeader.len" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.backend.messages.MessageHeader.id">
+<code class="sig-name descname">id</code><a class="headerlink" href="#netqasm.backend.messages.MessageHeader.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.backend.messages.MessageHeader.length">
+<code class="sig-name descname">length</code><a class="headerlink" href="#netqasm.backend.messages.MessageHeader.length" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="netqasm.backend.messages.MessageType">
+<em class="property">class </em><code class="sig-prename descclassname">netqasm.backend.messages.</code><code class="sig-name descname">MessageType</code><a class="headerlink" href="#netqasm.backend.messages.MessageType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">enum.Enum</span></code></p>
+<p>An enumeration.</p>
+<dl class="attribute">
+<dt id="netqasm.backend.messages.MessageType.INIT_NEW_APP">
+<code class="sig-name descname">INIT_NEW_APP</code><em class="property"> = 0</em><a class="headerlink" href="#netqasm.backend.messages.MessageType.INIT_NEW_APP" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.backend.messages.MessageType.OPEN_EPR_SOCKET">
+<code class="sig-name descname">OPEN_EPR_SOCKET</code><em class="property"> = 1</em><a class="headerlink" href="#netqasm.backend.messages.MessageType.OPEN_EPR_SOCKET" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.backend.messages.MessageType.SUBROUTINE">
+<code class="sig-name descname">SUBROUTINE</code><em class="property"> = 2</em><a class="headerlink" href="#netqasm.backend.messages.MessageType.SUBROUTINE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.backend.messages.MessageType.STOP_APP">
+<code class="sig-name descname">STOP_APP</code><em class="property"> = 3</em><a class="headerlink" href="#netqasm.backend.messages.MessageType.STOP_APP" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.backend.messages.MessageType.SIGNAL">
+<code class="sig-name descname">SIGNAL</code><em class="property"> = 4</em><a class="headerlink" href="#netqasm.backend.messages.MessageType.SIGNAL" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="netqasm.backend.messages.Message">
+<em class="property">class </em><code class="sig-prename descclassname">netqasm.backend.messages.</code><code class="sig-name descname">Message</code><a class="headerlink" href="#netqasm.backend.messages.Message" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">_ctypes.Structure</span></code></p>
+<dl class="method">
+<dt id="netqasm.backend.messages.Message.deserialize_from">
+<em class="property">classmethod </em><code class="sig-name descname">deserialize_from</code><span class="sig-paren">(</span><em class="sig-param">raw</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.backend.messages.Message.deserialize_from" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>raw</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.backend.messages.Message.type">
+<code class="sig-name descname">type</code><a class="headerlink" href="#netqasm.backend.messages.Message.type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="netqasm.backend.messages.InitNewAppMessage">
+<em class="property">class </em><code class="sig-prename descclassname">netqasm.backend.messages.</code><code class="sig-name descname">InitNewAppMessage</code><span class="sig-paren">(</span><em class="sig-param">app_id=0</em>, <em class="sig-param">max_qubits=0</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.backend.messages.InitNewAppMessage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#netqasm.backend.messages.Message" title="netqasm.backend.messages.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">netqasm.backend.messages.Message</span></code></a></p>
+<dl class="attribute">
+<dt id="netqasm.backend.messages.InitNewAppMessage.TYPE">
+<code class="sig-name descname">TYPE</code><em class="property"> = 0</em><a class="headerlink" href="#netqasm.backend.messages.InitNewAppMessage.TYPE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.backend.messages.InitNewAppMessage.app_id">
+<code class="sig-name descname">app_id</code><a class="headerlink" href="#netqasm.backend.messages.InitNewAppMessage.app_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.backend.messages.InitNewAppMessage.max_qubits">
+<code class="sig-name descname">max_qubits</code><a class="headerlink" href="#netqasm.backend.messages.InitNewAppMessage.max_qubits" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="netqasm.backend.messages.OpenEPRSocketMessage">
+<em class="property">class </em><code class="sig-prename descclassname">netqasm.backend.messages.</code><code class="sig-name descname">OpenEPRSocketMessage</code><span class="sig-paren">(</span><em class="sig-param">app_id=0</em>, <em class="sig-param">epr_socket_id=0</em>, <em class="sig-param">remote_node_id=0</em>, <em class="sig-param">remote_epr_socket_id=0</em>, <em class="sig-param">min_fidelity=100</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.backend.messages.OpenEPRSocketMessage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#netqasm.backend.messages.Message" title="netqasm.backend.messages.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">netqasm.backend.messages.Message</span></code></a></p>
+<dl class="attribute">
+<dt id="netqasm.backend.messages.OpenEPRSocketMessage.TYPE">
+<code class="sig-name descname">TYPE</code><em class="property"> = 1</em><a class="headerlink" href="#netqasm.backend.messages.OpenEPRSocketMessage.TYPE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.backend.messages.OpenEPRSocketMessage.app_id">
+<code class="sig-name descname">app_id</code><a class="headerlink" href="#netqasm.backend.messages.OpenEPRSocketMessage.app_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.backend.messages.OpenEPRSocketMessage.epr_socket_id">
+<code class="sig-name descname">epr_socket_id</code><a class="headerlink" href="#netqasm.backend.messages.OpenEPRSocketMessage.epr_socket_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.backend.messages.OpenEPRSocketMessage.remote_node_id">
+<code class="sig-name descname">remote_node_id</code><a class="headerlink" href="#netqasm.backend.messages.OpenEPRSocketMessage.remote_node_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.backend.messages.OpenEPRSocketMessage.remote_epr_socket_id">
+<code class="sig-name descname">remote_epr_socket_id</code><a class="headerlink" href="#netqasm.backend.messages.OpenEPRSocketMessage.remote_epr_socket_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.backend.messages.OpenEPRSocketMessage.min_fidelity">
+<code class="sig-name descname">min_fidelity</code><a class="headerlink" href="#netqasm.backend.messages.OpenEPRSocketMessage.min_fidelity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="netqasm.backend.messages.SubroutineMessage">
+<em class="property">class </em><code class="sig-prename descclassname">netqasm.backend.messages.</code><code class="sig-name descname">SubroutineMessage</code><span class="sig-paren">(</span><em class="sig-param">subroutine</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.backend.messages.SubroutineMessage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>NOTE this message does not subclass from <cite>Message</cite> since it contains
+a subroutine which is defined separately and not as a <cite>ctype</cite> for now.
+Still this class defines the methods <cite>__bytes__</cite> and <cite>deserialize_from</cite>
+so that it can be packed and unpacked.
+The packed form of the message is:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>| TYP | SUBROUTINE ... |
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>subroutine</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code>, <a class="reference internal" href="netqasm.lang.html#netqasm.lang.subroutine.Subroutine" title="netqasm.lang.subroutine.Subroutine"><code class="xref py py-class docutils literal notranslate"><span class="pre">Subroutine</span></code></a>]) – </p>
+</dd>
+</dl>
+<dl class="attribute">
+<dt id="netqasm.backend.messages.SubroutineMessage.TYPE">
+<code class="sig-name descname">TYPE</code><em class="property"> = 2</em><a class="headerlink" href="#netqasm.backend.messages.SubroutineMessage.TYPE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="netqasm.backend.messages.SubroutineMessage.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">subroutine</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.backend.messages.SubroutineMessage.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>NOTE this message does not subclass from <cite>Message</cite> since it contains
+a subroutine which is defined separately and not as a <cite>ctype</cite> for now.
+Still this class defines the methods <cite>__bytes__</cite> and <cite>deserialize_from</cite>
+so that it can be packed and unpacked.
+The packed form of the message is:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>| TYP | SUBROUTINE ... |
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>subroutine</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code>, <a class="reference internal" href="netqasm.lang.html#netqasm.lang.subroutine.Subroutine" title="netqasm.lang.subroutine.Subroutine"><code class="xref py py-class docutils literal notranslate"><span class="pre">Subroutine</span></code></a>]) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="netqasm.backend.messages.SubroutineMessage.deserialize_from">
+<em class="property">classmethod </em><code class="sig-name descname">deserialize_from</code><span class="sig-paren">(</span><em class="sig-param">raw</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.backend.messages.SubroutineMessage.deserialize_from" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>raw</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="netqasm.backend.messages.StopAppMessage">
+<em class="property">class </em><code class="sig-prename descclassname">netqasm.backend.messages.</code><code class="sig-name descname">StopAppMessage</code><span class="sig-paren">(</span><em class="sig-param">app_id=0</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.backend.messages.StopAppMessage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#netqasm.backend.messages.Message" title="netqasm.backend.messages.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">netqasm.backend.messages.Message</span></code></a></p>
+<dl class="attribute">
+<dt id="netqasm.backend.messages.StopAppMessage.TYPE">
+<code class="sig-name descname">TYPE</code><em class="property"> = 3</em><a class="headerlink" href="#netqasm.backend.messages.StopAppMessage.TYPE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.backend.messages.StopAppMessage.app_id">
+<code class="sig-name descname">app_id</code><a class="headerlink" href="#netqasm.backend.messages.StopAppMessage.app_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="netqasm.backend.messages.Signal">
+<em class="property">class </em><code class="sig-prename descclassname">netqasm.backend.messages.</code><code class="sig-name descname">Signal</code><a class="headerlink" href="#netqasm.backend.messages.Signal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">enum.Enum</span></code></p>
+<p>An enumeration.</p>
+<dl class="attribute">
+<dt id="netqasm.backend.messages.Signal.STOP">
+<code class="sig-name descname">STOP</code><em class="property"> = 0</em><a class="headerlink" href="#netqasm.backend.messages.Signal.STOP" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="netqasm.backend.messages.SignalMessage">
+<em class="property">class </em><code class="sig-prename descclassname">netqasm.backend.messages.</code><code class="sig-name descname">SignalMessage</code><span class="sig-paren">(</span><em class="sig-param">signal=&lt;Signal.STOP: 0&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.backend.messages.SignalMessage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#netqasm.backend.messages.Message" title="netqasm.backend.messages.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">netqasm.backend.messages.Message</span></code></a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>signal</strong> (<a class="reference internal" href="#netqasm.backend.messages.Signal" title="netqasm.backend.messages.Signal"><code class="xref py py-class docutils literal notranslate"><span class="pre">Signal</span></code></a>) – </p>
+</dd>
+</dl>
+<dl class="attribute">
+<dt id="netqasm.backend.messages.SignalMessage.TYPE">
+<code class="sig-name descname">TYPE</code><em class="property"> = 4</em><a class="headerlink" href="#netqasm.backend.messages.SignalMessage.TYPE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.backend.messages.SignalMessage.signal">
+<code class="sig-name descname">signal</code><a class="headerlink" href="#netqasm.backend.messages.SignalMessage.signal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="netqasm.backend.messages.deserialize_host_msg">
+<code class="sig-prename descclassname">netqasm.backend.messages.</code><code class="sig-name descname">deserialize_host_msg</code><span class="sig-paren">(</span><em class="sig-param">raw</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.backend.messages.deserialize_host_msg" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>raw</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code>) – </p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="#netqasm.backend.messages.Message" title="netqasm.backend.messages.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="class">
+<dt id="netqasm.backend.messages.ReturnMessage">
+<em class="property">class </em><code class="sig-prename descclassname">netqasm.backend.messages.</code><code class="sig-name descname">ReturnMessage</code><a class="headerlink" href="#netqasm.backend.messages.ReturnMessage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#netqasm.backend.messages.Message" title="netqasm.backend.messages.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">netqasm.backend.messages.Message</span></code></a></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="netqasm.backend.messages.ReturnMessageType">
+<em class="property">class </em><code class="sig-prename descclassname">netqasm.backend.messages.</code><code class="sig-name descname">ReturnMessageType</code><a class="headerlink" href="#netqasm.backend.messages.ReturnMessageType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">enum.Enum</span></code></p>
+<p>An enumeration.</p>
+<dl class="attribute">
+<dt id="netqasm.backend.messages.ReturnMessageType.DONE">
+<code class="sig-name descname">DONE</code><em class="property"> = 0</em><a class="headerlink" href="#netqasm.backend.messages.ReturnMessageType.DONE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.backend.messages.ReturnMessageType.ERR">
+<code class="sig-name descname">ERR</code><em class="property"> = 1</em><a class="headerlink" href="#netqasm.backend.messages.ReturnMessageType.ERR" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.backend.messages.ReturnMessageType.RET_ARR">
+<code class="sig-name descname">RET_ARR</code><em class="property"> = 2</em><a class="headerlink" href="#netqasm.backend.messages.ReturnMessageType.RET_ARR" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.backend.messages.ReturnMessageType.RET_REG">
+<code class="sig-name descname">RET_REG</code><em class="property"> = 3</em><a class="headerlink" href="#netqasm.backend.messages.ReturnMessageType.RET_REG" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="netqasm.backend.messages.MsgDoneMessage">
+<em class="property">class </em><code class="sig-prename descclassname">netqasm.backend.messages.</code><code class="sig-name descname">MsgDoneMessage</code><span class="sig-paren">(</span><em class="sig-param">msg_id=0</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.backend.messages.MsgDoneMessage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#netqasm.backend.messages.ReturnMessage" title="netqasm.backend.messages.ReturnMessage"><code class="xref py py-class docutils literal notranslate"><span class="pre">netqasm.backend.messages.ReturnMessage</span></code></a></p>
+<dl class="attribute">
+<dt id="netqasm.backend.messages.MsgDoneMessage.TYPE">
+<code class="sig-name descname">TYPE</code><em class="property"> = 0</em><a class="headerlink" href="#netqasm.backend.messages.MsgDoneMessage.TYPE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.backend.messages.MsgDoneMessage.msg_id">
+<code class="sig-name descname">msg_id</code><a class="headerlink" href="#netqasm.backend.messages.MsgDoneMessage.msg_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="netqasm.backend.messages.ErrorCode">
+<em class="property">class </em><code class="sig-prename descclassname">netqasm.backend.messages.</code><code class="sig-name descname">ErrorCode</code><a class="headerlink" href="#netqasm.backend.messages.ErrorCode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">enum.Enum</span></code></p>
+<p>An enumeration.</p>
+<dl class="attribute">
+<dt id="netqasm.backend.messages.ErrorCode.GENERAL">
+<code class="sig-name descname">GENERAL</code><em class="property"> = 0</em><a class="headerlink" href="#netqasm.backend.messages.ErrorCode.GENERAL" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.backend.messages.ErrorCode.NO_QUBIT">
+<code class="sig-name descname">NO_QUBIT</code><em class="property"> = 1</em><a class="headerlink" href="#netqasm.backend.messages.ErrorCode.NO_QUBIT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.backend.messages.ErrorCode.UNSUPP">
+<code class="sig-name descname">UNSUPP</code><em class="property"> = 2</em><a class="headerlink" href="#netqasm.backend.messages.ErrorCode.UNSUPP" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="netqasm.backend.messages.ErrorMessage">
+<em class="property">class </em><code class="sig-prename descclassname">netqasm.backend.messages.</code><code class="sig-name descname">ErrorMessage</code><span class="sig-paren">(</span><em class="sig-param">err_code</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.backend.messages.ErrorMessage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#netqasm.backend.messages.ReturnMessage" title="netqasm.backend.messages.ReturnMessage"><code class="xref py py-class docutils literal notranslate"><span class="pre">netqasm.backend.messages.ReturnMessage</span></code></a></p>
+<dl class="attribute">
+<dt id="netqasm.backend.messages.ErrorMessage.TYPE">
+<code class="sig-name descname">TYPE</code><em class="property"> = 1</em><a class="headerlink" href="#netqasm.backend.messages.ErrorMessage.TYPE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.backend.messages.ErrorMessage.err_code">
+<code class="sig-name descname">err_code</code><a class="headerlink" href="#netqasm.backend.messages.ErrorMessage.err_code" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="netqasm.backend.messages.ReturnArrayMessageHeader">
+<em class="property">class </em><code class="sig-prename descclassname">netqasm.backend.messages.</code><code class="sig-name descname">ReturnArrayMessageHeader</code><a class="headerlink" href="#netqasm.backend.messages.ReturnArrayMessageHeader" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">_ctypes.Structure</span></code></p>
+<dl class="method">
+<dt id="netqasm.backend.messages.ReturnArrayMessageHeader.len">
+<em class="property">classmethod </em><code class="sig-name descname">len</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.backend.messages.ReturnArrayMessageHeader.len" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.backend.messages.ReturnArrayMessageHeader.address">
+<code class="sig-name descname">address</code><a class="headerlink" href="#netqasm.backend.messages.ReturnArrayMessageHeader.address" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.backend.messages.ReturnArrayMessageHeader.length">
+<code class="sig-name descname">length</code><a class="headerlink" href="#netqasm.backend.messages.ReturnArrayMessageHeader.length" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="netqasm.backend.messages.ReturnArrayMessage">
+<em class="property">class </em><code class="sig-prename descclassname">netqasm.backend.messages.</code><code class="sig-name descname">ReturnArrayMessage</code><span class="sig-paren">(</span><em class="sig-param">address</em>, <em class="sig-param">values</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.backend.messages.ReturnArrayMessage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>NOTE this message does not subclass from <cite>ReturnMessage</cite> since
+the values is of variable length.
+Still this class defines the methods <cite>__bytes__</cite> and <cite>deserialize_from</cite>
+so that it can be packed and unpacked.</p>
+<p>The packed form of the message is:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>| ADDRESS | LENGTH | VALUES ... |
+</pre></div>
+</div>
+<dl class="attribute">
+<dt id="netqasm.backend.messages.ReturnArrayMessage.TYPE">
+<code class="sig-name descname">TYPE</code><em class="property"> = 2</em><a class="headerlink" href="#netqasm.backend.messages.ReturnArrayMessage.TYPE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="netqasm.backend.messages.ReturnArrayMessage.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">address</em>, <em class="sig-param">values</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.backend.messages.ReturnArrayMessage.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>NOTE this message does not subclass from <cite>ReturnMessage</cite> since
+the values is of variable length.
+Still this class defines the methods <cite>__bytes__</cite> and <cite>deserialize_from</cite>
+so that it can be packed and unpacked.</p>
+<p>The packed form of the message is:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>| ADDRESS | LENGTH | VALUES ... |
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="netqasm.backend.messages.ReturnArrayMessage.deserialize_from">
+<em class="property">classmethod </em><code class="sig-name descname">deserialize_from</code><span class="sig-paren">(</span><em class="sig-param">raw</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.backend.messages.ReturnArrayMessage.deserialize_from" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>raw</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="netqasm.backend.messages.ReturnRegMessage">
+<em class="property">class </em><code class="sig-prename descclassname">netqasm.backend.messages.</code><code class="sig-name descname">ReturnRegMessage</code><span class="sig-paren">(</span><em class="sig-param">register</em>, <em class="sig-param">value</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.backend.messages.ReturnRegMessage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#netqasm.backend.messages.ReturnMessage" title="netqasm.backend.messages.ReturnMessage"><code class="xref py py-class docutils literal notranslate"><span class="pre">netqasm.backend.messages.ReturnMessage</span></code></a></p>
+<dl class="attribute">
+<dt id="netqasm.backend.messages.ReturnRegMessage.TYPE">
+<code class="sig-name descname">TYPE</code><em class="property"> = 3</em><a class="headerlink" href="#netqasm.backend.messages.ReturnRegMessage.TYPE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.backend.messages.ReturnRegMessage.register">
+<code class="sig-name descname">register</code><a class="headerlink" href="#netqasm.backend.messages.ReturnRegMessage.register" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.backend.messages.ReturnRegMessage.value">
+<code class="sig-name descname">value</code><a class="headerlink" href="#netqasm.backend.messages.ReturnRegMessage.value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure/Union member</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="netqasm.backend.messages.deserialize_return_msg">
+<code class="sig-prename descclassname">netqasm.backend.messages.</code><code class="sig-name descname">deserialize_return_msg</code><span class="sig-paren">(</span><em class="sig-param">raw</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.backend.messages.deserialize_return_msg" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>raw</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code>) – </p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="#netqasm.backend.messages.Message" title="netqasm.backend.messages.Message"><code class="xref py py-class docutils literal notranslate"><span class="pre">Message</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-netqasm.backend.network_stack">
+<span id="netqasm-backend-network-stack-module"></span><h2>netqasm.backend.network_stack module<a class="headerlink" href="#module-netqasm.backend.network_stack" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="netqasm.backend.network_stack.Address">
+<em class="property">class </em><code class="sig-prename descclassname">netqasm.backend.network_stack.</code><code class="sig-name descname">Address</code><span class="sig-paren">(</span><em class="sig-param">node_id</em>, <em class="sig-param">epr_socket_id</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.backend.network_stack.Address" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>node_id</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – </p></li>
+<li><p><strong>epr_socket_id</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – </p></li>
+</ul>
+</dd>
+</dl>
+<dl class="attribute">
+<dt id="netqasm.backend.network_stack.Address.node_id">
+<code class="sig-name descname">node_id</code><em class="property">: int</em><em class="property"> = None</em><a class="headerlink" href="#netqasm.backend.network_stack.Address.node_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.backend.network_stack.Address.epr_socket_id">
+<code class="sig-name descname">epr_socket_id</code><em class="property">: int</em><em class="property"> = None</em><a class="headerlink" href="#netqasm.backend.network_stack.Address.epr_socket_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="netqasm.backend.network_stack.BaseNetworkStack">
+<em class="property">class </em><code class="sig-prename descclassname">netqasm.backend.network_stack.</code><code class="sig-name descname">BaseNetworkStack</code><a class="headerlink" href="#netqasm.backend.network_stack.BaseNetworkStack" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></p>
+<dl class="method">
+<dt id="netqasm.backend.network_stack.BaseNetworkStack.put">
+<em class="property">abstract </em><code class="sig-name descname">put</code><span class="sig-paren">(</span><em class="sig-param">request</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.backend.network_stack.BaseNetworkStack.put" title="Permalink to this definition">¶</a></dt>
+<dd><p>Handles an request to the network stack</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="netqasm.backend.network_stack.BaseNetworkStack.setup_epr_socket">
+<em class="property">abstract </em><code class="sig-name descname">setup_epr_socket</code><span class="sig-paren">(</span><em class="sig-param">epr_socket_id</em>, <em class="sig-param">remote_node_id</em>, <em class="sig-param">remote_epr_socket_id</em>, <em class="sig-param">timeout=1</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.backend.network_stack.BaseNetworkStack.setup_epr_socket" title="Permalink to this definition">¶</a></dt>
+<dd><p>Asks the network stack to setup circuits to be used</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-netqasm.backend.qnodeos">
+<span id="netqasm-backend-qnodeos-module"></span><h2>netqasm.backend.qnodeos module<a class="headerlink" href="#module-netqasm.backend.qnodeos" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="netqasm.backend.qnodeos.BaseSubroutineHandler">
+<em class="property">class </em><code class="sig-prename descclassname">netqasm.backend.qnodeos.</code><code class="sig-name descname">BaseSubroutineHandler</code><span class="sig-paren">(</span><em class="sig-param">name</em>, <em class="sig-param">instr_log_dir=None</em>, <em class="sig-param">flavour=None</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.backend.qnodeos.BaseSubroutineHandler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>An extremely simplified version of QNodeOS for handling NetQASM subroutines</p>
+<dl class="method">
+<dt id="netqasm.backend.qnodeos.BaseSubroutineHandler.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">name</em>, <em class="sig-param">instr_log_dir=None</em>, <em class="sig-param">flavour=None</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.backend.qnodeos.BaseSubroutineHandler.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>An extremely simplified version of QNodeOS for handling NetQASM subroutines</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="netqasm.backend.qnodeos.BaseSubroutineHandler.stop">
+<em class="property">abstract </em><code class="sig-name descname">stop</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.backend.qnodeos.BaseSubroutineHandler.stop" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="netqasm.backend.qnodeos.BaseSubroutineHandler.finished">
+<em class="property">property </em><code class="sig-name descname">finished</code><a class="headerlink" href="#netqasm.backend.qnodeos.BaseSubroutineHandler.finished" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="netqasm.backend.qnodeos.BaseSubroutineHandler.handle_netqasm_message">
+<code class="sig-name descname">handle_netqasm_message</code><span class="sig-paren">(</span><em class="sig-param">msg_id</em>, <em class="sig-param">msg</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.backend.qnodeos.BaseSubroutineHandler.handle_netqasm_message" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="netqasm.backend.qnodeos.BaseSubroutineHandler.has_active_apps">
+<em class="property">property </em><code class="sig-name descname">has_active_apps</code><a class="headerlink" href="#netqasm.backend.qnodeos.BaseSubroutineHandler.has_active_apps" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="netqasm.backend.qnodeos.BaseSubroutineHandler.network_stack">
+<em class="property">property </em><code class="sig-name descname">network_stack</code><a class="headerlink" href="#netqasm.backend.qnodeos.BaseSubroutineHandler.network_stack" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="netqasm.backend.qnodeos.BaseSubroutineHandler.add_network_stack">
+<code class="sig-name descname">add_network_stack</code><span class="sig-paren">(</span><em class="sig-param">network_stack</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.backend.qnodeos.BaseSubroutineHandler.add_network_stack" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-netqasm.backend">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-netqasm.backend" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="netqasm.lang.html" class="btn btn-neutral float-right" title="netqasm.lang package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="netqasm.html" class="btn btn-neutral float-left" title="netqasm package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2019, Axel Dahlberg
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

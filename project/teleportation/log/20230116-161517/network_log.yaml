@@ -1,0 +1,60 @@
+- BAS: null
+  INS: epr_EntanglementStage.START
+  LOG: start entanglement creation between bob and alice
+  MSR: null
+  NOD:
+  - bob
+  - alice
+  PTH:
+  - link_bob_alice
+  QGR:
+    8766041067456:
+      is_entangled: false
+      qubit_ids:
+      - - alice
+        - 0
+      state:
+      - - !!python/complex '1.0'
+        - !!python/complex '0.0'
+      - - !!python/complex '0.0'
+        - !!python/complex '0.0'
+  QID:
+  - 0
+  - 1
+  SIT: 102756.0
+  TYP: null
+  WCT: '2023-01-16 16:15:17.828838'
+- BAS: null
+  INS: epr_EntanglementStage.FINISH
+  LOG: entanglement of type 0 created between bob and alice
+  MSR: null
+  NOD:
+  - bob
+  - alice
+  PTH:
+  - link_bob_alice
+  QGR:
+    8766041067456:
+      is_entangled: false
+      qubit_ids:
+      - - alice
+        - 0
+      state:
+      - - !!python/complex '1.0'
+        - !!python/complex '0.0'
+      - - !!python/complex '0.0'
+        - !!python/complex '0.0'
+    8766041077044:
+      is_entangled: true
+      qubit_ids:
+      - - alice
+        - 1
+      - - bob
+        - 0
+      state: null
+  QID:
+  - 0
+  - 1
+  SIT: 102757.0000000001
+  TYP: epr_EntanglementType.CK
+  WCT: '2023-01-16 16:15:17.831171'

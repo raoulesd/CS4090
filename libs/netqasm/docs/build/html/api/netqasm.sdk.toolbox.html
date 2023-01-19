@@ -1,0 +1,365 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>netqasm.sdk.toolbox package &mdash; netqasm 0.5.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="netqasm.util package" href="netqasm.util.html" />
+    <link rel="prev" title="netqasm.sdk.classical_communication.thread_socket package" href="netqasm.sdk.classical_communication.thread_socket.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> netqasm
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html">Getting started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="netqasm.html">netqasm package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="netqasm.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="netqasm.backend.html">netqasm.backend package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="netqasm.lang.html">netqasm.lang package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="netqasm.logging.html">netqasm.logging package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="netqasm.runtime.html">netqasm.runtime package</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="netqasm.sdk.html">netqasm.sdk package</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="netqasm.sdk.html#subpackages">Subpackages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="netqasm.sdk.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="netqasm.sdk.html#module-netqasm.sdk.compiling">netqasm.sdk.compiling module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="netqasm.sdk.html#module-netqasm.sdk.config">netqasm.sdk.config module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="netqasm.sdk.html#module-netqasm.sdk.connection">netqasm.sdk.connection module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="netqasm.sdk.html#module-netqasm.sdk.epr_socket">netqasm.sdk.epr_socket module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="netqasm.sdk.html#module-netqasm.sdk.external">netqasm.sdk.external module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="netqasm.sdk.html#module-netqasm.sdk.futures">netqasm.sdk.futures module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="netqasm.sdk.html#module-netqasm.sdk.network">netqasm.sdk.network module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="netqasm.sdk.html#module-netqasm.sdk.progress_bar">netqasm.sdk.progress_bar module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="netqasm.sdk.html#module-netqasm.sdk.qubit">netqasm.sdk.qubit module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="netqasm.sdk.html#module-netqasm.sdk.shared_memory">netqasm.sdk.shared_memory module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="netqasm.sdk.html#module-netqasm.sdk">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="netqasm.util.html">netqasm.util package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="netqasm.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="netqasm.html#module-netqasm.typing">netqasm.typing module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="netqasm.html#module-netqasm">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">netqasm</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="netqasm.html">netqasm package</a> &raquo;</li>
+        
+          <li><a href="netqasm.sdk.html">netqasm.sdk package</a> &raquo;</li>
+        
+      <li>netqasm.sdk.toolbox package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/netqasm.sdk.toolbox.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="netqasm-sdk-toolbox-package">
+<h1>netqasm.sdk.toolbox package<a class="headerlink" href="#netqasm-sdk-toolbox-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-netqasm.sdk.toolbox.measurements">
+<span id="netqasm-sdk-toolbox-measurements-module"></span><h2>netqasm.sdk.toolbox.measurements module<a class="headerlink" href="#module-netqasm.sdk.toolbox.measurements" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="netqasm.sdk.toolbox.measurements.parity_meas">
+<code class="sig-prename descclassname">netqasm.sdk.toolbox.measurements.</code><code class="sig-name descname">parity_meas</code><span class="sig-paren">(</span><em class="sig-param">qubits</em>, <em class="sig-param">bases</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.sdk.toolbox.measurements.parity_meas" title="Permalink to this definition">¶</a></dt>
+<dd><p>Performs a parity measurement on the provided qubits in the Pauli bases specified by ‘bases’.
+<cite>bases</cite> should be a string with letters in ‘IXYZ’ and optionally start with ‘-‘.
+If <cite>bases</cite> starts with ‘-‘, then the measurement outcome is flipped.
+The <cite>basis</cite> should have the same length as the number of qubits provided or +1 if starts with ‘-‘.
+If more than one letter of ‘bases’ is not identity, then an ancilla qubit will be used, which is created
+using the connection of the first qubit.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>qubits</strong> (List[<a class="reference internal" href="netqasm.sdk.html#netqasm.sdk.qubit.Qubit" title="netqasm.sdk.qubit.Qubit"><code class="xref py py-class docutils literal notranslate"><span class="pre">Qubit</span></code></a>]) – The qubits to measure</p></li>
+<li><p><strong>bases</strong> (<em>str</em>) – What parity meas to perform.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The measurement outcome</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>class:~.sdk.futures.Future</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-netqasm.sdk.toolbox.multi_node">
+<span id="netqasm-sdk-toolbox-multi-node-module"></span><h2>netqasm.sdk.toolbox.multi_node module<a class="headerlink" href="#module-netqasm.sdk.toolbox.multi_node" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="netqasm.sdk.toolbox.multi_node.create_ghz">
+<code class="sig-prename descclassname">netqasm.sdk.toolbox.multi_node.</code><code class="sig-name descname">create_ghz</code><span class="sig-paren">(</span><em class="sig-param">down_epr_socket=None</em>, <em class="sig-param">up_epr_socket=None</em>, <em class="sig-param">down_socket=None</em>, <em class="sig-param">up_socket=None</em>, <em class="sig-param">do_corrections=False</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.sdk.toolbox.multi_node.create_ghz" title="Permalink to this definition">¶</a></dt>
+<dd><p>Local protocol to create a GHZ state between mutliples nodes.</p>
+<p>EPR pairs are generated in a line and turned into a GHZ state by performing half of a Bell measurement.
+That is, CNOT and H are applied but only the control qubit is measured.
+If <cite>do_corrections=False</cite> (default) this measurement outcome is returned along with the qubit to be able to know
+what corrections might need to be applied.
+If the node is at the start or end of the line, the measurement outcome 0 is always returned since there
+is no measurement performed.
+The measurement outcome indicates if the next node in the line should flip its qubit to get the standard
+GHZ state: <span class="math notranslate nohighlight">\(|0\rangle^{\otimes n} + |1\rangle^{\otimes n}\)</span>.</p>
+<p>On the other hand if <cite>do_corrections=True</cite>, then the classical sockets <cite>down_socket</cite> and/or <cite>up_socket</cite>
+will be used to communicate the outcomes and automatically perform the corrections.</p>
+<p>Depending on if down_epr_socket and/or up_epr_socket is specified the node,
+either takes the role of the:</p>
+<ul class="simple">
+<li><p>“start”, which intialises the process and creates an EPR
+with the next node using the <cite>up_epr_socket</cite>.</p></li>
+<li><p>“middle”, which receives an EPR pair on the <cite>down_epr_socket</cite> and then
+creates one on the <cite>up_epr_socket</cite>.</p></li>
+<li><p>“end”, which receives an EPR pair on the <cite>down_epr_socket</cite>.</p></li>
+</ul>
+<p>NOTE There has to be exactly one “start” and exactly one “end” but zero or more “middle”.
+NOTE Both <cite>down_epr_socket</cite> and <cite>up_epr_socket</cite> cannot be <cite>None</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>down_epr_socket</strong> (<a class="reference internal" href="netqasm.sdk.html#netqasm.sdk.epr_socket.EPRSocket" title="netqasm.sdk.epr_socket.EPRSocket"><code class="xref py py-class docutils literal notranslate"><span class="pre">sdk.epr_socket.EPRSocket</span></code></a>) – The EPRSocket to be used for receiving EPR pairs from downstream.</p></li>
+<li><p><strong>up_epr_socket</strong> (<a class="reference internal" href="netqasm.sdk.html#netqasm.sdk.epr_socket.EPRSocket" title="netqasm.sdk.epr_socket.EPRSocket"><code class="xref py py-class docutils literal notranslate"><span class="pre">sdk.epr_socket.EPRSocket</span></code></a>) – The EPRSocket to be used for create EPR pairs upstream.</p></li>
+<li><p><strong>down_socket</strong> (<a class="reference internal" href="netqasm.sdk.classical_communication.html#netqasm.sdk.classical_communication.socket.Socket" title="netqasm.sdk.classical_communication.socket.Socket"><code class="xref py py-class docutils literal notranslate"><span class="pre">sdk.classical_communication.socket.Socket</span></code></a>) – The classical socket to be used for sending corrections, if <cite>do_corrections = True</cite>.</p></li>
+<li><p><strong>up_socket</strong> (<a class="reference internal" href="netqasm.sdk.classical_communication.html#netqasm.sdk.classical_communication.socket.Socket" title="netqasm.sdk.classical_communication.socket.Socket"><code class="xref py py-class docutils literal notranslate"><span class="pre">sdk.classical_communication.socket.Socket</span></code></a>) – The classical socket to be used for sending corrections, if <cite>do_corrections = True</cite>.</p></li>
+<li><p><strong>do_corrections</strong> (<em>bool</em>) – If corrections should be applied to make the GHZ in the standard form
+<span class="math notranslate nohighlight">\(|0\rangle^{\otimes n} + |1\rangle^{\otimes n}\)</span> or not.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Of the form <cite>(q, m)</cite> where <cite>q</cite> is the qubit part of the state and <cite>m</cite> is the measurement outcome.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>tuple</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-netqasm.sdk.toolbox.state_prep">
+<span id="netqasm-sdk-toolbox-state-prep-module"></span><h2>netqasm.sdk.toolbox.state_prep module<a class="headerlink" href="#module-netqasm.sdk.toolbox.state_prep" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="netqasm.sdk.toolbox.state_prep.set_qubit_state">
+<code class="sig-prename descclassname">netqasm.sdk.toolbox.state_prep.</code><code class="sig-name descname">set_qubit_state</code><span class="sig-paren">(</span><em class="sig-param">qubit</em>, <em class="sig-param">phi=0.0</em>, <em class="sig-param">theta=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.sdk.toolbox.state_prep.set_qubit_state" title="Permalink to this definition">¶</a></dt>
+<dd><p>Assuming that the qubit is in the state <span class="math notranslate nohighlight">\(|0\rangle\)</span>, this function
+rotates the state to <span class="math notranslate nohighlight">\(\cos(\theta / 2)|0\rangle + e^{i\phi}\sin(\theta / 2)|1\rangle\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>qubit</strong> (<a class="reference internal" href="netqasm.sdk.html#netqasm.sdk.qubit.Qubit" title="netqasm.sdk.qubit.Qubit"><code class="xref py py-class docutils literal notranslate"><span class="pre">sdk.qubit.Qubit</span></code></a>) – The qubit to prepare the state.</p></li>
+<li><p><strong>phi</strong> (<em>float</em>) – Angle around Z-axis from X-axis</p></li>
+<li><p><strong>theta</strong> (<em>float</em>) – Angle from Z-axis</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="netqasm.sdk.toolbox.state_prep.get_angle_spec_from_float">
+<code class="sig-prename descclassname">netqasm.sdk.toolbox.state_prep.</code><code class="sig-name descname">get_angle_spec_from_float</code><span class="sig-paren">(</span><em class="sig-param">angle</em>, <em class="sig-param">tol=1e-06</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.sdk.toolbox.state_prep.get_angle_spec_from_float" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tries to find the shortest sequence of (n, d) such that <span class="math notranslate nohighlight">\(abs(\sum_i n_i \pi / 2 ^ {d_i} - angle) &lt; tol\)</span>
+This is to find a sequence of rotations for a given angle.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>angle</strong> (<em>float</em>) – The angle to approximate</p></li>
+<li><p><strong>tol</strong> (<em>float</em>) – Tolerance to use</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-netqasm.sdk.toolbox">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-netqasm.sdk.toolbox" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="netqasm.util.html" class="btn btn-neutral float-right" title="netqasm.util package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="netqasm.sdk.classical_communication.thread_socket.html" class="btn btn-neutral float-left" title="netqasm.sdk.classical_communication.thread_socket package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2019, Axel Dahlberg
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

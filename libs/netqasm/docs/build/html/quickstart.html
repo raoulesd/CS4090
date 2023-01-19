@@ -1,0 +1,265 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Getting started &mdash; netqasm 0.5.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Running your first app" href="quickstart/first-app.html" />
+    <link rel="prev" title="Installation" href="installation.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> netqasm
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Getting started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="quickstart/first-app.html">Running your first app</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart/using-sdk.html">Using the SDK</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart/file_structure.html">Application file structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart/modules.html">SDK objects</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api/netqasm.html">netqasm package</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">netqasm</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Getting started</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/quickstart.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="getting-started">
+<h1>Getting started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h1>
+<p>In this guide you will learn how to quickly get started using the NetQASM SDK and to run your applications on a simulator of a quantum network.
+Before continuing, make sure you have followed the <a class="reference internal" href="installation.html#installation"><span class="std std-ref">Installation</span></a>.
+We will be using the simulator <a class="reference external" href="https://netsquid.org/">NetSquid</a>, for which we also need <a class="reference external" href="https://gitlab.com/softwarequtech/netqasm/squidasm/">SquidASM</a>, also see <a class="reference internal" href="installation.html#installation"><span class="std std-ref">Installation</span></a>.
+To make sure that you’re ready to go run</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 -c <span class="s2">&quot;import squidasm; print(squidasm.__version__)&quot;</span>
+</pre></div>
+</div>
+<p>In the next part, <a class="reference internal" href="quickstart/first-app.html#first-app"><span class="std std-ref">Running your first app</span></a>, we will run our first app.</p>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="quickstart/first-app.html">Running your first app</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="quickstart/first-app.html#creating-an-application-folder">Creating an application folder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart/first-app.html#running-the-app">Running the app</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart/first-app.html#inspecting-the-results">Inspecting the results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart/first-app.html#other-pre-defined-apps">Other pre-defined apps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart/first-app.html#using-other-simulators">Using other simulators</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart/using-sdk.html">Using the SDK</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="quickstart/using-sdk.html#writing-a-first-application">Writing a first application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart/using-sdk.html#creating-entanglement-between-nodes">Creating entanglement between nodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart/using-sdk.html#adding-classical-communication">Adding classical communication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart/using-sdk.html#a-more-complex-example">A more complex example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart/using-sdk.html#simple-classical-logic">Simple classical logic</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart/file_structure.html">Application file structure</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="quickstart/file_structure.html#file-content-format">File content format</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart/file_structure.html#results-and-logs">Results and logs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart/file_structure.html#output-file-contents">Output file contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart/modules.html">SDK objects</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="quickstart/modules.html#netqasm-connection">NetQASM connection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart/modules.html#qubit">Qubit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart/modules.html#epr-socket">EPR socket</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart/modules.html#futures">Futures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart/modules.html#classical-communication">Classical communication</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="quickstart/first-app.html" class="btn btn-neutral float-right" title="Running your first app" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="installation.html" class="btn btn-neutral float-left" title="Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2019, Axel Dahlberg
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

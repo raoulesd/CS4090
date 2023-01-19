@@ -1,0 +1,532 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>netqasm.runtime package &mdash; netqasm 0.5.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="netqasm.runtime.interface package" href="netqasm.runtime.interface.html" />
+    <link rel="prev" title="netqasm.logging package" href="netqasm.logging.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> netqasm
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html">Getting started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="netqasm.html">netqasm package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="netqasm.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="netqasm.backend.html">netqasm.backend package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="netqasm.lang.html">netqasm.lang package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="netqasm.logging.html">netqasm.logging package</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">netqasm.runtime package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#subpackages">Subpackages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-netqasm.runtime.app_config">netqasm.runtime.app_config module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-netqasm.runtime.cli">netqasm.runtime.cli module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-netqasm.runtime.env">netqasm.runtime.env module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-netqasm.runtime.hardware">netqasm.runtime.hardware module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-netqasm.runtime.process_logs">netqasm.runtime.process_logs module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-netqasm.runtime.settings">netqasm.runtime.settings module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-netqasm.runtime">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="netqasm.sdk.html">netqasm.sdk package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="netqasm.util.html">netqasm.util package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="netqasm.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="netqasm.html#module-netqasm.typing">netqasm.typing module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="netqasm.html#module-netqasm">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">netqasm</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="netqasm.html">netqasm package</a> &raquo;</li>
+        
+      <li>netqasm.runtime package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/netqasm.runtime.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="netqasm-runtime-package">
+<h1>netqasm.runtime package<a class="headerlink" href="#netqasm-runtime-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="netqasm.runtime.interface.html">netqasm.runtime.interface package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="netqasm.runtime.interface.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="netqasm.runtime.interface.html#module-netqasm.runtime.interface.config">netqasm.runtime.interface.config module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="netqasm.runtime.interface.html#module-netqasm.runtime.interface.logging">netqasm.runtime.interface.logging module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="netqasm.runtime.interface.html#module-netqasm.runtime.interface.results">netqasm.runtime.interface.results module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="netqasm.runtime.interface.html#module-netqasm.runtime.interface">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-netqasm.runtime.app_config">
+<span id="netqasm-runtime-app-config-module"></span><h2>netqasm.runtime.app_config module<a class="headerlink" href="#module-netqasm.runtime.app_config" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="netqasm.runtime.app_config.AppConfig">
+<em class="property">class </em><code class="sig-prename descclassname">netqasm.runtime.app_config.</code><code class="sig-name descname">AppConfig</code><span class="sig-paren">(</span><em class="sig-param">app_name</em>, <em class="sig-param">node_name</em>, <em class="sig-param">main_func</em>, <em class="sig-param">log_config</em>, <em class="sig-param">inputs</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.runtime.app_config.AppConfig" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>app_name</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – </p></li>
+<li><p><strong>node_name</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – </p></li>
+<li><p><strong>main_func</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>) – </p></li>
+<li><p><strong>log_config</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<a class="reference internal" href="netqasm.sdk.html#netqasm.sdk.config.LogConfig" title="netqasm.sdk.config.LogConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">LogConfig</span></code></a>]) – </p></li>
+<li><p><strong>inputs</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>]) – </p></li>
+</ul>
+</dd>
+</dl>
+<dl class="attribute">
+<dt id="netqasm.runtime.app_config.AppConfig.app_name">
+<code class="sig-name descname">app_name</code><em class="property">: str</em><em class="property"> = None</em><a class="headerlink" href="#netqasm.runtime.app_config.AppConfig.app_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.runtime.app_config.AppConfig.node_name">
+<code class="sig-name descname">node_name</code><em class="property">: str</em><em class="property"> = None</em><a class="headerlink" href="#netqasm.runtime.app_config.AppConfig.node_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.runtime.app_config.AppConfig.main_func">
+<code class="sig-name descname">main_func</code><em class="property">: Callable</em><em class="property"> = None</em><a class="headerlink" href="#netqasm.runtime.app_config.AppConfig.main_func" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.runtime.app_config.AppConfig.log_config">
+<code class="sig-name descname">log_config</code><em class="property">: Optional[LogConfig]</em><em class="property"> = None</em><a class="headerlink" href="#netqasm.runtime.app_config.AppConfig.log_config" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.runtime.app_config.AppConfig.inputs">
+<code class="sig-name descname">inputs</code><em class="property">: Dict[str, Any]</em><em class="property"> = None</em><a class="headerlink" href="#netqasm.runtime.app_config.AppConfig.inputs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="netqasm.runtime.app_config.default_app_config">
+<code class="sig-prename descclassname">netqasm.runtime.app_config.</code><code class="sig-name descname">default_app_config</code><span class="sig-paren">(</span><em class="sig-param">app_name</em>, <em class="sig-param">main_func</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.runtime.app_config.default_app_config" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>app_name</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – </p></li>
+<li><p><strong>main_func</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="#netqasm.runtime.app_config.AppConfig" title="netqasm.runtime.app_config.AppConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">AppConfig</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-netqasm.runtime.cli">
+<span id="netqasm-runtime-cli-module"></span><h2>netqasm.runtime.cli module<a class="headerlink" href="#module-netqasm.runtime.cli" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-netqasm.runtime.env">
+<span id="netqasm-runtime-env-module"></span><h2>netqasm.runtime.env module<a class="headerlink" href="#module-netqasm.runtime.env" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="netqasm.runtime.env.load_app_config_file">
+<code class="sig-prename descclassname">netqasm.runtime.env.</code><code class="sig-name descname">load_app_config_file</code><span class="sig-paren">(</span><em class="sig-param">app_dir</em>, <em class="sig-param">app_name</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.runtime.env.load_app_config_file" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="netqasm.runtime.env.get_roles_config_path">
+<code class="sig-prename descclassname">netqasm.runtime.env.</code><code class="sig-name descname">get_roles_config_path</code><span class="sig-paren">(</span><em class="sig-param">app_dir</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.runtime.env.get_roles_config_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="netqasm.runtime.env.load_roles_config">
+<code class="sig-prename descclassname">netqasm.runtime.env.</code><code class="sig-name descname">load_roles_config</code><span class="sig-paren">(</span><em class="sig-param">roles_config_file</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.runtime.env.load_roles_config" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="netqasm.runtime.env.load_app_files">
+<code class="sig-prename descclassname">netqasm.runtime.env.</code><code class="sig-name descname">load_app_files</code><span class="sig-paren">(</span><em class="sig-param">app_dir</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.runtime.env.load_app_files" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="netqasm.runtime.env.get_log_dir">
+<code class="sig-prename descclassname">netqasm.runtime.env.</code><code class="sig-name descname">get_log_dir</code><span class="sig-paren">(</span><em class="sig-param">app_dir</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.runtime.env.get_log_dir" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="netqasm.runtime.env.get_timed_log_dir">
+<code class="sig-prename descclassname">netqasm.runtime.env.</code><code class="sig-name descname">get_timed_log_dir</code><span class="sig-paren">(</span><em class="sig-param">log_dir</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.runtime.env.get_timed_log_dir" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="netqasm.runtime.env.get_post_function_path">
+<code class="sig-prename descclassname">netqasm.runtime.env.</code><code class="sig-name descname">get_post_function_path</code><span class="sig-paren">(</span><em class="sig-param">app_dir</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.runtime.env.get_post_function_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="netqasm.runtime.env.load_post_function">
+<code class="sig-prename descclassname">netqasm.runtime.env.</code><code class="sig-name descname">load_post_function</code><span class="sig-paren">(</span><em class="sig-param">post_function_file</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.runtime.env.load_post_function" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="netqasm.runtime.env.get_results_path">
+<code class="sig-prename descclassname">netqasm.runtime.env.</code><code class="sig-name descname">get_results_path</code><span class="sig-paren">(</span><em class="sig-param">timed_log_dir</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.runtime.env.get_results_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="netqasm.runtime.env.new_folder">
+<code class="sig-prename descclassname">netqasm.runtime.env.</code><code class="sig-name descname">new_folder</code><span class="sig-paren">(</span><em class="sig-param">path</em>, <em class="sig-param">template='teleport'</em>, <em class="sig-param">quiet=False</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.runtime.env.new_folder" title="Permalink to this definition">¶</a></dt>
+<dd><p>Used by the CLI to create an app folder template</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>path</strong> (<em>str</em>) – Path to the directory</p></li>
+<li><p><strong>template</strong> (<em>str</em>) – Which pre-defined app to use as template</p></li>
+<li><p><strong>quiet</strong> (<em>bool</em>) – Whether to print info to stdout or not (default <cite>False</cite>)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="netqasm.runtime.env.init_folder">
+<code class="sig-prename descclassname">netqasm.runtime.env.</code><code class="sig-name descname">init_folder</code><span class="sig-paren">(</span><em class="sig-param">path</em>, <em class="sig-param">quiet=False</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.runtime.env.init_folder" title="Permalink to this definition">¶</a></dt>
+<dd><p>Used by the CLI to initialize a directory by adding missing config files.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>path</strong> (<em>str</em>) – Path to the directory</p></li>
+<li><p><strong>quiet</strong> (<em>bool</em>) – Whether to print info to stdout or not (default <cite>False</cite>)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="netqasm.runtime.env.file_creation_notify">
+<code class="sig-prename descclassname">netqasm.runtime.env.</code><code class="sig-name descname">file_creation_notify</code><span class="sig-paren">(</span><em class="sig-param">func</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.runtime.env.file_creation_notify" title="Permalink to this definition">¶</a></dt>
+<dd><p>Decorator for notification about file creation</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="netqasm.runtime.env.get_example_apps">
+<code class="sig-prename descclassname">netqasm.runtime.env.</code><code class="sig-name descname">get_example_apps</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.runtime.env.get_example_apps" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-netqasm.runtime.hardware">
+<span id="netqasm-runtime-hardware-module"></span><h2>netqasm.runtime.hardware module<a class="headerlink" href="#module-netqasm.runtime.hardware" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="netqasm.runtime.hardware.run_applications">
+<code class="sig-prename descclassname">netqasm.runtime.hardware.</code><code class="sig-name descname">run_applications</code><span class="sig-paren">(</span><em class="sig-param">app_cfgs</em>, <em class="sig-param">post_function=None</em>, <em class="sig-param">instr_log_dir=None</em>, <em class="sig-param">network_config=None</em>, <em class="sig-param">results_file=None</em>, <em class="sig-param">formalism=None</em>, <em class="sig-param">flavour=None</em>, <em class="sig-param">use_app_config=True</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.runtime.hardware.run_applications" title="Permalink to this definition">¶</a></dt>
+<dd><p>Executes functions containing application scripts</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>app_cfgs</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<a class="reference internal" href="#netqasm.runtime.app_config.AppConfig" title="netqasm.runtime.app_config.AppConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">AppConfig</span></code></a>]) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="netqasm.runtime.hardware.save_results">
+<code class="sig-prename descclassname">netqasm.runtime.hardware.</code><code class="sig-name descname">save_results</code><span class="sig-paren">(</span><em class="sig-param">results</em>, <em class="sig-param">results_file</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.runtime.hardware.save_results" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-netqasm.runtime.process_logs">
+<span id="netqasm-runtime-process-logs-module"></span><h2>netqasm.runtime.process_logs module<a class="headerlink" href="#module-netqasm.runtime.process_logs" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="netqasm.runtime.process_logs.process_log">
+<code class="sig-prename descclassname">netqasm.runtime.process_logs.</code><code class="sig-name descname">process_log</code><span class="sig-paren">(</span><em class="sig-param">log_dir</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.runtime.process_logs.process_log" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="netqasm.runtime.process_logs.make_last_log">
+<code class="sig-prename descclassname">netqasm.runtime.process_logs.</code><code class="sig-name descname">make_last_log</code><span class="sig-paren">(</span><em class="sig-param">log_dir</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.runtime.process_logs.make_last_log" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-netqasm.runtime.settings">
+<span id="netqasm-runtime-settings-module"></span><h2>netqasm.runtime.settings module<a class="headerlink" href="#module-netqasm.runtime.settings" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="netqasm.runtime.settings.Simulator">
+<em class="property">class </em><code class="sig-prename descclassname">netqasm.runtime.settings.</code><code class="sig-name descname">Simulator</code><a class="headerlink" href="#netqasm.runtime.settings.Simulator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">enum.Enum</span></code></p>
+<p>An enumeration.</p>
+<dl class="attribute">
+<dt id="netqasm.runtime.settings.Simulator.NETSQUID">
+<code class="sig-name descname">NETSQUID</code><em class="property"> = 'netsquid'</em><a class="headerlink" href="#netqasm.runtime.settings.Simulator.NETSQUID" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.runtime.settings.Simulator.SIMULAQRON">
+<code class="sig-name descname">SIMULAQRON</code><em class="property"> = 'simulaqron'</em><a class="headerlink" href="#netqasm.runtime.settings.Simulator.SIMULAQRON" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.runtime.settings.Simulator.DEBUG">
+<code class="sig-name descname">DEBUG</code><em class="property"> = 'debug'</em><a class="headerlink" href="#netqasm.runtime.settings.Simulator.DEBUG" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="netqasm.runtime.settings.Formalism">
+<em class="property">class </em><code class="sig-prename descclassname">netqasm.runtime.settings.</code><code class="sig-name descname">Formalism</code><a class="headerlink" href="#netqasm.runtime.settings.Formalism" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">enum.Enum</span></code></p>
+<p>An enumeration.</p>
+<dl class="attribute">
+<dt id="netqasm.runtime.settings.Formalism.STAB">
+<code class="sig-name descname">STAB</code><em class="property"> = 'stab'</em><a class="headerlink" href="#netqasm.runtime.settings.Formalism.STAB" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.runtime.settings.Formalism.KET">
+<code class="sig-name descname">KET</code><em class="property"> = 'ket'</em><a class="headerlink" href="#netqasm.runtime.settings.Formalism.KET" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.runtime.settings.Formalism.DM">
+<code class="sig-name descname">DM</code><em class="property"> = 'dm'</em><a class="headerlink" href="#netqasm.runtime.settings.Formalism.DM" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="netqasm.runtime.settings.Flavour">
+<em class="property">class </em><code class="sig-prename descclassname">netqasm.runtime.settings.</code><code class="sig-name descname">Flavour</code><a class="headerlink" href="#netqasm.runtime.settings.Flavour" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">enum.Enum</span></code></p>
+<p>An enumeration.</p>
+<dl class="attribute">
+<dt id="netqasm.runtime.settings.Flavour.VANILLA">
+<code class="sig-name descname">VANILLA</code><em class="property"> = 'vanilla'</em><a class="headerlink" href="#netqasm.runtime.settings.Flavour.VANILLA" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="netqasm.runtime.settings.Flavour.NV">
+<code class="sig-name descname">NV</code><em class="property"> = 'nv'</em><a class="headerlink" href="#netqasm.runtime.settings.Flavour.NV" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="netqasm.runtime.settings.set_simulator">
+<code class="sig-prename descclassname">netqasm.runtime.settings.</code><code class="sig-name descname">set_simulator</code><span class="sig-paren">(</span><em class="sig-param">simulator</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.runtime.settings.set_simulator" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="netqasm.runtime.settings.get_simulator">
+<code class="sig-prename descclassname">netqasm.runtime.settings.</code><code class="sig-name descname">get_simulator</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.runtime.settings.get_simulator" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="netqasm.runtime.settings.set_is_using_hardware">
+<code class="sig-prename descclassname">netqasm.runtime.settings.</code><code class="sig-name descname">set_is_using_hardware</code><span class="sig-paren">(</span><em class="sig-param">b</em><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.runtime.settings.set_is_using_hardware" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="netqasm.runtime.settings.get_is_using_hardware">
+<code class="sig-prename descclassname">netqasm.runtime.settings.</code><code class="sig-name descname">get_is_using_hardware</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#netqasm.runtime.settings.get_is_using_hardware" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-netqasm.runtime">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-netqasm.runtime" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="netqasm.runtime.interface.html" class="btn btn-neutral float-right" title="netqasm.runtime.interface package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="netqasm.logging.html" class="btn btn-neutral float-left" title="netqasm.logging package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2019, Axel Dahlberg
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

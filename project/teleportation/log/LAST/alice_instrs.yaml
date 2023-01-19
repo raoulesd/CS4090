@@ -1,0 +1,138 @@
+- AID: 0
+  HFL: null
+  HLN: null
+  INS: init
+  LOG: Doing instruction init with operands ['Q0=0']
+  OPR:
+  - Q0=0
+  OUT: null
+  PRC: 21
+  QGR:
+    8772996002776:
+      is_entangled: false
+      qubit_ids:
+      - - alice
+        - 0
+      state:
+      - - !!python/complex '1.0'
+        - !!python/complex '0.0'
+      - - !!python/complex '0.0'
+        - !!python/complex '0.0'
+  QID:
+  - 0
+  SID: 0
+  SIT: 161224.0
+  VID:
+  - 0
+  WCT: '2023-01-16 16:15:41.912705'
+- AID: 0
+  HFL: null
+  HLN: null
+  INS: cnot
+  LOG: Doing instruction cnot with operands ['Q0=0', 'Q1=1']
+  OPR:
+  - Q0=0
+  - Q1=1
+  OUT: null
+  PRC: 33
+  QGR:
+    8772996002776:
+      is_entangled: true
+      qubit_ids:
+      - - alice
+        - 0
+      - - alice
+        - 1
+      - - bob
+        - 0
+      state: null
+  QID:
+  - 0
+  - 1
+  SID: 0
+  SIT: 662224.0
+  VID:
+  - 0
+  - 1
+  WCT: '2023-01-16 16:15:41.916539'
+- AID: 0
+  HFL: null
+  HLN: null
+  INS: h
+  LOG: Doing instruction h with operands ['Q0=0']
+  OPR:
+  - Q0=0
+  OUT: null
+  PRC: 35
+  QGR:
+    8772996002776:
+      is_entangled: true
+      qubit_ids:
+      - - alice
+        - 0
+      - - alice
+        - 1
+      - - bob
+        - 0
+      state: null
+  QID:
+  - 0
+  SID: 0
+  SIT: 663224.0
+  VID:
+  - 0
+  WCT: '2023-01-16 16:15:41.920590'
+- AID: 0
+  HFL: null
+  HLN: null
+  INS: meas
+  LOG: Doing instruction meas with operands ['Q0=0', 'M0=0']
+  OPR:
+  - Q0=0
+  - M0=0
+  OUT: 0
+  PRC: 37
+  QGR:
+    8772996002776:
+      is_entangled: true
+      qubit_ids:
+      - - alice
+        - 1
+      - - bob
+        - 0
+      state: null
+  QID:
+  - 0
+  SID: 0
+  SIT: 663224.0
+  VID:
+  - 0
+  WCT: '2023-01-16 16:15:41.939822'
+- AID: 0
+  HFL: null
+  HLN: null
+  INS: meas
+  LOG: Doing instruction meas with operands ['Q0=1', 'M1=1']
+  OPR:
+  - Q0=1
+  - M1=1
+  OUT: 1
+  PRC: 42
+  QGR:
+    8772996002776:
+      is_entangled: false
+      qubit_ids:
+      - - bob
+        - 0
+      state:
+      - - !!python/complex '0.0'
+        - !!python/complex '0.0'
+      - - !!python/complex '0.0'
+        - !!python/complex '1.0'
+  QID:
+  - 1
+  SID: 0
+  SIT: 663224.0
+  VID:
+  - 1
+  WCT: '2023-01-16 16:15:41.940866'
