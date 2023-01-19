@@ -8,7 +8,7 @@
   PTH:
   - link_bob_alice
   QGR:
-    8772996002776:
+    8726414309324:
       is_entangled: false
       qubit_ids:
       - - alice
@@ -21,9 +21,9 @@
   QID:
   - 0
   - 1
-  SIT: 161224.0
+  SIT: 281035.0
   TYP: null
-  WCT: '2023-01-16 16:15:41.913159'
+  WCT: '2023-01-19 19:02:47.071526'
 - BAS: null
   INS: epr_EntanglementStage.FINISH
   LOG: entanglement of type 0 created between bob and alice
@@ -34,7 +34,15 @@
   PTH:
   - link_bob_alice
   QGR:
-    8772996002776:
+    8726414298804:
+      is_entangled: true
+      qubit_ids:
+      - - alice
+        - 1
+      - - bob
+        - 0
+      state: null
+    8726414309324:
       is_entangled: false
       qubit_ids:
       - - alice
@@ -44,17 +52,9 @@
         - !!python/complex '0.0'
       - - !!python/complex '0.0'
         - !!python/complex '0.0'
-    8772996012360:
-      is_entangled: true
-      qubit_ids:
-      - - alice
-        - 1
-      - - bob
-        - 0
-      state: null
   QID:
   - 0
   - 1
-  SIT: 161225.0000000001
+  SIT: 281036.0000000001
   TYP: epr_EntanglementType.CK
-  WCT: '2023-01-16 16:15:41.915635'
+  WCT: '2023-01-19 19:02:47.226262'

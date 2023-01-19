@@ -29,7 +29,6 @@ def main(app_config=None):
         if m1 == 1:
             epr.Z()
 
-        epr.X()
         result = epr.measure()
         bob.flush()
 

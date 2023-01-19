@@ -1,4 +1,5 @@
 import math
+from netqasm.sdk.classical_communication.message import StructuredMessage
 
 
 def bbpssw_protocol_alice(q1, q2, alice, socket):
@@ -17,9 +18,16 @@ def bbpssw_protocol_alice(q1, q2, alice, socket):
     a = bbpssw_gates_and_measurement_alice(q1, q2)
     alice.flush()
 
-    # Write below the code to send measurement result to Bob, receive measurement result from Bob and check if protocol was successful
-    pass
+    # Write below the code to send measurement result to Bob,
+    # receive measurement result from Bob and check if protocol was successful
+    socket.send_structured(StructuredMessage("The measurement outcome of Alice is:", int(a)))
+    b = socket.recv_structured().payload
 
+    print(f'Measurement Alice: {a}')
+
+    if a.value == b:
+        return True
+    return False
 
 def bbpssw_gates_and_measurement_alice(q1, q2):
     """
@@ -28,7 +36,9 @@ def bbpssw_gates_and_measurement_alice(q1, q2):
     :param q2: Alice's qubit from the second entangled pair
     :return: Integer 0/1 indicating Alice's measurement outcome
     """
-    pass
+    q1.cnot(q2)
+
+    return q2.measure()
 
 
 def bbpssw_protocol_bob(q1, q2, bob, socket):
@@ -47,8 +57,16 @@ def bbpssw_protocol_bob(q1, q2, bob, socket):
     b = bbpssw_gates_and_measurement_bob(q1, q2)
     bob.flush()
 
-    # Write below the code to send measurement result to Alice, receive measurement result from Alice and check if protocol was successful
-    pass
+    # Write below the code to send measurement result to Alice,
+    # receive measurement result from Alice and check if protocol was successful
+    socket.send_structured(StructuredMessage("The measurement outcome of Bob is:", int(b)))
+    a = socket.recv_structured().payload
+
+    print(f'Measurement Bob: {b}')
+
+    if a == b.value:
+        return True
+    return False
 
 def bbpssw_gates_and_measurement_bob(q1, q2):
     """
@@ -57,5 +75,8 @@ def bbpssw_gates_and_measurement_bob(q1, q2):
     :param q2: Bob's qubit from the second entangled pair
     :return: Integer 0/1 indicating Bob's measurement outcome
     """
-    pass
+    q1.cnot(q2)
+    q2.H()
+
+    return q2.measure()
 
