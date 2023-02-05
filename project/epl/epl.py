@@ -1,5 +1,7 @@
 import math
 from netqasm.sdk.classical_communication.message import StructuredMessage
+from netqasm.sdk.external import get_qubit_state
+from netqasm.sdk.toolbox.sim_states import qubit_from, to_dm, get_fidelity
 
 
 def epl_protocol_alice(q1, q2, alice, socket):
@@ -22,6 +24,14 @@ def epl_protocol_alice(q1, q2, alice, socket):
     # receive measurement result from Bob and check if protocol was successful
     socket.send_structured(StructuredMessage("The measurement outcome of Alice is:", int(a)))
     b = socket.recv_structured().payload
+
+    dm1 = get_qubit_state(q1)
+    print(f'=====ALICE AFTER=====')
+
+    target = qubit_from(0, 0)
+
+    f1 = get_fidelity(target, dm1)
+    print(f'Alice has f1: {f1}')
 
     print(f'Measurement Alice: {a}')
 
@@ -62,6 +72,14 @@ def epl_protocol_bob(q1, q2, bob, socket):
     # receive measurement result from Alice and check if protocol was successful
     socket.send_structured(StructuredMessage("The measurement outcome of Bob is:", int(b)))
     a = socket.recv_structured().payload
+
+    dm1 = get_qubit_state(q1)
+    print(f'=====BOB AFTER=====')
+
+    target = qubit_from(0, math.pi)
+
+    f1 = get_fidelity(target, dm1)
+    print(f'Bob has f1: {f1}')
 
     print(f'Measurement Bob: {b}')
 

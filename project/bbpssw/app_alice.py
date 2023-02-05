@@ -1,6 +1,9 @@
+import time
+
 from bbpssw import bbpssw_protocol_alice
 from netqasm.sdk import EPRSocket
-from netqasm.sdk.external import NetQASMConnection, Socket
+from netqasm.sdk.external import NetQASMConnection, Socket, get_qubit_state
+from netqasm.sdk.toolbox.sim_states import qubit_from, to_dm, get_fidelity
 
 def main(app_config=None):
 
@@ -24,10 +27,19 @@ def main(app_config=None):
         epr_1 = epr_socket.create()[0]
         epr_2 = epr_socket.create()[0]
 
+        epr_1.X()
+        epr_1.X()
+
+        epr_2.X()
+        epr_2.X()
+
         # Call the BBPSSW method
         res = bbpssw_protocol_alice(epr_1, epr_2, alice, socket)
 
         print(f'Result Alice: {res}')
 
+
+
 if __name__ == "__main__":
-    main()
+            main()
+            time.sleep(1)

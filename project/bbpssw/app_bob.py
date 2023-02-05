@@ -1,9 +1,10 @@
+import time
 from bbpssw import bbpssw_protocol_bob
 from netqasm.sdk import EPRSocket
-from netqasm.sdk.external import NetQASMConnection, Socket, get_qubit_state
+from netqasm.sdk.external import NetQASMConnection, Socket
 
 def main(app_config=None):
-    
+
     # Create a socket for classical communication
     socket = Socket("bob", "alice")
 
@@ -32,3 +33,5 @@ def main(app_config=None):
 
 if __name__ == "__main__":
     main()
+    time.sleep(1)
+

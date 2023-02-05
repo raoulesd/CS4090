@@ -1,6 +1,9 @@
 import math
-from netqasm.sdk.classical_communication.message import StructuredMessage
+from copy import copy
 
+from netqasm.sdk.classical_communication.message import StructuredMessage
+from netqasm.sdk.external import get_qubit_state
+from netqasm.sdk.toolbox.sim_states import qubit_from, to_dm, get_fidelity
 
 def bbpssw_protocol_alice(q1, q2, alice, socket):
     """
@@ -23,11 +26,26 @@ def bbpssw_protocol_alice(q1, q2, alice, socket):
     socket.send_structured(StructuredMessage("The measurement outcome of Alice is:", int(a)))
     b = socket.recv_structured().payload
 
+    dm1 = get_qubit_state(q1)
+    print(f'=====ALICE AFTER=====')
+    # print(f'Alice has dm_1 as:')
+    # print(f'{dm1}')
+
+    target = qubit_from(0, 0)
+    # tdm = to_dm(target)
+
+    # print(f'Alice has t_dm as:')
+    # print(f'{tdm}')
+
+    f1 = get_fidelity(target, dm1)
+    print(f'Alice has f1: {f1}')
+
     print(f'Measurement Alice: {a}')
 
     if a.value == b:
         return True
     return False
+
 
 def bbpssw_gates_and_measurement_alice(q1, q2):
     """
@@ -62,11 +80,27 @@ def bbpssw_protocol_bob(q1, q2, bob, socket):
     socket.send_structured(StructuredMessage("The measurement outcome of Bob is:", int(b)))
     a = socket.recv_structured().payload
 
+    dm1 = get_qubit_state(q1)
+    # dm2 = get_qubit_state(q2)
+    print(f'=====BOB AFTER=====')
+    # print(f'Bob has dm_1 as:')
+    # print(f'{dm1}')
+
+    target = qubit_from(0, math.pi)
+    # tdm = to_dm(target)
+
+    # print(f'Bob has t_dm as:')
+    # print(f'{tdm}')
+
+    f1 = get_fidelity(target, dm1)
+    print(f'Bob has f1: {f1}')
+
     print(f'Measurement Bob: {b}')
 
     if a == b.value:
         return True
     return False
+
 
 def bbpssw_gates_and_measurement_bob(q1, q2):
     """
